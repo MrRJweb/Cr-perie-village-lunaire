@@ -1,1 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
+<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
+<style>
+:root{
+  --nuit:#131A2C;
+  --nuit-2:#1A2340;
+  --nuit-3:#222D4F;
+  --lune:#F4E7C8;
+  --beurre:#E3AC52;
+  --fraise:#D0707F;
+  --brume:#9AA5C0;
+  --ligne:rgba(244,231,200,.14);
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--nuit);
+  color:var(--lune);
+  font-family:'Karla',sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--beurre);color:var(--nuit)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
+/* ——— eyebrow / utility type ——— */
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--beurre);
+}
+.serif{font-family:'Prata',serif;font-weight:400}
+
+/* ——— nav ——— */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(19,26,44,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--ligne);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
+.nav-right{display:flex;align-items:center;gap:22px}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{
+  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
+  color:var(--brume);transition:color .2s;
+}
+.nav-links a:hover{color:var(--lune)}
+.btn{
+  display:inline-block;text-decoration:none;cursor:pointer;
+  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
+  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
+}
+.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
+.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
+.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
+.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
+.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
+
+/* ——— language switch (top right) ——— */
+.lang-switch{
+  display:flex;align-items:center;flex:none;
+  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
+  background:rgba(244,231,200,.05);
+}
+.lang-switch button{
+  background:none;border:none;cursor:pointer;
+  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
+  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
+}
+.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
+.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
+
+/* ——— hero ——— */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:120px 0 80px;
+  background:
+    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
+    var(--nuit);
+}
+.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.stars i{
+  position:absolute;width:2px;height:2px;border-radius:50%;
+  background:var(--lune);opacity:.5;
+  animation:twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+}
+.hero h1{
+  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
+  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
+}
+.hero h1 em{font-style:normal;color:var(--beurre)}
+.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
+.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
+
+.moon-wrap{position:relative;display:flex;justify-content:center}
+.moon{
+  width:min(400px,80vw);height:auto;
+  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
+  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
+.moon-caption{
+  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
+}
+
+/* ——— phases divider (signature) ——— */
+.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
+.phases-row{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:34px 0;flex-wrap:wrap;
+}
+.phase{display:flex;align-items:center;gap:14px;min-width:150px}
+.phase svg{width:44px;height:44px;flex:none}
+.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.phase small{display:block;color:var(--brume);font-size:.78rem}
+
+/* ——— sections ——— */
+section{padding:110px 0}
+.sec-head{max-width:620px;margin-bottom:56px}
+.sec-head h2{
+  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
+  line-height:1.2;margin:16px 0 14px;
+}
+.sec-head p{color:var(--brume)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-grid p{color:var(--brume);margin-bottom:18px}
+.about-grid p strong{color:var(--lune);font-weight:500}
+.fact-list{list-style:none;border-top:1px solid var(--ligne)}
+.fact-list li{
+  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--ligne);
+}
+.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
+.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
+
+/* menu */
+#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.menu-col h3{
+  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;
+}
+.menu-col h3 svg{width:26px;height:26px}
+.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
+.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
+.dish-top{display:flex;align-items:baseline;gap:10px}
+.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
+.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
+.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
+.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
+.tag{
+  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
+  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
+}
+.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
+.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
+
+/* hours */
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hours-card{
+  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
+}
+.hours-card .big{
+  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
+}
+.hours-card .big span{color:var(--beurre)}
+.hours-card p{color:var(--brume);font-size:.95rem}
+.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
+.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
+.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
+.midnight p{font-size:.9rem}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.visit-list{list-style:none;margin-top:8px}
+.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
+.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
+.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
+.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
+.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
+.map-frame{
+  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
+  height:100%;min-height:380px;background:var(--nuit-2);
+}
+.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
+
+/* footer */
+footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot p{font-size:.82rem;color:var(--brume)}
+.foot .brand span{font-size:.95rem}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ——— responsive ——— */
+@media (max-width:960px){
+  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
+  .hero{padding-top:150px}
+  .moon-wrap{order:-1}
+  .moon{width:min(280px,70vw)}
+  section{padding:80px 0}
+  .brand span{display:none}
+  .nav-links{
+    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
+    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
+    border-bottom:1px solid var(--ligne);display:none;
+  }
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .phases-row{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ——————— NAV ——————— -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
+      <span>Village Lunaire</span>
+    </a>
+    <div class="nav-right">
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
+          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
+          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
+          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
+          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
+        </ul>
+      </nav>
+      <!-- Language switch — top right -->
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
+        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ——————— HERO ——————— -->
+<section class="hero" id="accueil">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
+      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
+      <p class="lead"
+         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
+         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
+         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
+        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
+      </div>
+      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
+    </div>
+    <div class="moon-wrap">
+      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
+        <defs>
+          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
+            <stop offset="0%" stop-color="#F9EFD6"/>
+            <stop offset="55%" stop-color="#F1E0BC"/>
+            <stop offset="100%" stop-color="#E4C58F"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
+        <g fill="#DDA95B">
+          <circle cx="140" cy="130" r="20" opacity=".45"/>
+          <circle cx="255" cy="110" r="12" opacity=".35"/>
+          <circle cx="290" cy="205" r="26" opacity=".38"/>
+          <circle cx="115" cy="235" r="15" opacity=".4"/>
+          <circle cx="200" cy="300" r="22" opacity=".33"/>
+          <circle cx="235" cy="245" r="10" opacity=".45"/>
+          <circle cx="175" cy="185" r="8" opacity=".4"/>
+          <circle cx="95" cy="175" r="9" opacity=".3"/>
+          <circle cx="270" cy="290" r="9" opacity=".35"/>
+          <circle cx="220" cy="70" r="8" opacity=".3"/>
+        </g>
+        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
+      </svg>
+      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
+    </div>
+  </div>
+</section>
+
+<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
+<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
+  <div class="wrap phases-row">
+    <div class="phase">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
+      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
+    </div>
+    <div class="phase">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
+      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
+    </div>
+    <div class="phase">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
+      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
+    </div>
+    <div class="phase">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
+      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
+    </div>
+    <div class="phase">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
+      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- ——————— À PROPOS ——————— -->
+<section id="apropos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
+      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
+           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
+           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
+        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
+           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
+           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
+        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
+           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
+           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
+      </div>
+      <ul class="fact-list reveal">
+        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
+        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
+        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
+        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
+        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ——————— MENU ——————— -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
+      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
+      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-col reveal">
+        <h3>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
+          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
+        </h3>
+        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
+
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
+          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
+          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
+          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
+          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
+          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
+        </div>
+      </div>
+
+      <div class="menu-col reveal">
+        <h3>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
+          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
+        </h3>
+        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
+
+        <div class="dish">
+          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
+          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
+          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
+          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
+          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
+        </div>
+        <div class="dish">
+          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
+          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
+        </div>
+      </div>
+
+    </div>
+    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
+  </div>
+</section>
+
+<!-- ——————— HORAIRES ——————— -->
+<section id="horaires">
+  <div class="wrap hours-grid">
+    <div class="reveal">
+      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
+      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
+      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
+    </div>
+    <div class="hours-card reveal">
+      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
+      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
+      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
+      <div class="midnight">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
+        <div>
+          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
+          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——————— NOUS TROUVER ——————— -->
+<section id="visite" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
+      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <ul class="visit-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <div>
+              <b data-fr="Adresse" data-en="Address">Adresse</b>
+              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            <div>
+              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
+              <a href="tel:+15142505621">(514) 250-5621</a>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+            <div>
+              <b data-fr="Métro" data-en="Metro">Métro</b>
+              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
+            <div>
+              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
+              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
+            </div>
+          </li>
+        </ul>
+        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
+          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe
+          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
+          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——————— FOOTER ——————— -->
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#accueil">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
+      <span>Crêperie Village Lunaire</span>
+    </a>
+    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
+    <p>© 2026 Crêperie Village Lunaire</p>
+  </div>
+</footer>
+
+<script>
+// ——— bilingual language switch (FR / EN) ———
+// Every translatable element carries data-fr and data-en attributes.
+var pageMeta = {
+  fr: {
+    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
+    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
+  },
+  en: {
+    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
+    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
+  }
+};
+
+function setLang(lang){
+  document.querySelectorAll('[data-fr]').forEach(function(el){
+    var txt = el.getAttribute('data-' + lang);
+    if(txt !== null){ el.innerHTML = txt; }
+  });
+  document.documentElement.lang = lang;
+  document.title = pageMeta[lang].title;
+  var m = document.getElementById('metaDesc');
+  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
+  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
+  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
+}
+
+// stars in the hero
+(function(){
+  var box = document.querySelector('.stars');
+  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
+  for(var i = 0; i < n; i++){
+    var s = document.createElement('i');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 4) + 's';
+    s.style.animationDuration = (3 + Math.random() * 4) + 's';
+    box.appendChild(s);
+  }
+})();
+
+// scroll reveal
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: .12 });
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+// mobile nav
+(function(){
+  var btn = document.querySelector('.menu-toggle');
+  var links = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+</body>
+</html>
