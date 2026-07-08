@@ -1,609 +1,989 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Bars &amp; Nightlife — Where the night begins.</title>
+<meta name="description" content="Bars & Nightlife — cocktails, DJs, live music and late-late hours in the Warehouse District. Where the night begins.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M5 6h22l-9 11v7h5v3H9v-3h5v-7L5 6z' fill='none' stroke='%23ff2ec4' stroke-width='2.4' stroke-linejoin='round'/><circle cx='24' cy='4' r='2.6' fill='%2325e8ff'/></svg>">
 <style>
+/* ============ base ============ */
 :root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
+  --void:#050509;
+  --night:#0a0a14;
+  --panel:#0d0d19;
+  --card:#101020;
+  --ink:#f1f2fa;
+  --dim:#9ea3bc;
+  --mag:#ff2ec4;
+  --cy:#25e8ff;
+  --mag-soft:rgba(255,46,196,.5);
+  --cy-soft:rgba(37,232,255,.5);
+  --line:rgba(241,242,250,.09);
+  --grad:linear-gradient(90deg,var(--mag),var(--cy));
+  --max:1160px;
+  --r:18px;
+  color-scheme:dark;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
 body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
+  background:var(--void);
+  color:var(--ink);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-weight:400;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-::selection{background:var(--beurre);color:var(--nuit)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
 img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+::selection{background:var(--mag);color:#14000f}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--cy);outline-offset:3px;border-radius:4px;
+}
+[hidden]{display:none!important}
+section[id]{scroll-margin-top:86px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.skip{position:fixed;top:-60px;left:16px;z-index:300;background:var(--mag);color:#14000f;font-weight:600;padding:.6rem 1.1rem;border-radius:10px;transition:top .2s}
+.skip:focus{top:12px}
 
-/* ——— eyebrow / utility type ——— */
+/* ============ type & buttons ============ */
 .eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
+  font-family:'Unbounded',sans-serif;font-size:.64rem;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--cy);
+  display:flex;align-items:center;gap:.85rem;
+  text-shadow:0 0 12px rgba(37,232,255,.45);
 }
-.serif{font-family:'Prata',serif;font-weight:400}
-
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
-.btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
-}
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
-
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
-}
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
-}
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
-
-/* ——— hero ——— */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
-  background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
-}
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
-.hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
-}
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
-
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
-}
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
-}
-
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
-}
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
-
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--grad);box-shadow:0 0 8px var(--cy-soft)}
 .sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
+  font-family:'Unbounded',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.65rem,3.6vw,2.6rem);line-height:1.15;letter-spacing:.02em;
+  margin:.95rem 0 1rem;
 }
-.sec-head p{color:var(--brume)}
+.hl{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 16px rgba(255,46,196,.35));
+}
+.sec-head .lead{color:var(--dim);max-width:58ch;font-size:1.02rem}
+.sec-head.center{text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::after{content:"";width:36px;height:1px;background:linear-gradient(90deg,var(--cy),var(--mag));box-shadow:0 0 8px var(--mag-soft)}
+.sec-head.center .lead{margin:0 auto}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:'Unbounded',sans-serif;font-size:.7rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:1.05rem 1.9rem;border-radius:999px;border:1px solid transparent;
+  cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s,border-color .25s;
+}
+.btn-neon{
+  background:var(--mag);color:#14000f;
+  box-shadow:0 0 18px rgba(255,46,196,.45),0 0 60px rgba(255,46,196,.16);
+}
+.btn-neon:hover{background:#ff4fd0;transform:translateY(-2px);box-shadow:0 0 26px rgba(255,46,196,.7),0 0 90px rgba(255,46,196,.3)}
+.btn-ghost{
+  border-color:rgba(37,232,255,.55);color:var(--cy);background:transparent;
+  box-shadow:inset 0 0 16px rgba(37,232,255,.07);
+}
+.btn-ghost:hover{background:rgba(37,232,255,.1);transform:translateY(-2px);box-shadow:0 0 22px rgba(37,232,255,.35),inset 0 0 16px rgba(37,232,255,.12)}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
+/* ============ navbar ============ */
+#nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+#nav.scrolled,#nav.open{background:rgba(5,5,9,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.7rem;flex:none}
+.brand svg{width:32px;height:32px;filter:drop-shadow(0 0 7px rgba(255,46,196,.65))}
+.wordmark{font-family:'Unbounded',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.2em;white-space:nowrap}
+.wordmark .amp{font-style:normal;color:var(--mag);text-shadow:0 0 12px rgba(255,46,196,.9)}
+.nav-links{display:flex;gap:2.1rem;list-style:none}
+.nav-links a{
+  position:relative;font-size:.74rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);padding:.35rem 0;transition:color .25s,text-shadow .25s;
 }
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;
+  background:var(--grad);box-shadow:0 0 10px var(--mag-soft);transition:right .28s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);text-shadow:0 0 14px rgba(37,232,255,.55)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.burger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:42px;background:none;border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.burger:hover{border-color:rgba(37,232,255,.5);box-shadow:0 0 14px rgba(37,232,255,.2)}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);box-shadow:0 0 6px rgba(37,232,255,.6);transition:transform .3s,opacity .3s}
+#nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#nav.open .burger span:nth-child(2){opacity:0}
+#nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
+/* ============ hero ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:130px 24px 100px}
+.hero-art{position:absolute;inset:0}
+.hero-art svg{width:100%;height:100%}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 50% 32%,rgba(5,5,9,.2),rgba(5,5,9,.86) 78%),
+    linear-gradient(180deg,rgba(5,5,9,.6),rgba(5,5,9,.3) 45%,var(--void) 96%);
 }
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
+.orb{position:absolute;border-radius:50%;filter:blur(95px);pointer-events:none;animation:orbPulse 7s ease-in-out infinite alternate}
+.orb-m{width:430px;height:430px;background:rgba(255,46,196,.55);left:-130px;bottom:-90px}
+.orb-c{width:380px;height:380px;background:rgba(31,208,255,.5);right:-110px;top:-70px;animation-delay:2.4s;animation-duration:8.5s}
+@keyframes orbPulse{from{opacity:.3;transform:scale(.92)}to{opacity:.62;transform:scale(1.07)}}
+.hero-in{position:relative;z-index:2;max-width:920px}
+.hero-in .eyebrow{justify-content:center}
+.hero-in .eyebrow::after{content:"";width:36px;height:1px;background:linear-gradient(90deg,var(--cy),var(--mag));box-shadow:0 0 8px var(--mag-soft)}
+.hero-title{
+  font-family:'Unbounded',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(2.5rem,8.4vw,5.9rem);line-height:1.05;letter-spacing:.01em;
+  margin:1.2rem 0 1.3rem;text-shadow:0 0 40px rgba(37,232,255,.18);
 }
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
+.hero-title .amp{color:var(--mag);text-shadow:0 0 18px rgba(255,46,196,.95),0 0 70px rgba(255,46,196,.5);animation:flicker 5s infinite}
+.hero-title .l2{display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px rgba(255,46,196,.4)) drop-shadow(0 0 60px rgba(37,232,255,.25))}
+@keyframes flicker{0%,89%,93%,100%{opacity:1}90%{opacity:.4}92%{opacity:.75}96%{opacity:1}97%{opacity:.55}98%{opacity:1}}
+.tagline{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:300;letter-spacing:.06em;color:#cfd3e8}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.hero-meta{margin-top:2.2rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.hero-meta b{color:var(--cy);font-weight:600;text-shadow:0 0 10px rgba(37,232,255,.5)}
+.scroll-cue{position:absolute;bottom:24px;left:50%;z-index:2;color:var(--dim);animation:bob 2.4s ease-in-out infinite}
+.scroll-cue:hover{color:var(--cy)}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,9px)}}
 
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
-}
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
-}
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
+/* ============ sections ============ */
+.section{padding:110px 0;position:relative}
+.section.alt{background:var(--night);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
+/* ============ drinks ============ */
+.tabs{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center;margin:2.6rem 0 2.5rem}
+.tab{
+  font-family:'Unbounded',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dim);background:transparent;
+  border:1px solid var(--line);border-radius:999px;padding:.8rem 1.5rem;cursor:pointer;
+  transition:color .25s,border-color .25s,box-shadow .25s,background .25s;
 }
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
+.tab:hover{color:var(--ink);border-color:rgba(37,232,255,.5);box-shadow:0 0 16px rgba(37,232,255,.18)}
+.tab[aria-selected="true"]{
+  background:var(--grad);color:#0b0212;border-color:transparent;font-weight:700;
+  box-shadow:0 0 20px rgba(255,46,196,.45),0 0 40px rgba(37,232,255,.25);
+}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 3rem;max-width:1000px;margin:0 auto}
+.mi{padding:1.15rem 1.25rem;border:1px solid transparent;border-radius:14px;transition:border-color .3s,background .3s,box-shadow .3s}
+.mi:hover{
+  border-color:rgba(255,46,196,.35);background:rgba(255,46,196,.045);
+  box-shadow:0 0 24px rgba(255,46,196,.14),inset 0 0 20px rgba(255,46,196,.05);
+}
+.mi-top{display:flex;align-items:baseline;gap:.85rem}
+.mi-name{font-family:'Unbounded',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+.mi-tag{
+  font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mag);
+  border:1px solid rgba(255,46,196,.5);border-radius:999px;padding:.12rem .55rem;margin-left:.55rem;
+  text-shadow:0 0 8px rgba(255,46,196,.55);white-space:nowrap;
+}
+.mi-dots{flex:1;border-bottom:1px dashed rgba(241,242,250,.2);transform:translateY(-4px);min-width:24px}
+.mi-price{font-weight:600;font-size:.98rem;color:var(--cy);text-shadow:0 0 12px rgba(37,232,255,.55)}
+.mi-desc{color:var(--dim);font-size:.9rem;margin-top:.4rem;max-width:46ch}
+.menu-note{text-align:center;color:var(--dim);font-size:.84rem;margin-top:2.4rem;letter-spacing:.04em}
 
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
+/* ============ events ============ */
+.events-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+.ev{
+  display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.ev:hover{transform:translateY(-6px);border-color:rgba(37,232,255,.45);box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 32px rgba(37,232,255,.2)}
+.ev-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0b0b18}
+.ev-media svg{width:100%;height:100%;transition:transform .55s ease}
+.ev:hover .ev-media svg{transform:scale(1.07)}
+.date-badge{
+  position:absolute;top:12px;left:12px;z-index:2;text-align:center;min-width:56px;
+  background:rgba(5,5,9,.85);backdrop-filter:blur(6px);border:1px solid rgba(255,46,196,.55);
+  border-radius:12px;padding:.45rem .6rem;box-shadow:0 0 18px rgba(255,46,196,.35);
+}
+.date-badge .d{display:block;font-family:'Unbounded',sans-serif;font-weight:800;font-size:1rem;line-height:1;color:var(--ink)}
+.date-badge .m{display:block;font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mag);margin-top:.25rem}
+.ev-body{display:flex;flex-direction:column;gap:.55rem;flex:1;padding:1.3rem 1.3rem 1.4rem}
+.ev-cat{font-size:.58rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--cy);text-shadow:0 0 10px rgba(37,232,255,.45)}
+.ev h3{font-family:'Unbounded',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.03em;line-height:1.35}
+.ev-blurb{color:var(--dim);font-size:.88rem;flex:1}
+.ev-meta{font-size:.76rem;letter-spacing:.05em;color:#c9cde2;border-top:1px solid var(--line);padding-top:.85rem;margin-top:.35rem}
 
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+/* ============ gallery ============ */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.gt{
+  position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);transition:border-color .3s,box-shadow .3s;
+}
+.gt svg{width:100%;height:100%;transition:transform .6s ease}
+.gt:hover{border-color:rgba(255,46,196,.55);box-shadow:0 0 28px rgba(255,46,196,.32),0 0 70px rgba(37,232,255,.14)}
+.gt:hover svg{transform:scale(1.09)}
+.gt figcaption{
+  position:absolute;inset:auto 0 0 0;padding:2.4rem .95rem .85rem;
+  font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+  background:linear-gradient(transparent,rgba(5,5,9,.92));
+  opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;
+}
+.gt:hover figcaption{opacity:1;transform:none}
+
+/* ============ private bookings ============ */
+.book-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:3.6rem;align-items:start}
+.perks{list-style:none;display:grid;gap:1.15rem;margin-top:1.9rem}
+.perks li{display:flex;gap:1rem;align-items:flex-start}
+.perk-ic{
+  width:36px;height:36px;flex:none;border-radius:11px;display:grid;place-items:center;
+  color:var(--cy);border:1px solid rgba(37,232,255,.4);
+  box-shadow:0 0 14px rgba(37,232,255,.16),inset 0 0 10px rgba(37,232,255,.08);
+}
+.perk-ic svg{width:17px;height:17px}
+.perks b{display:block;font-weight:600;letter-spacing:.03em}
+.perks span{color:var(--dim);font-size:.88rem}
+.form-card{
+  position:relative;background:linear-gradient(160deg,var(--card),var(--night));
+  border:1px solid var(--line);border-radius:22px;padding:2.1rem;
+  box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(255,46,196,.06);
+}
+.form-card::before{content:"";position:absolute;top:0;left:12%;right:12%;height:1px;background:var(--grad);box-shadow:0 0 16px var(--mag-soft)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:grid;gap:.45rem;margin-bottom:1.05rem}
+.field label{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.field input,.field select,.field textarea{
+  width:100%;background:rgba(5,5,9,.65);border:1px solid var(--line);border-radius:12px;
+  padding:.85rem 1rem;color:var(--ink);font:inherit;font-size:.95rem;
+  transition:border-color .25s,box-shadow .25s;
+}
+.field input::placeholder,.field textarea::placeholder{color:#5d6178}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--cy);box-shadow:0 0 0 1px var(--cy),0 0 20px rgba(37,232,255,.25);
+}
+.field textarea{min-height:110px;resize:vertical}
+.form-card .btn{width:100%;margin-top:.35rem}
+.form-note{font-size:.78rem;color:var(--dim);text-align:center;margin-top:1rem}
+.success{text-align:center;padding:2.6rem 1rem}
+.ok-ring{
+  width:66px;height:66px;margin:0 auto 1.3rem;border-radius:50%;display:grid;place-items:center;
+  color:var(--cy);border:1px solid rgba(37,232,255,.6);
+  box-shadow:0 0 28px rgba(37,232,255,.4),inset 0 0 14px rgba(37,232,255,.12);
+  animation:popIn .5s cubic-bezier(.2,1.4,.4,1) both;
+}
+.ok-ring svg{width:28px;height:28px}
+@keyframes popIn{from{transform:scale(.5);opacity:0}}
+.success h3{font-family:'Unbounded',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.7rem}
+.success p{color:var(--dim);max-width:38ch;margin:0 auto 1.5rem}
+.success .btn{width:auto;padding:.8rem 1.5rem;font-size:.62rem}
+
+/* ============ hours & location ============ */
+.find-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3.6rem;align-items:start}
+.hours{list-style:none;margin-top:1.9rem}
+.hours li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem 2px;border-bottom:1px dashed rgba(241,242,250,.14)}
+.hours .day{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d5d8ea}
+.hours .t{color:var(--dim);font-size:.95rem}
+.hours li.hot .day{color:var(--ink)}
+.hours li.hot .t{color:var(--mag);font-weight:600;text-shadow:0 0 12px rgba(255,46,196,.5)}
+.hours-note{margin-top:1.1rem;font-size:.84rem;color:var(--dim)}
+.addr{margin-top:1.9rem;display:grid;gap:.8rem}
+.addr li{list-style:none;display:flex;gap:.8rem;align-items:center;color:#cfd3e8;font-size:.95rem}
+.addr svg{width:16px;height:16px;flex:none;color:var(--cy);filter:drop-shadow(0 0 6px rgba(37,232,255,.6))}
+.addr a{color:var(--cy);text-shadow:0 0 10px rgba(37,232,255,.35)}
+.addr a:hover{text-decoration:underline}
+.find-cta{margin-top:1.8rem}
+.map{
+  position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  min-height:380px;box-shadow:0 26px 70px rgba(0,0,0,.5);
+}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map-tag{
+  position:absolute;left:14px;bottom:14px;z-index:2;
+  background:rgba(5,5,9,.82);backdrop-filter:blur(6px);border:1px solid var(--line);
+  border-radius:10px;padding:.5rem .9rem;font-size:.64rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+}
+.pulse{transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(.45);opacity:.9}75%,100%{transform:scale(2.4);opacity:0}}
+
+/* ============ footer ============ */
+footer{position:relative;background:#07070f;border-top:1px solid var(--line);padding:4rem 0 2rem;overflow:hidden}
+footer::before{content:"";position:absolute;top:0;left:22%;right:22%;height:1px;background:var(--grad);box-shadow:0 0 18px var(--mag-soft)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.6rem;margin-bottom:2.8rem}
+.foot-brand p{color:var(--dim);font-size:.9rem;max-width:34ch;margin-top:1rem}
+.foot h4{font-family:'Unbounded',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:1.1rem}
+.foot ul{list-style:none;display:grid;gap:.6rem}
+.foot ul a{color:var(--dim);font-size:.9rem;transition:color .25s,text-shadow .25s}
+.foot ul a:hover{color:var(--cy);text-shadow:0 0 10px rgba(37,232,255,.5)}
+.socials{display:flex;gap:.8rem}
+.socials a{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--dim);
+  border:1px solid var(--line);transition:color .25s,border-color .25s,box-shadow .25s,transform .25s;
+}
+.socials a:hover{color:var(--mag);border-color:rgba(255,46,196,.6);box-shadow:0 0 18px rgba(255,46,196,.4);transform:translateY(-3px)}
+.socials svg{width:17px;height:17px}
+.handle{margin-top:1rem;font-size:.8rem;color:var(--dim);letter-spacing:.06em}
+.legal{border-top:1px solid var(--line);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--dim)}
+.age{
+  display:inline-block;border:1px solid rgba(255,46,196,.55);color:var(--mag);border-radius:999px;
+  padding:.08rem .6rem;font-size:.64rem;font-weight:600;letter-spacing:.14em;margin-right:.55rem;
+  text-shadow:0 0 8px rgba(255,46,196,.5);
+}
+
+/* ============ reveal on scroll ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
+.events-grid .ev:nth-child(2),.gal .gt:nth-child(2),.gal .gt:nth-child(6){transition-delay:.08s}
+.events-grid .ev:nth-child(3),.gal .gt:nth-child(3),.gal .gt:nth-child(7){transition-delay:.16s}
+.events-grid .ev:nth-child(4),.gal .gt:nth-child(4),.gal .gt:nth-child(8){transition-delay:.24s}
 
-/* ——— responsive ——— */
+/* ============ responsive ============ */
+@media (max-width:1100px){
+  .events-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
+  .book-grid,.find-grid{grid-template-columns:1fr;gap:2.6rem}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .menu-grid{grid-template-columns:1fr;gap:.6rem}
+}
+@media (max-width:860px){
+  .burger{display:flex}
   .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
+    position:fixed;top:76px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(6,6,12,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);padding:.6rem 24px 1.4rem;
+    transform:translateY(-130%);visibility:hidden;transition:transform .35s ease,visibility .35s;
   }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
+  #nav.open .nav-links{transform:none;visibility:visible}
+  .nav-links li{border-bottom:1px solid rgba(241,242,250,.05)}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:block;padding:1rem 4px;font-size:.82rem}
+  .nav-links a::after{display:none}
+}
+@media (max-width:640px){
+  .section{padding:84px 0}
+  .events-grid{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:2.2rem}
+  .legal{justify-content:center;text-align:center}
+  .form-card{padding:1.6rem 1.25rem}
+  .hero{padding:120px 20px 90px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
-<body>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
+<!-- ============ NAVBAR ============ -->
+<header id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Bars &amp; Nightlife — back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg-brand" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff2ec4"/><stop offset="1" stop-color="#25e8ff"/>
+        </linearGradient></defs>
+        <path d="M5 6h22l-9 11v7h5v3H9v-3h5v-7L5 6z" fill="none" stroke="url(#lg-brand)" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="24.5" cy="4.5" r="2.4" fill="#25e8ff"/>
+      </svg>
+      <span class="wordmark">BARS <em class="amp">&amp;</em> NIGHTLIFE</span>
     </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#drinks">Drinks</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#book">Private Bookings</a></li>
+        <li><a href="#find">Find Us</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
-      </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
+<!-- ============ HERO ============ -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#141430"/><stop offset=".55" stop-color="#0b0b1c"/><stop offset="1" stop-color="#050509"/>
+        </linearGradient>
+        <linearGradient id="strip" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff2ec4"/><stop offset="1" stop-color="#25e8ff"/>
+        </linearGradient>
+        <filter id="soft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+        <filter id="soft2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+        <g id="btl"><rect width="26" height="70" rx="7"/><rect x="9" y="-16" width="8" height="18" rx="3"/></g>
+      </defs>
+      <rect width="1600" height="900" fill="url(#hbg)"/>
+      <!-- back-bar bottles, shelf one -->
+      <g fill="rgba(255,46,196,.30)"><use href="#btl" x="210" y="260"/><use href="#btl" x="330" y="260"/><use href="#btl" x="560" y="260"/><use href="#btl" x="1000" y="260"/><use href="#btl" x="1290" y="260"/></g>
+      <g fill="rgba(37,232,255,.28)"><use href="#btl" x="250" y="260"/><use href="#btl" x="480" y="260"/><use href="#btl" x="920" y="260"/><use href="#btl" x="1130" y="260"/><use href="#btl" x="1370" y="260"/></g>
+      <g fill="rgba(168,85,255,.26)"><use href="#btl" x="290" y="260"/><use href="#btl" x="520" y="260"/><use href="#btl" x="960" y="260"/><use href="#btl" x="1170" y="260"/><use href="#btl" x="1330" y="260"/></g>
+      <g fill="rgba(241,242,250,.10)"><use href="#btl" x="370" y="260"/><use href="#btl" x="600" y="260"/><use href="#btl" x="880" y="260"/><use href="#btl" x="1060" y="260"/><use href="#btl" x="1410" y="260"/></g>
+      <rect x="150" y="332" width="1300" height="5" rx="2" fill="url(#strip)" opacity=".8"/>
+      <rect x="150" y="332" width="1300" height="5" rx="2" fill="url(#strip)" filter="url(#soft2)" opacity=".9"/>
+      <!-- shelf two -->
+      <g fill="rgba(37,232,255,.24)"><use href="#btl" x="240" y="400"/><use href="#btl" x="430" y="400"/><use href="#btl" x="900" y="400"/><use href="#btl" x="1240" y="400"/></g>
+      <g fill="rgba(255,46,196,.24)"><use href="#btl" x="300" y="400"/><use href="#btl" x="510" y="400"/><use href="#btl" x="980" y="400"/><use href="#btl" x="1300" y="400"/></g>
+      <g fill="rgba(241,242,250,.09)"><use href="#btl" x="350" y="400"/><use href="#btl" x="470" y="400"/><use href="#btl" x="1040" y="400"/><use href="#btl" x="1360" y="400"/></g>
+      <rect x="150" y="472" width="1300" height="5" rx="2" fill="url(#strip)" opacity=".65"/>
+      <rect x="150" y="472" width="1300" height="5" rx="2" fill="url(#strip)" filter="url(#soft2)" opacity=".75"/>
+      <!-- pendant lights -->
+      <g stroke="rgba(241,242,250,.22)" stroke-width="2">
+        <line x1="420" y1="0" x2="420" y2="140"/><line x1="800" y1="0" x2="800" y2="170"/><line x1="1180" y1="0" x2="1180" y2="140"/>
+      </g>
+      <circle cx="420" cy="150" r="52" fill="#ff2ec4" opacity=".16" filter="url(#soft)"/>
+      <circle cx="420" cy="150" r="9" fill="#ffb6e8"/>
+      <circle cx="800" cy="180" r="60" fill="#25e8ff" opacity=".16" filter="url(#soft)"/>
+      <circle cx="800" cy="180" r="9" fill="#c2f6ff"/>
+      <circle cx="1180" cy="150" r="52" fill="#ff2ec4" opacity=".16" filter="url(#soft)"/>
+      <circle cx="1180" cy="150" r="9" fill="#ffb6e8"/>
+      <!-- neon wall sign -->
+      <rect x="1210" y="560" width="250" height="92" rx="16" fill="none" stroke="#ff2ec4" stroke-width="2.5" opacity=".8"/>
+      <rect x="1210" y="560" width="250" height="92" rx="16" fill="none" stroke="#ff2ec4" stroke-width="4" filter="url(#soft2)" opacity=".8"/>
+      <text x="1335" y="618" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="26" letter-spacing="6" fill="#ff9ade" filter="url(#soft2)">OPEN LATE</text>
+      <text x="1335" y="618" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="26" letter-spacing="6" fill="#ffe1f6">OPEN LATE</text>
+      <!-- bar counter + stools -->
+      <rect x="0" y="640" width="1600" height="260" fill="#0a0a16"/>
+      <rect x="0" y="636" width="1600" height="4" fill="url(#strip)" opacity=".55"/>
+      <rect x="0" y="636" width="1600" height="4" fill="url(#strip)" filter="url(#soft2)" opacity=".6"/>
+      <g fill="#13132a">
+        <ellipse cx="380" cy="712" rx="40" ry="11"/><rect x="374" y="716" width="12" height="150"/>
+        <ellipse cx="800" cy="712" rx="40" ry="11"/><rect x="794" y="716" width="12" height="150"/>
+        <ellipse cx="1220" cy="712" rx="40" ry="11"/><rect x="1214" y="716" width="12" height="150"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="orb orb-m" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
+
+  <div class="hero-in">
+    <p class="eyebrow">Warehouse District · Est. 2019</p>
+    <h1 class="hero-title">Bars <span class="amp">&amp;</span><span class="l2">Nightlife</span></h1>
+    <p class="tagline">Where the night begins.</p>
+    <div class="hero-cta">
+      <a class="btn btn-neon" href="#events">See What&rsquo;s On</a>
+      <a class="btn btn-ghost" href="#drinks">Drinks Menu</a>
     </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
-        </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
+    <p class="hero-meta">Open till <b>3 AM</b> Fri &amp; Sat · Happy hour <b>5–7 PM</b> weekdays</p>
+  </div>
+
+  <a class="scroll-cue" href="#drinks" aria-label="Scroll down to the drinks menu">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </a>
+</section>
+
+<main id="main">
+
+<!-- ============ DRINKS ============ -->
+<section id="drinks" class="section">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">The Menu</p>
+      <h2>Drinks <span class="hl">Menu</span></h2>
+      <p class="lead">Signature pours, ice-cold classics and zero-proof sparks — mixed loud, served cold, priced to keep the round going.</p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="Drink categories">
+      <button class="tab" id="tab-cocktails" role="tab" aria-selected="true" aria-controls="panel-cocktails">Cocktails</button>
+      <button class="tab" id="tab-beerwine" role="tab" aria-selected="false" aria-controls="panel-beerwine" tabindex="-1">Beer &amp; Wine</button>
+      <button class="tab" id="tab-shots" role="tab" aria-selected="false" aria-controls="panel-shots" tabindex="-1">Shots</button>
+      <button class="tab" id="tab-zero" role="tab" aria-selected="false" aria-controls="panel-zero" tabindex="-1">Zero-Proof</button>
+    </div>
+
+    <div class="menu-grid reveal" id="panel-cocktails" role="tabpanel" tabindex="0" aria-labelledby="tab-cocktails">
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Midnight Voltage<span class="mi-tag">House Fave</span></h3><span class="mi-dots"></span><span class="mi-price">$15</span></div><p class="mi-desc">Vodka, blue curaçao, charged citrus and a lime fog that glows under the blacklight.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Neon Bloom</h3><span class="mi-dots"></span><span class="mi-price">$14</span></div><p class="mi-desc">Gin, butterfly-pea tea and elderflower — shifts from cyan to violet as you sip.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Smoke &amp; Static<span class="mi-tag">New</span></h3><span class="mi-dots"></span><span class="mi-price">$16</span></div><p class="mi-desc">Mezcal, charred pineapple and chili syrup, finished with a smoked-glass pour.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Velvet Hour</h3><span class="mi-dots"></span><span class="mi-price">$15</span></div><p class="mi-desc">Bourbon, black cherry and bitters over one big cube, kissed with orange oil.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Glow Stick Spritz</h3><span class="mi-dots"></span><span class="mi-price">$13</span></div><p class="mi-desc">Prosecco, passionfruit and neon-lime cordial. Bright, fizzy, dangerously easy.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">After Dark Espresso</h3><span class="mi-dots"></span><span class="mi-price">$14</span></div><p class="mi-desc">Espresso, coffee liqueur, vanilla and cacao — the second wind in a coupe.</p></article>
+    </div>
+
+    <div class="menu-grid" id="panel-beerwine" role="tabpanel" tabindex="0" aria-labelledby="tab-beerwine" hidden>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">House Lager</h3><span class="mi-dots"></span><span class="mi-price">$7</span></div><p class="mi-desc">Crisp, cold and easy on draft — the default for a long night.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Hazy IPA</h3><span class="mi-dots"></span><span class="mi-price">$9</span></div><p class="mi-desc">Juicy and tropical from a rotating local brewery. 6.2% and proud of it.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Midnight Stout</h3><span class="mi-dots"></span><span class="mi-price">$9</span></div><p class="mi-desc">Roasted, velvety nitro pour that drinks like dessert after midnight.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Natural Red</h3><span class="mi-dots"></span><span class="mi-price">$11</span></div><p class="mi-desc">Dark fruit, low fuss, by the glass — from a small natural-wine grower.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Skin-Contact Orange<span class="mi-tag">Staff Pick</span></h3><span class="mi-dots"></span><span class="mi-price">$12</span></div><p class="mi-desc">Funky, dry and a guaranteed conversation starter at the bar.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Brut Bubbles</h3><span class="mi-dots"></span><span class="mi-price">$12</span></div><p class="mi-desc">Toasty sparkling by the glass, because someone is always celebrating.</p></article>
+    </div>
+
+    <div class="menu-grid" id="panel-shots" role="tabpanel" tabindex="0" aria-labelledby="tab-shots" hidden>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Static Shock</h3><span class="mi-dots"></span><span class="mi-price">$6</span></div><p class="mi-desc">Chilled citrus vodka with a popping-candy rim. Yes, it crackles.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Hot Neon</h3><span class="mi-dots"></span><span class="mi-price">$7</span></div><p class="mi-desc">Blanco tequila, tajín and fresh lime — the classic with the lights on.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Espresso Bomb</h3><span class="mi-dots"></span><span class="mi-price">$8</span></div><p class="mi-desc">Cold brew and coffee liqueur, dropped and downed before the next set.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Group Therapy<span class="mi-tag">For the Table</span></h3><span class="mi-dots"></span><span class="mi-price">$30</span></div><p class="mi-desc">A glowing paddle of six assorted shots. Cheaper than actual therapy.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Dealer&rsquo;s Choice</h3><span class="mi-dots"></span><span class="mi-price">$8</span></div><p class="mi-desc">Tell the bartender your mood; drink what arrives. No refunds on trust.</p></article>
+    </div>
+
+    <div class="menu-grid" id="panel-zero" role="tabpanel" tabindex="0" aria-labelledby="tab-zero" hidden>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Phantom Fizz</h3><span class="mi-dots"></span><span class="mi-price">$8</span></div><p class="mi-desc">Yuzu soda, mint and cucumber over crushed ice — all glow, no proof.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Faux-jito</h3><span class="mi-dots"></span><span class="mi-price">$8</span></div><p class="mi-desc">Lime, mint and cane sugar, churned and topped with soda.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Zero Sunset<span class="mi-tag">House Fave</span></h3><span class="mi-dots"></span><span class="mi-price">$9</span></div><p class="mi-desc">Passionfruit, orange and a grenadine glow that sinks like a sunset.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Night Shift NA Lager</h3><span class="mi-dots"></span><span class="mi-price">$6</span></div><p class="mi-desc">All the flavor of a cold one, none of the morning after.</p></article>
+      <article class="mi"><div class="mi-top"><h3 class="mi-name">Electric Lemonade 0.0</h3><span class="mi-dots"></span><span class="mi-price">$7</span></div><p class="mi-desc">Charged citrus with a butterfly-pea swirl. Zero proof, zero regrets.</p></article>
+    </div>
+
+    <p class="menu-note">Sample menu for demo purposes — tonight&rsquo;s full list lives behind the bar. Ask about allergens.</p>
+  </div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section id="events" class="section alt">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">What&rsquo;s On</p>
+      <h2>Upcoming <span class="hl">Events</span></h2>
+      <p class="lead">Four nights, four moods. Doors open, volume up — check back weekly, the board never sits still.</p>
+    </div>
+
+    <div class="events-grid">
+      <article class="ev reveal">
+        <div class="ev-media">
+          <span class="date-badge"><span class="d">10</span><span class="m">Jul</span></span>
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="DJ decks placeholder image">
+            <defs><linearGradient id="evg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1038"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="evb1" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="14"/></filter></defs>
+            <rect width="400" height="250" fill="url(#evg1)"/>
+            <circle cx="140" cy="130" r="58" fill="#ff2ec4" opacity=".14" filter="url(#evb1)"/>
+            <circle cx="140" cy="130" r="44" fill="none" stroke="#ff2ec4" stroke-width="3"/><circle cx="140" cy="130" r="7" fill="#ff2ec4"/>
+            <circle cx="262" cy="130" r="58" fill="#25e8ff" opacity=".14" filter="url(#evb1)"/>
+            <circle cx="262" cy="130" r="44" fill="none" stroke="#25e8ff" stroke-width="3"/><circle cx="262" cy="130" r="7" fill="#25e8ff"/>
+            <polyline points="30,222 60,212 90,226 120,208 150,224 180,204 210,226 240,210 270,224 300,206 330,224 370,212" fill="none" stroke="#ff2ec4" stroke-width="2.5" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="ev-body">
+          <p class="ev-cat">DJ Night</p>
+          <h3>Voltage Fridays: DJ K-Lumen</h3>
+          <p class="ev-blurb">House, disco and the occasional guilty pleasure, spun loud until the lights come up.</p>
+          <p class="ev-meta">10 PM – 3 AM · Free before 11</p>
+        </div>
+      </article>
+
+      <article class="ev reveal">
+        <div class="ev-media">
+          <span class="date-badge"><span class="d">14</span><span class="m">Jul</span></span>
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Trivia night placeholder image">
+            <defs><linearGradient id="evg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1c34"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="evb2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="14"/></filter></defs>
+            <rect width="400" height="250" fill="url(#evg2)"/>
+            <circle cx="200" cy="120" r="70" fill="#25e8ff" opacity=".12" filter="url(#evb2)"/>
+            <rect x="120" y="52" width="160" height="118" rx="20" fill="none" stroke="#ff2ec4" stroke-width="3"/>
+            <path d="M160 170l-14 32 46-32z" fill="none" stroke="#ff2ec4" stroke-width="3" stroke-linejoin="round"/>
+            <text x="200" y="146" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="64" font-weight="700" fill="#25e8ff" filter="url(#evb2)" opacity=".85">?</text>
+            <text x="200" y="146" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="64" font-weight="700" fill="#c2f6ff">?</text>
+          </svg>
+        </div>
+        <div class="ev-body">
+          <p class="ev-cat">Trivia</p>
+          <h3>Neon Brain Trivia</h3>
+          <p class="ev-blurb">Six rounds, questionable categories, serious bragging rights and a bar-tab jackpot.</p>
+          <p class="ev-meta">7 PM · Teams of 2–6 · Prizes</p>
+        </div>
+      </article>
+
+      <article class="ev reveal">
+        <div class="ev-media">
+          <span class="date-badge"><span class="d">18</span><span class="m">Jul</span></span>
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Live band placeholder image">
+            <defs><linearGradient id="evg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0f2a"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="evb3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="14"/></filter></defs>
+            <rect width="400" height="250" fill="url(#evg3)"/>
+            <circle cx="200" cy="86" r="60" fill="#ff2ec4" opacity=".16" filter="url(#evb3)"/>
+            <circle cx="200" cy="86" r="26" fill="none" stroke="#ff2ec4" stroke-width="3"/>
+            <path d="M174 86a26 26 0 0 0 52 0" fill="#ff2ec4" opacity=".5"/>
+            <line x1="200" y1="112" x2="200" y2="196" stroke="#ff2ec4" stroke-width="3"/>
+            <line x1="172" y1="212" x2="228" y2="212" stroke="#ff2ec4" stroke-width="3" stroke-linecap="round"/>
+            <line x1="200" y1="196" x2="176" y2="212" stroke="#ff2ec4" stroke-width="3"/>
+            <line x1="200" y1="196" x2="224" y2="212" stroke="#ff2ec4" stroke-width="3"/>
+            <path d="M262 60a44 44 0 0 1 0 52M282 46a66 66 0 0 1 0 80" fill="none" stroke="#25e8ff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+            <path d="M138 60a44 44 0 0 0 0 52M118 46a66 66 0 0 0 0 80" fill="none" stroke="#25e8ff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="ev-body">
+          <p class="ev-cat">Live Music</p>
+          <h3>The Static Hearts — Live</h3>
+          <p class="ev-blurb">Indie-electro four-piece on our tiny stage. One night, one sweaty singalong.</p>
+          <p class="ev-meta">Doors 8 PM · $10 cover</p>
+        </div>
+      </article>
+
+      <article class="ev reveal">
+        <div class="ev-media">
+          <span class="date-badge"><span class="d">5–7</span><span class="m">Mon–Fri</span></span>
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Happy hour placeholder image">
+            <defs><linearGradient id="evg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101c2e"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="evb4" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="14"/></filter></defs>
+            <rect width="400" height="250" fill="url(#evg4)"/>
+            <circle cx="200" cy="125" r="72" fill="#25e8ff" opacity=".1" filter="url(#evb4)"/>
+            <path d="M120 70h72l-30 38v46h18v12h-48v-12h18v-46l-30-38z" fill="none" stroke="#25e8ff" stroke-width="3" stroke-linejoin="round" transform="rotate(-14 156 128)"/>
+            <path d="M208 70h72l-30 38v46h18v12h-48v-12h18v-46l-30-38z" fill="none" stroke="#ff2ec4" stroke-width="3" stroke-linejoin="round" transform="rotate(14 244 128)"/>
+            <g stroke="#ffe1f6" stroke-width="2.5" stroke-linecap="round" opacity=".9">
+              <line x1="200" y1="42" x2="200" y2="58"/><line x1="182" y1="50" x2="190" y2="62"/><line x1="218" y1="50" x2="210" y2="62"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ev-body">
+          <p class="ev-cat">Happy Hour</p>
+          <h3>Happy Hour, Amplified</h3>
+          <p class="ev-blurb">Two-for-one cocktails, $5 drafts and half-price snacks while the sun clocks out.</p>
+          <p class="ev-meta">Mon–Fri · 5–7 PM · No cover</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="section">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">The Vibe</p>
+      <h2>Scenes From <span class="hl">Last Night</span></h2>
+      <p class="lead">A taste of the room — placeholder shots standing in for the real blur of a Saturday. Hover for the glow.</p>
     </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
+
+    <div class="gal">
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Disco ball placeholder photo">
+          <defs><radialGradient id="gg1" cx=".5" cy=".35" r=".9"><stop offset="0" stop-color="#251545"/><stop offset="1" stop-color="#0a0a16"/></radialGradient><filter id="gb1" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg1)"/>
+          <line x1="200" y1="0" x2="200" y2="96" stroke="rgba(241,242,250,.35)" stroke-width="2"/>
+          <circle cx="200" cy="180" r="96" fill="#25e8ff" opacity=".14" filter="url(#gb1)"/>
+          <circle cx="200" cy="180" r="84" fill="none" stroke="#8fd8ff" stroke-width="2.5"/>
+          <path d="M116 180h168M200 96v168M136 132a84 84 0 0 0 128 0M136 228a84 84 0 0 1 128 0" fill="none" stroke="rgba(143,216,255,.55)" stroke-width="1.6"/>
+          <g fill="#ffe1f6"><circle cx="92" cy="300" r="3.4"/><circle cx="318" cy="120" r="3"/><circle cx="300" cy="312" r="2.6"/><circle cx="88" cy="96" r="2.6"/></g>
+        </svg>
+        <figcaption>Mirror-ball Mondays</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Cocktail placeholder photo">
+          <defs><radialGradient id="gg2" cx=".5" cy=".4" r=".9"><stop offset="0" stop-color="#33102c"/><stop offset="1" stop-color="#0a0a16"/></radialGradient><filter id="gb2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg2)"/>
+          <circle cx="200" cy="180" r="90" fill="#ff2ec4" opacity=".16" filter="url(#gb2)"/>
+          <path d="M110 110h180l-74 92v96h44v18H140v-18h44v-96l-74-92z" fill="none" stroke="#ff2ec4" stroke-width="4" stroke-linejoin="round"/>
+          <line x1="238" y1="86" x2="196" y2="152" stroke="#25e8ff" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="246" cy="78" r="10" fill="#25e8ff"/>
+        </svg>
+        <figcaption>Signature pours</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Crowd dancing placeholder photo">
+          <defs><linearGradient id="gg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff2ec4" stop-opacity=".34"/><stop offset=".55" stop-color="#141024"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="gb3" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg3)"/>
+          <circle cx="200" cy="90" r="80" fill="#ff2ec4" opacity=".3" filter="url(#gb3)"/>
+          <g fill="#0c0c18">
+            <circle cx="80" cy="300" r="30"/><rect x="50" y="322" width="60" height="80"/>
+            <circle cx="200" cy="286" r="34"/><rect x="164" y="312" width="72" height="90"/>
+            <circle cx="322" cy="302" r="30"/><rect x="292" y="324" width="60" height="80"/>
+          </g>
+          <g stroke="#0c0c18" stroke-width="14" stroke-linecap="round">
+            <line x1="58" y1="330" x2="34" y2="252"/><line x1="230" y1="318" x2="262" y2="234"/><line x1="172" y1="318" x2="140" y2="240"/><line x1="344" y1="330" x2="366" y2="256"/>
+          </g>
+        </svg>
+        <figcaption>Front-row energy</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Neon bar sign placeholder photo">
+          <defs><radialGradient id="gg4" cx=".5" cy=".5" r=".9"><stop offset="0" stop-color="#101c30"/><stop offset="1" stop-color="#0a0a16"/></radialGradient><filter id="gb4" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg4)"/>
+          <rect x="70" y="140" width="260" height="120" rx="18" fill="none" stroke="#25e8ff" stroke-width="3"/>
+          <rect x="70" y="140" width="260" height="120" rx="18" fill="none" stroke="#25e8ff" stroke-width="5" filter="url(#gb4)" opacity=".8"/>
+          <text x="200" y="222" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="46" font-weight="700" letter-spacing="14" fill="#25e8ff" filter="url(#gb4)" opacity=".9">BAR</text>
+          <text x="200" y="222" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="46" font-weight="700" letter-spacing="14" fill="#dffaff">BAR</text>
+        </svg>
+        <figcaption>House neon</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Back bar bottles placeholder photo">
+          <defs><linearGradient id="gg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#191232"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="gb5" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg5)"/>
+          <g>
+            <rect x="70" y="150" width="40" height="120" rx="10" fill="rgba(255,46,196,.4)"/><rect x="84" y="122" width="12" height="32" rx="4" fill="rgba(255,46,196,.4)"/>
+            <rect x="130" y="130" width="40" height="140" rx="10" fill="rgba(37,232,255,.38)"/><rect x="144" y="102" width="12" height="32" rx="4" fill="rgba(37,232,255,.38)"/>
+            <rect x="190" y="160" width="40" height="110" rx="10" fill="rgba(168,85,255,.38)"/><rect x="204" y="132" width="12" height="32" rx="4" fill="rgba(168,85,255,.38)"/>
+            <rect x="250" y="138" width="40" height="132" rx="10" fill="rgba(241,242,250,.16)"/><rect x="264" y="110" width="12" height="32" rx="4" fill="rgba(241,242,250,.16)"/>
+            <rect x="310" y="152" width="40" height="118" rx="10" fill="rgba(255,46,196,.3)"/><rect x="324" y="124" width="12" height="32" rx="4" fill="rgba(255,46,196,.3)"/>
+          </g>
+          <rect x="46" y="272" width="308" height="6" rx="3" fill="url(#lg-brand)" opacity=".85"/>
+          <rect x="46" y="272" width="308" height="6" rx="3" fill="#25e8ff" filter="url(#gb5)" opacity=".5"/>
+        </svg>
+        <figcaption>The back bar</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="DJ booth placeholder photo">
+          <defs><linearGradient id="gg6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f2136"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="gb6" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg6)"/>
+          <circle cx="200" cy="150" r="90" fill="#25e8ff" opacity=".12" filter="url(#gb6)"/>
+          <rect x="70" y="150" width="260" height="120" rx="14" fill="#0d0d1c" stroke="rgba(241,242,250,.18)" stroke-width="2"/>
+          <circle cx="140" cy="210" r="36" fill="none" stroke="#ff2ec4" stroke-width="3"/><circle cx="140" cy="210" r="6" fill="#ff2ec4"/>
+          <circle cx="260" cy="210" r="36" fill="none" stroke="#25e8ff" stroke-width="3"/><circle cx="260" cy="210" r="6" fill="#25e8ff"/>
+          <g fill="rgba(241,242,250,.5)"><rect x="192" y="184" width="16" height="6" rx="3"/><rect x="192" y="200" width="16" height="6" rx="3"/><rect x="192" y="216" width="16" height="6" rx="3"/><rect x="192" y="232" width="16" height="6" rx="3"/></g>
+        </svg>
+        <figcaption>Booth vibes</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Friends toasting placeholder photo">
+          <defs><radialGradient id="gg7" cx=".5" cy=".4" r=".9"><stop offset="0" stop-color="#2c1420"/><stop offset="1" stop-color="#0a0a16"/></radialGradient><filter id="gb7" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg7)"/>
+          <circle cx="200" cy="150" r="86" fill="#ff2ec4" opacity=".14" filter="url(#gb7)"/>
+          <g fill="none" stroke-width="4" stroke-linejoin="round">
+            <path d="M120 120l24 96 20 8v52h-30M164 216l20-8 24-96" stroke="#25e8ff" transform="rotate(-10 154 200)"/>
+            <path d="M216 120l24 96 20 8v52h-30M260 216l20-8 24-96" stroke="#ff2ec4" transform="rotate(10 260 200)"/>
+          </g>
+          <g stroke="#ffe1f6" stroke-width="2.5" stroke-linecap="round"><line x1="200" y1="74" x2="200" y2="92"/><line x1="180" y1="84" x2="188" y2="98"/><line x1="220" y1="84" x2="212" y2="98"/></g>
+        </svg>
+        <figcaption>Cheers hour</figcaption>
+      </figure>
+
+      <figure class="gt reveal">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Neon light trails placeholder photo">
+          <defs><linearGradient id="gg8" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#140f28"/><stop offset="1" stop-color="#0a0a16"/></linearGradient><filter id="gb8" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter></defs>
+          <rect width="400" height="400" fill="url(#gg8)"/>
+          <path d="M-20 300C90 220 140 340 220 250S360 140 430 190" fill="none" stroke="#ff2ec4" stroke-width="5" filter="url(#gb8)" opacity=".8"/>
+          <path d="M-20 300C90 220 140 340 220 250S360 140 430 190" fill="none" stroke="#ffb6e8" stroke-width="2"/>
+          <path d="M-20 170C80 240 190 110 260 180s120 90 170 60" fill="none" stroke="#25e8ff" stroke-width="5" filter="url(#gb8)" opacity=".8"/>
+          <path d="M-20 170C80 240 190 110 260 180s120 90 170 60" fill="none" stroke="#c2f6ff" stroke-width="2"/>
+        </svg>
+        <figcaption>Late, late nights</figcaption>
+      </figure>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
-  <div class="wrap">
+<!-- ============ PRIVATE BOOKINGS ============ -->
+<section id="book" class="section alt">
+  <div class="wrap book-grid">
     <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
-    </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
-      </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
+      <p class="eyebrow">Private Bookings</p>
+      <h2>Book the <span class="hl">Whole Vibe</span></h2>
+      <p class="lead">Birthdays, launches, wrap parties or a very committed Tuesday — take over the mezzanine or the entire room. Tell us the date and the mood; we handle the rest.</p>
+      <ul class="perks">
+        <li><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Private mezzanine, up to 60 guests</b><span>Or buy out the full room for 120 with the run of the house.</span></div></li>
+        <li><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14l-6 8v7h3v3H8v-3h3v-7L5 3z"/></svg></span><div><b>Custom drink &amp; shot packages</b><span>From open bar to a signature cocktail named after the guest of honor.</span></div></li>
+        <li><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><div><b>Your playlist or our house DJ</b><span>Plug in and take the aux, or let the booth read the room.</span></div></li>
+        <li><span class="perk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><div><b>Dedicated bartender &amp; host</b><span>Your own crew behind the stick from first pour to last call.</span></div></li>
       </ul>
     </div>
+
+    <div class="form-card reveal">
+      <form id="bookForm" novalidate>
+        <div class="f-row">
+          <div class="field"><label for="bfName">Name</label><input id="bfName" name="name" type="text" placeholder="Alex Rivera" autocomplete="name" required></div>
+          <div class="field"><label for="bfEmail">Email</label><input id="bfEmail" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label for="bfDate">Preferred date</label><input id="bfDate" name="date" type="date" required></div>
+          <div class="field"><label for="bfSize">Group size</label>
+            <select id="bfSize" name="size" required>
+              <option value="" selected disabled>Select&hellip;</option>
+              <option>8–15 people</option>
+              <option>16–30 people</option>
+              <option>31–60 people</option>
+              <option>Full venue (up to 120)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="bfMsg">Tell us about your night</label><textarea id="bfMsg" name="message" placeholder="Birthday? Product launch? Villain era? Give us the vibe, the budget and any special requests."></textarea></div>
+        <button class="btn btn-neon" type="submit">Request Booking</button>
+        <p class="form-note">No deposit to inquire — a human replies within 24 hours. (Demo form: nothing is actually sent.)</p>
+      </form>
+      <div class="success" id="bookSuccess" hidden>
+        <span class="ok-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>Request received!</h3>
+        <p>Thanks, <span id="bsName">friend</span> — we&rsquo;ve got your date. Our events team will email you within 24 hours to lock in the details.</p>
+        <button class="btn btn-ghost" type="button" id="bookAgain">Send another request</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
+<!-- ============ HOURS & LOCATION ============ -->
+<section id="find" class="section">
+  <div class="wrap find-grid">
     <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
+      <p class="eyebrow">Find Us</p>
+      <h2>Open <span class="hl">Late</span></h2>
+      <p class="lead">The night starts whenever you get here — and it ends well after everywhere else has flipped its chairs.</p>
+      <ul class="hours">
+        <li><span class="day">Mon – Wed</span><span class="t">5 PM – 1 AM</span></li>
+        <li><span class="day">Thursday</span><span class="t">5 PM – 2 AM</span></li>
+        <li class="hot"><span class="day">Fri – Sat</span><span class="t">5 PM – 3 AM</span></li>
+        <li><span class="day">Sunday</span><span class="t">6 PM – Midnight</span></li>
+      </ul>
+      <p class="hours-note">Kitchen slings snacks till midnight · Happy hour 5–7 PM weekdays.</p>
+      <ul class="addr">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>88 Static Avenue, Warehouse District, Nighttown</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+15550192833">(555) 019-2833</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:hello@barsandnightlife.example">hello@barsandnightlife.example</a></li>
+      </ul>
+      <p class="find-cta"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=88+Static+Avenue" target="_blank" rel="noopener">Get Directions</a></p>
     </div>
-    <div class="menu-grid">
 
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
-
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
-
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
-      </div>
+    <div class="map reveal" role="img" aria-label="Stylized map placeholder showing the bar's location">
+      <svg viewBox="0 0 700 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><filter id="mapb" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="10"/></filter></defs>
+        <rect width="700" height="520" fill="#0a0a16"/>
+        <g stroke="#181830" stroke-width="10"><line x1="0" y1="120" x2="700" y2="120"/><line x1="0" y1="270" x2="700" y2="270"/><line x1="0" y1="420" x2="700" y2="420"/><line x1="140" y1="0" x2="140" y2="520"/><line x1="360" y1="0" x2="360" y2="520"/><line x1="560" y1="0" x2="560" y2="520"/></g>
+        <g stroke="#131327" stroke-width="4"><line x1="0" y1="195" x2="700" y2="195"/><line x1="0" y1="345" x2="700" y2="345"/><line x1="250" y1="0" x2="250" y2="520"/><line x1="460" y1="0" x2="460" y2="520"/></g>
+        <line x1="-40" y1="500" x2="740" y2="40" stroke="#1e1e3c" stroke-width="16"/>
+        <g fill="#101020"><rect x="160" y="140" width="70" height="40" rx="4"/><rect x="380" y="290" width="60" height="40" rx="4"/><rect x="580" y="140" width="60" height="44" rx="4"/><rect x="40" y="300" width="70" height="34" rx="4"/><rect x="480" y="440" width="60" height="34" rx="4"/></g>
+        <circle cx="360" cy="270" r="60" fill="#ff2ec4" opacity=".18" filter="url(#mapb)"/>
+        <circle class="pulse" cx="360" cy="270" r="26" fill="none" stroke="#ff2ec4" stroke-width="2"/>
+        <path d="M360 226c-16 0-28 12-28 27 0 20 28 45 28 45s28-25 28-45c0-15-12-27-28-27z" fill="#ff2ec4"/>
+        <circle cx="360" cy="252" r="10" fill="#14000f"/>
+        <text x="360" y="332" text-anchor="middle" font-family="'Unbounded',sans-serif" font-size="15" letter-spacing="3" fill="#f1f2fa">BARS &amp; NIGHTLIFE</text>
+      </svg>
+      <span class="map-tag">Map placeholder · 88 Static Ave</span>
     </div>
   </div>
 </section>
+</main>
 
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— FOOTER ——————— -->
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
-    </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot foot-brand">
+        <a class="brand" href="#top" aria-label="Bars &amp; Nightlife — back to top">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h22l-9 11v7h5v3H9v-3h5v-7L5 6z" fill="none" stroke="url(#lg-brand)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="24.5" cy="4.5" r="2.4" fill="#25e8ff"/></svg>
+          <span class="wordmark">BARS <em class="amp">&amp;</em> NIGHTLIFE</span>
+        </a>
+        <p>Cocktails, loud rooms and later hours in the Warehouse District. A demo site — every photo, date and detail is a placeholder.</p>
+      </div>
+      <div class="foot">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#drinks">Drinks</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#book">Private Bookings</a></li>
+          <li><a href="#find">Find Us</a></li>
+        </ul>
+      </div>
+      <div class="foot">
+        <h4>Follow the Night</h4>
+        <div class="socials">
+          <a href="#top" aria-label="Instagram (placeholder link)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="#top" aria-label="X (placeholder link)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="#top" aria-label="Facebook (placeholder link)"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 3h-2.5A3.5 3.5 0 0 0 8 6.5V9H5v3.5h3V21h3.5v-8.5h2.7l.55-3.5H11.5V6.8c0-.5.4-.8.9-.8H14V3z"/></svg></a>
+        </div>
+        <p class="handle">@barsandnightlife</p>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="year">2026</span> Bars &amp; Nightlife. All placeholder, all night.</p>
+      <p><span class="age">18+</span> Please drink responsibly.</p>
+    </div>
   </div>
 </footer>
 
 <script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
+(function () {
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
 
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
-  });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
+  /* sticky navbar backdrop */
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 12); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
+  /* mobile menu */
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
-})();
+  burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  navLinks.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+  /* active nav link while scrolling */
+  var links = Array.prototype.slice.call(navLinks.querySelectorAll('a'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var sectionSpy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting && byId[en.target.id]) {
+        links.forEach(function (a) { a.classList.remove('active'); });
+        byId[en.target.id].classList.add('active');
+      }
     });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
-
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  ['drinks', 'events', 'gallery', 'book', 'find'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) sectionSpy.observe(el);
   });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+
+  /* drinks tabs */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function activateTab(tab, focus) {
+    tabs.forEach(function (t) {
+      var selected = t === tab;
+      t.setAttribute('aria-selected', String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activateTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); activateTab(next, true); }
     });
   });
+
+  /* reveal on scroll */
+  var revealables = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window) {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); revealer.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealables.forEach(function (el) { revealer.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* booking form (front-end only) */
+  var form = document.getElementById('bookForm');
+  var success = document.getElementById('bookSuccess');
+  var dateInput = document.getElementById('bfDate');
+  dateInput.min = new Date().toISOString().slice(0, 10);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var name = document.getElementById('bfName').value.trim().split(/\s+/)[0];
+    if (name) document.getElementById('bsName').textContent = name;
+    form.hidden = true;
+    success.hidden = false;
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('bookAgain').addEventListener('click', function () {
+    form.reset();
+    success.hidden = true;
+    form.hidden = false;
+    document.getElementById('bfName').focus();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
 </body>
