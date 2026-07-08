@@ -1,610 +1,635 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Nails, Lashes &amp; Esthetics — Beauty Studio | Beauty in Every Detail</title>
+<meta name="description" content="Nails, Lashes & Esthetics — a soft, feminine beauty studio for flawless manicures, dreamy lash extensions, brows and glowing facials. Beauty in every detail. Book your visit today.">
+<meta name="theme-color" content="#FDF9F6">
+<meta property="og:title" content="Nails, Lashes &amp; Esthetics — Beauty Studio">
+<meta property="og:description" content="Beauty in every detail. Nails, lashes, brows and facials in a soft, welcoming studio.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23F6E3DE'/><path d='M50 22l6.5 21.5L78 50l-21.5 6.5L50 78l-6.5-21.5L22 50l21.5-6.5z' fill='%23B76E79'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
-<style>
-:root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-::selection{background:var(--beurre);color:var(--nuit)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
-img,svg{display:block;max-width:100%}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-/* ——— eyebrow / utility type ——— */
-.eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
-}
-.serif{font-family:'Prata',serif;font-weight:400}
-
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
-.btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
-}
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
-
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
-}
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
-}
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
-
-/* ——— hero ——— */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
-  background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
-}
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
-.hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
-}
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
-
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
-}
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
-}
-
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
-}
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
-
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
-.sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
-}
-.sec-head p{color:var(--brume)}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
-}
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
-
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
-}
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
-}
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
-
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
-}
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
-}
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
-}
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
-
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ——— responsive ——— */
-@media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
-  }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
+<!-- ══════════════════════ Navbar ══════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner container">
+    <a class="brand" href="#hero" aria-label="Nails, Lashes & Esthetics — back to top">
+      <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+        <defs>
+          <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#D8A08C"/><stop offset="1" stop-color="#B76E79"/>
+          </linearGradient>
+        </defs>
+        <circle cx="22" cy="22" r="20" fill="none" stroke="url(#brand-grad)" stroke-width="1.6"/>
+        <path d="M11 25q11 9 22 0" fill="none" stroke="url(#brand-grad)" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M15 28.2l-1.6 3.4M20.5 30.2l-1 3.6M27.5 30.2l1 3.6M33 28.2l1.6 3.4" fill="none" stroke="url(#brand-grad)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22 9l1.4 3.6L27 14l-3.6 1.4L22 19l-1.4-3.6L17 14l3.6-1.4z" fill="url(#brand-grad)"/>
+      </svg>
+      <span class="brand-name">Nails, Lashes <em>&amp;</em> Esthetics</span>
     </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
+
+    <nav class="nav-links" id="nav-menu" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-solid btn-nav" href="#booking">Book Now</a>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <div class="nav-scrim" aria-hidden="true"></div>
 </header>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
-      </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
-    </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
-        </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
-    </div>
-  </div>
-</section>
+<main>
 
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
+  <!-- ══════════════════════ Hero ══════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+      <svg class="hero-sparkle sparkle-1" viewBox="0 0 48 48"><path d="M24 6l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="currentColor"/></svg>
+      <svg class="hero-sparkle sparkle-2" viewBox="0 0 48 48"><path d="M24 6l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="currentColor"/></svg>
+      <svg class="hero-sparkle sparkle-3" viewBox="0 0 48 48"><path d="M24 6l4 14 14 4-14 4-4 14-4-14-14-4 14-4z" fill="currentColor"/></svg>
     </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
-    </div>
-  </div>
-</div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
-    </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
-      </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
-
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
-
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
+    <div class="hero-content container reveal">
+      <p class="eyebrow">Nail Bar &middot; Lash Lounge &middot; Skin Studio</p>
+      <h1>Nails, Lashes<br><span class="amp">&amp;</span> Esthetics</h1>
+      <p class="tagline"><span class="tagline-line" aria-hidden="true"></span>Beauty in every detail<span class="tagline-line" aria-hidden="true"></span></p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#booking">Book Now</a>
+        <a class="btn btn-outline" href="#gallery">See Our Work</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— FOOTER ——————— -->
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
+    <a class="scroll-cue" href="#services" aria-label="Scroll down to services">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
+  </section>
+
+  <!-- ══════════════════════ Services ══════════════════════ -->
+  <section class="section" id="services">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">What we do</p>
+        <h2>Our Services</h2>
+        <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="lede">Every treatment is unhurried, personal and finished to perfection — using gentle, premium products chosen for you.</p>
+      </header>
+
+      <div class="services-grid stagger">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="17" y="21" width="14" height="19" rx="6.5"/>
+              <path d="M20 21v-3.5h8V21"/>
+              <rect x="20.5" y="8" width="7" height="7" rx="1.6"/>
+              <path d="M37 12v6M34 15h6"/>
+            </svg>
+          </div>
+          <h3>Manicure</h3>
+          <p>Classic shaping, cuticle care and a flawless polish finish for effortlessly elegant hands.</p>
+          <span class="service-price">from $35</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="25" cy="30" rx="7.5" ry="10" transform="rotate(-8 25 30)"/>
+              <circle cx="16.5" cy="18.5" r="2.3"/>
+              <circle cx="21.5" cy="14.8" r="2.6"/>
+              <circle cx="27.5" cy="13.8" r="2.7"/>
+              <circle cx="33" cy="16" r="2.2"/>
+            </svg>
+          </div>
+          <h3>Pedicure</h3>
+          <p>A warm soak, gentle exfoliation and perfect polish — pure relaxation from heel to toe.</p>
+          <span class="service-price">from $45</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 13h16l6 9-14 15L10 22z"/>
+              <path d="M10 22h28"/>
+              <path d="M16 13l4 9 4 15M32 13l-4 9-4 15"/>
+            </svg>
+          </div>
+          <h3>Gel &amp; Acrylic</h3>
+          <p>Long-lasting gel colour and sculpted acrylic or Gel-X extensions, built to turn heads.</p>
+          <span class="service-price">from $50</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 22q14 12 28 0"/>
+              <path d="M14.5 25.8l-2.6 4.6M19.5 27.8l-1.6 5M24 28.4v5.2M28.5 27.8l1.6 5M33.5 25.8l2.6 4.6"/>
+            </svg>
+          </div>
+          <h3>Lash Extensions</h3>
+          <p>Classic, hybrid or volume sets, customised lash by lash for a weightless, wide-awake look.</p>
+          <span class="service-price">from $120</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 29q14-13 28 0"/>
+              <path d="M14.5 25.5c-2.5-3-2.5-6.5.5-8.5M20 22.5c-1.5-3.5-.5-7 2.5-8.5M28 22.5c1.5-3.5.5-7-2.5-8.5M33.5 25.5c2.5-3 2.5-6.5-.5-8.5"/>
+            </svg>
+          </div>
+          <h3>Lash Lift</h3>
+          <p>Your natural lashes, lifted and tinted into a beautiful curl that lasts for weeks.</p>
+          <span class="service-price">from $85</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 28c4-9 12-12 19-9 4 1.7 6.5 4.4 8 7.5"/>
+              <path d="M15 28.5c3.5-5.5 9.5-7.5 14.5-6"/>
+            </svg>
+          </div>
+          <h3>Brows</h3>
+          <p>Precision shaping, tinting and lamination to frame your face with perfectly groomed arches.</p>
+          <span class="service-price">from $25</span>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 11c-4 5-4 11.5 0 15.5 4-4 4-10.5 0-15.5z"/>
+              <path d="M12.5 17.5c.3 7 4.5 11.7 11.5 13-1-7-5-11-11.5-13z"/>
+              <path d="M35.5 17.5c-.3 7-4.5 11.7-11.5 13 1-7 5-11 11.5-13z"/>
+              <path d="M10 31c4 4.8 8.8 7 14 7s10-2.2 14-7"/>
+            </svg>
+          </div>
+          <h3>Facials</h3>
+          <p>Deeply cleansing, glow-boosting treatments tailored to your skin's unique needs.</p>
+          <span class="service-price">from $60</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ Gallery ══════════════════════ -->
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Our portfolio</p>
+        <h2>Recent Work</h2>
+        <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="lede">A little glimpse of what leaves our studio every day — sets we're proud of and clients we adore.</p>
+      </header>
+
+      <div class="gallery-grid stagger">
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: rose quartz almond nails">
+          <div class="tile g1">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="17" y="21" width="14" height="19" rx="6.5"/><path d="M20 21v-3.5h8V21"/><rect x="20.5" y="8" width="7" height="7" rx="1.6"/><path d="M37 12v6M34 15h6"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Rose Quartz Set</span><span class="tile-tag">Nails</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: classic volume lash extensions">
+          <div class="tile g2">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 22q14 12 28 0"/><path d="M14.5 25.8l-2.6 4.6M19.5 27.8l-1.6 5M24 28.4v5.2M28.5 27.8l1.6 5M33.5 25.8l2.6 4.6"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Classic Volume</span><span class="tile-tag">Lashes</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: french ombré almond nails">
+          <div class="tile g3">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 8c6 10 8 18 8 24a8 8 0 0 1-16 0c0-6 2-14 8-24z"/><path d="M17.5 26c4 3 9 3 13 0"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">French Ombré</span><span class="tile-tag">Nails</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: brow lamination result">
+          <div class="tile g4">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 28c4-9 12-12 19-9 4 1.7 6.5 4.4 8 7.5"/><path d="M15 28.5c3.5-5.5 9.5-7.5 14.5-6"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Brow Lamination</span><span class="tile-tag">Brows</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: chrome finish gel nails">
+          <div class="tile g5">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 13h16l6 9-14 15L10 22z"/><path d="M10 22h28"/><path d="M16 13l4 9 4 15M32 13l-4 9-4 15"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Chrome Finish</span><span class="tile-tag">Nails</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: wispy hybrid lash set">
+          <div class="tile g6">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 29q14-13 28 0"/><path d="M14.5 25.5c-2.5-3-2.5-6.5.5-8.5M20 22.5c-1.5-3.5-.5-7 2.5-8.5M28 22.5c1.5-3.5.5-7-2.5-8.5M33.5 25.5c2.5-3 2.5-6.5-.5-8.5"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Wispy Hybrid Set</span><span class="tile-tag">Lashes</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: glowing skin after facial">
+          <div class="tile g7">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 11c-4 5-4 11.5 0 15.5 4-4 4-10.5 0-15.5z"/><path d="M12.5 17.5c.3 7 4.5 11.7 11.5 13-1-7-5-11-11.5-13z"/><path d="M35.5 17.5c-.3 7-4.5 11.7-11.5 13 1-7 5-11 11.5-13z"/><path d="M10 31c4 4.8 8.8 7 14 7s10-2.2 14-7"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Glow Facial</span><span class="tile-tag">Esthetics</span></figcaption>
+        </figure>
+
+        <figure class="gallery-item reveal" role="img" aria-label="Placeholder photo: bridal nails and lashes">
+          <div class="tile g8">
+            <svg class="motif" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 38s-12-7.2-12-16a6.6 6.6 0 0 1 12-3.8A6.6 6.6 0 0 1 36 22c0 8.8-12 16-12 16z"/>
+            </svg>
+          </div>
+          <figcaption class="tile-overlay"><span class="tile-title">Bridal Glam</span><span class="tile-tag">Nails &amp; Lashes</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="gallery-note reveal">Love what you see? Follow us on
+        <a href="https://instagram.com/nle.beautystudio" target="_blank" rel="noopener">Instagram @nle.beautystudio</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ Pricing ══════════════════════ -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Menu</p>
+        <h2>Pricing Menu</h2>
+        <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="lede">Clear, honest pricing — no surprises. Not sure what to pick? We'll happily advise at your appointment.</p>
+      </header>
+
+      <div class="pricing-cols">
+        <div class="pricing-col reveal">
+          <div class="price-group">
+            <h3>Nails</h3>
+            <ul>
+              <li><span class="item">Classic Manicure</span><span class="dots"></span><span class="price">$35</span></li>
+              <li><span class="item">Gel Manicure</span><span class="dots"></span><span class="price">$50</span></li>
+              <li><span class="item">Classic Pedicure</span><span class="dots"></span><span class="price">$45</span></li>
+              <li><span class="item">Spa Pedicure</span><span class="dots"></span><span class="price">$65</span></li>
+              <li><span class="item">Acrylic Full Set</span><span class="dots"></span><span class="price">$70</span></li>
+              <li><span class="item">Gel-X Extensions</span><span class="dots"></span><span class="price">$75</span></li>
+              <li><span class="item">Polish Change</span><span class="dots"></span><span class="price">$20</span></li>
+              <li><span class="item">Nail Art <small>(per nail)</small></span><span class="dots"></span><span class="price">from $5</span></li>
+            </ul>
+          </div>
+
+          <div class="price-group">
+            <h3>Brows</h3>
+            <ul>
+              <li><span class="item">Brow Shaping</span><span class="dots"></span><span class="price">$25</span></li>
+              <li><span class="item">Brow Tint</span><span class="dots"></span><span class="price">$30</span></li>
+              <li><span class="item">Shape &amp; Tint</span><span class="dots"></span><span class="price">$48</span></li>
+              <li><span class="item">Brow Lamination</span><span class="dots"></span><span class="price">$80</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-col reveal">
+          <div class="price-group">
+            <h3>Lashes</h3>
+            <ul>
+              <li><span class="item">Classic Full Set</span><span class="dots"></span><span class="price">$120</span></li>
+              <li><span class="item">Hybrid Full Set</span><span class="dots"></span><span class="price">$140</span></li>
+              <li><span class="item">Volume Full Set</span><span class="dots"></span><span class="price">$160</span></li>
+              <li><span class="item">Lash Fill <small>(2–3 weeks)</small></span><span class="dots"></span><span class="price">$60</span></li>
+              <li><span class="item">Lash Lift</span><span class="dots"></span><span class="price">$85</span></li>
+              <li><span class="item">Lash Lift &amp; Tint</span><span class="dots"></span><span class="price">$100</span></li>
+            </ul>
+          </div>
+
+          <div class="price-group">
+            <h3>Facials &amp; Esthetics</h3>
+            <ul>
+              <li><span class="item">Express Glow <small>(30 min)</small></span><span class="dots"></span><span class="price">$60</span></li>
+              <li><span class="item">Signature Facial <small>(60 min)</small></span><span class="dots"></span><span class="price">$95</span></li>
+              <li><span class="item">Deep-Cleansing Facial</span><span class="dots"></span><span class="price">$110</span></li>
+              <li><span class="item">Dermaplaning Add-On</span><span class="dots"></span><span class="price">$45</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-note reveal">All prices are placeholders and may vary with length, design and lash density. A final quote is always confirmed before we begin.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ Booking ══════════════════════ -->
+  <section class="section section-alt" id="booking">
+    <div class="container booking-layout">
+      <div class="booking-info reveal">
+        <p class="eyebrow">Reservations</p>
+        <h2>Book Your Visit</h2>
+        <div class="flourish left" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p>Reserve your moment of self-care. Choose a service, pick a day and time that suit you, and we'll take care of the rest — you'll receive a confirmation text within a few hours.</p>
+        <ul class="perks">
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.8 5.4 5.7.3-4.5 3.5 1.6 5.5L10 12.9l-4.6 3.3 1.6-5.5L2.5 7.2l5.7-.3z" fill="currentColor"/></svg>Complimentary consultation with every first visit</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.8 5.4 5.7.3-4.5 3.5 1.6 5.5L10 12.9l-4.6 3.3 1.6-5.5L2.5 7.2l5.7-.3z" fill="currentColor"/></svg>Hospital-grade sterilised tools &amp; premium products</li>
+          <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.8 5.4 5.7.3-4.5 3.5 1.6 5.5L10 12.9l-4.6 3.3 1.6-5.5L2.5 7.2l5.7-.3z" fill="currentColor"/></svg>Cosy private studio, herbal tea &amp; good conversation</li>
+        </ul>
+        <p class="booking-alt">Prefer to talk? Call or text us at <a href="tel:+15552104488">(555) 210-4488</a></p>
+      </div>
+
+      <div class="booking-card reveal">
+        <form id="booking-form" novalidate="false" autocomplete="on">
+          <div class="field-grid">
+            <div class="field full">
+              <label for="bk-name">Full name</label>
+              <input type="text" id="bk-name" name="name" placeholder="Jane Doe" required minlength="2" maxlength="60" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="bk-phone">Phone</label>
+              <input type="tel" id="bk-phone" name="phone" placeholder="(555) 000-0000" required inputmode="tel" pattern="[0-9()+.\-\s]{7,20}" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="bk-service">Service</label>
+              <select id="bk-service" name="service" required>
+                <option value="" selected disabled>Choose a service…</option>
+                <option>Manicure</option>
+                <option>Pedicure</option>
+                <option>Gel &amp; Acrylic</option>
+                <option>Lash Extensions</option>
+                <option>Lash Lift</option>
+                <option>Brows</option>
+                <option>Facials</option>
+                <option>Not sure yet — help me choose</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bk-date">Date</label>
+              <input type="date" id="bk-date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="bk-time">Time</label>
+              <select id="bk-time" name="time" required>
+                <option value="" selected disabled>Pick a time…</option>
+                <option>9:00 AM</option><option>9:30 AM</option>
+                <option>10:00 AM</option><option>10:30 AM</option>
+                <option>11:00 AM</option><option>11:30 AM</option>
+                <option>12:00 PM</option><option>12:30 PM</option>
+                <option>1:00 PM</option><option>1:30 PM</option>
+                <option>2:00 PM</option><option>2:30 PM</option>
+                <option>3:00 PM</option><option>3:30 PM</option>
+                <option>4:00 PM</option><option>4:30 PM</option>
+                <option>5:00 PM</option><option>5:30 PM</option>
+                <option>6:00 PM</option><option>6:30 PM</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-solid btn-block" type="submit">Request Appointment</button>
+          <p class="form-note">This demo form doesn't send data anywhere — it simply shows a confirmation.</p>
+        </form>
+
+        <div class="booking-success" id="booking-success" hidden tabindex="-1">
+          <svg class="success-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M20 33l8.5 8.5L44 25" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Booking request received!</h3>
+          <p id="booking-success-text"></p>
+          <button class="btn btn-outline" type="button" id="booking-again">Book another appointment</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ Testimonials ══════════════════════ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Client love</p>
+        <h2>Kind Words</h2>
+        <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="lede">Nothing makes us happier than clients who leave feeling like the best version of themselves.</p>
+      </header>
+
+      <div class="testimonials-grid stagger">
+        <article class="testimonial-card reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>
+            <p>“My lashes have never looked this good — wispy, weightless and they last for weeks. The studio itself is gorgeous and so relaxing.”</p>
+          </blockquote>
+          <footer>
+            <span class="avatar" aria-hidden="true">A</span>
+            <div><strong>Amelia R.</strong><small>Volume Lash Set</small></div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>
+            <p>“The attention to detail is unreal. My gel manicure stayed flawless for almost a month, and the nail art came out better than my inspo photo.”</p>
+          </blockquote>
+          <footer>
+            <span class="avatar" aria-hidden="true">S</span>
+            <div><strong>Sofia M.</strong><small>Gel Manicure &amp; Nail Art</small></div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.8l2.4 5 5.4.7-4 3.8 1 5.4L10 14.1l-4.8 2.6 1-5.4-4-3.8 5.4-.7z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>
+            <p>“From the warm welcome to the glow afterwards, everything felt luxurious. The signature facial is officially my monthly must-have.”</p>
+          </blockquote>
+          <footer>
+            <span class="avatar" aria-hidden="true">C</span>
+            <div><strong>Chloé T.</strong><small>Signature Facial</small></div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ Hours & Location ══════════════════════ -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Find us</p>
+        <h2>Hours &amp; Location</h2>
+        <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+        <p class="lede">Tucked on a quiet, leafy street downtown — with tea waiting and a chair with your name on it.</p>
+      </header>
+
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <div class="info-block">
+            <h3>Opening Hours</h3>
+            <ul class="hours-list">
+              <li><span class="item">Monday – Friday</span><span class="dots"></span><span class="price">9:00 AM – 7:00 PM</span></li>
+              <li><span class="item">Saturday</span><span class="dots"></span><span class="price">9:00 AM – 5:00 PM</span></li>
+              <li><span class="item">Sunday</span><span class="dots"></span><span class="price">Closed</span></li>
+            </ul>
+          </div>
+
+          <div class="info-block">
+            <h3>Get In Touch</h3>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+                <span>214 Rosewood Lane, Suite 3<br>Montréal, QC</span>
+              </li>
+              <li>
+                <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+                <a href="tel:+15552104488">(555) 210-4488</a>
+              </li>
+              <li>
+                <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M4.5 7l7.5 6 7.5-6"/></svg></span>
+                <a href="mailto:hello@nle-studio.com">hello@nle-studio.com</a>
+              </li>
+              <li>
+                <span class="contact-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span>
+                <a href="https://instagram.com/nle.beautystudio" target="_blank" rel="noopener">@nle.beautystudio</a>
+              </li>
+            </ul>
+            <a class="btn btn-outline btn-small" href="#booking">Book your visit</a>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal" aria-label="Stylised map placeholder showing the studio location">
+          <svg class="map" viewBox="0 0 640 460" role="img" aria-label="Map placeholder with a pin marking 214 Rosewood Lane" preserveAspectRatio="xMidYMid slice">
+            <rect width="640" height="460" fill="#FBF1EA"/>
+            <g fill="#F7E8E0">
+              <rect x="40" y="40" width="110" height="60" rx="10"/>
+              <rect x="210" y="30" width="150" height="70" rx="10"/>
+              <rect x="60" y="170" width="90" height="90" rx="10"/>
+              <rect x="470" y="60" width="120" height="80" rx="10"/>
+              <rect x="230" y="330" width="130" height="80" rx="10"/>
+              <rect x="60" y="340" width="100" height="70" rx="10"/>
+              <rect x="480" y="330" width="110" height="80" rx="10"/>
+            </g>
+            <path d="M520 0c-40 120 40 240-20 460" fill="none" stroke="#F2D9CE" stroke-width="26" opacity=".85"/>
+            <g fill="none" stroke="#F0DAD2" stroke-width="10">
+              <path d="M0 130h640"/>
+              <path d="M0 300c160-40 300 40 640-20"/>
+              <path d="M180 0v460"/>
+              <path d="M420 0c-20 150 20 300-10 460"/>
+            </g>
+            <g fill="none" stroke="#F5E4DC" stroke-width="4">
+              <path d="M0 220h640"/>
+              <path d="M300 0v460"/>
+              <path d="M60 0c40 100-20 200 20 460"/>
+            </g>
+            <g class="map-pin">
+              <circle cx="320" cy="204" r="30" fill="rgba(183,110,121,.16)" class="pin-pulse"/>
+              <path d="M320 236c-11-14-16-22-16-30a16 16 0 1 1 32 0c0 8-5 16-16 30z" fill="#B76E79"/>
+              <circle cx="320" cy="205" r="6.5" fill="#FDF9F6"/>
+            </g>
+          </svg>
+          <a class="map-chip" href="https://maps.google.com/?q=214+Rosewood+Lane" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            214 Rosewood Lane &middot; Open in Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════ Footer ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="#hero">
+          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M11 25q11 9 22 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15 28.2l-1.6 3.4M20.5 30.2l-1 3.6M27.5 30.2l1 3.6M33 28.2l1.6 3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 9l1.4 3.6L27 14l-3.6 1.4L22 19l-1.4-3.6L17 14l3.6-1.4z" fill="currentColor"/>
+          </svg>
+          <span class="brand-name">Nails, Lashes <em>&amp;</em> Esthetics</span>
+        </a>
+        <p>A soft, feminine beauty studio devoted to flawless nails, dreamy lashes and glowing skin — beauty in every detail.</p>
+        <div class="socials">
+          <a href="https://instagram.com/nle.beautystudio" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2.1 0-3.5 1.3-3.5 3.6V11H8.5v3h2.4v7z"/></svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 8.6a6.3 6.3 0 0 1-3.7-1.2 6.4 6.4 0 0 1-2.2-3h-3.1v11.9a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V10.5a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9v-5.6a9.4 9.4 0 0 0 5.8 1.9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h4>Visit</h4>
+        <ul>
+          <li>214 Rosewood Lane, Suite 3, Montréal, QC</li>
+          <li><a href="tel:+15552104488">(555) 210-4488</a></li>
+          <li><a href="mailto:hello@nle-studio.com">hello@nle-studio.com</a></li>
+          <li>Mon–Fri 9–7 &middot; Sat 9–5 &middot; Sun closed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> Nails, Lashes &amp; Esthetics. Demo website — all photos, prices and details are placeholders.</p>
+      <a class="to-top" href="#hero">Back to top ↑</a>
+    </div>
   </div>
 </footer>
 
-<script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
-
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
-  });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
-
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
-  }
-})();
-
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
-
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
