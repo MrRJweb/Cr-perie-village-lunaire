@@ -1,610 +1,1053 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Music, Records &amp; Luthiers — Vinyl, Strings &amp; Repairs</title>
+<meta name="description" content="Music, Records & Luthiers — an independent record shop, instrument store, and luthier's workbench under one roof. Crates of vinyl, guitars on the wall, and repairs done right. 4242 Analog Avenue, Harmony Falls.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
-<style>
-:root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-::selection{background:var(--beurre);color:var(--nuit)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
-img,svg{display:block;max-width:100%}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-/* ——— eyebrow / utility type ——— */
-.eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
-}
-.serif{font-family:'Prata',serif;font-weight:400}
-
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
-.btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
-}
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
-
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
-}
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
-}
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
-
-/* ——— hero ——— */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
-  background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
-}
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
-.hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
-}
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
-
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
-}
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
-}
-
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
-}
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
-
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
-.sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
-}
-.sec-head p{color:var(--brume)}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
-}
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
-
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
-}
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
-}
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
-
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
-}
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
-}
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
-}
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
-
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ——— responsive ——— */
-@media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
-  }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..900;1,9..144,500..900&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%232E1D10'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23F3E9D2' stroke-opacity='.25' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='38' fill='none' stroke='%23F3E9D2' stroke-opacity='.18' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='17' fill='%23C9822E'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23F3E9D2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body id="top">
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================== NAVBAR ============================== -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner container">
+    <a class="brand" href="#top" aria-label="Music, Records & Luthiers — back to top">
+      <svg class="brand-disc" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="22" fill="#2E1D10"/>
+        <circle cx="24" cy="24" r="17" fill="none" stroke="#F3E9D2" stroke-opacity=".22" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="13" fill="none" stroke="#F3E9D2" stroke-opacity=".22" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="8" fill="#C9822E"/>
+        <circle cx="24" cy="24" r="2" fill="#F3E9D2"/>
+      </svg>
+      <span class="brand-name">
+        <strong>Music, Records</strong>
+        <em>&amp; Luthiers</em>
+      </span>
     </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#records">Records</a>
+      <a href="#instruments">Instruments</a>
+      <a href="#repairs">Repairs</a>
+      <a href="#events">Events</a>
+      <a class="nav-cta" href="#visit">Visit</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
-      </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
-    </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
+<main id="main">
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-bg" aria-hidden="true">
+    <!-- Stylized shop scene: guitar wall + record crate -->
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <defs>
+        <linearGradient id="hg-wall" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8F4A20"/>
+          <stop offset="1" stop-color="#61290F"/>
+        </linearGradient>
+        <linearGradient id="hg-floor" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4A2410"/>
+          <stop offset="1" stop-color="#30150A"/>
+        </linearGradient>
+        <radialGradient id="hg-burst" cx=".5" cy=".42" r=".75">
+          <stop offset=".18" stop-color="#E3B865"/>
+          <stop offset=".62" stop-color="#8A3B1E"/>
+          <stop offset="1" stop-color="#38180A"/>
+        </radialGradient>
+        <radialGradient id="hg-glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#FFD98A" stop-opacity=".8"/>
+          <stop offset="1" stop-color="#FFD98A" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- wall + wainscot + floor -->
+      <rect x="0" y="0" width="1600" height="760" fill="url(#hg-wall)"/>
+      <rect x="0" y="600" width="1600" height="160" fill="#57250F"/>
+      <rect x="0" y="594" width="1600" height="10" fill="#3E1B0C"/>
+      <rect x="0" y="760" width="1600" height="140" fill="url(#hg-floor)"/>
+      <g stroke="#241005" stroke-width="2" opacity=".55">
+        <line x1="220" y1="760" x2="200" y2="900"/>
+        <line x1="560" y1="760" x2="548" y2="900"/>
+        <line x1="900" y1="760" x2="900" y2="900"/>
+        <line x1="1240" y1="760" x2="1256" y2="900"/>
+      </g>
+      <line x1="0" y1="762" x2="1600" y2="762" stroke="#F3E9D2" stroke-opacity=".1" stroke-width="2"/>
+
+      <!-- pendant lamps -->
+      <g>
+        <rect x="378" y="0" width="4" height="126" fill="#241109"/>
+        <ellipse cx="380" cy="238" rx="150" ry="112" fill="url(#hg-glow)" opacity=".5"/>
+        <path d="M328,152 Q380,96 432,152 Z" fill="#2E1D10"/>
+        <line x1="330" y1="151" x2="430" y2="151" stroke="#D9A13B" stroke-width="5"/>
+        <circle cx="380" cy="163" r="9" fill="#FFE3A1"/>
+      </g>
+      <g>
+        <rect x="1178" y="0" width="4" height="106" fill="#241109"/>
+        <ellipse cx="1180" cy="220" rx="150" ry="112" fill="url(#hg-glow)" opacity=".45"/>
+        <path d="M1128,132 Q1180,76 1232,132 Z" fill="#2E1D10"/>
+        <line x1="1130" y1="131" x2="1230" y2="131" stroke="#D9A13B" stroke-width="5"/>
+        <circle cx="1180" cy="143" r="9" fill="#FFE3A1"/>
+      </g>
+
+      <!-- dust motes -->
+      <g fill="#FFE8B0" opacity=".22">
+        <circle cx="300" cy="140" r="3"/>
+        <circle cx="520" cy="108" r="2"/>
+        <circle cx="760" cy="182" r="2.5"/>
+        <circle cx="980" cy="122" r="2"/>
+        <circle cx="1350" cy="96" r="3"/>
+        <circle cx="620" cy="76" r="2"/>
+      </g>
+
+      <!-- ============ guitar wall ============ -->
+      <!-- Guitar A: single-cut, sunburst -->
+      <g>
+        <rect x="245" y="168" width="10" height="14" fill="#241109"/>
+        <rect x="236" y="182" width="28" height="50" rx="7" fill="#241109"/>
+        <g fill="#EADDBE" opacity=".55">
+          <circle cx="242" cy="194" r="2.4"/><circle cx="258" cy="194" r="2.4"/>
+          <circle cx="242" cy="208" r="2.4"/><circle cx="258" cy="208" r="2.4"/>
+          <circle cx="242" cy="222" r="2.4"/><circle cx="258" cy="222" r="2.4"/>
         </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
+        <rect x="241" y="230" width="18" height="126" fill="#4A2C12"/>
+        <g stroke="#EADDBE" stroke-width="1.6" opacity=".3">
+          <line x1="241" y1="252" x2="259" y2="252"/>
+          <line x1="241" y1="274" x2="259" y2="274"/>
+          <line x1="241" y1="296" x2="259" y2="296"/>
+          <line x1="241" y1="318" x2="259" y2="318"/>
+          <line x1="241" y1="340" x2="259" y2="340"/>
+        </g>
+        <path d="M250,352 C214,352 188,368 186,398 C184,424 198,436 198,452 C198,484 216,508 250,508 C284,508 302,484 302,452 C302,436 296,428 298,412 C300,384 282,352 250,352 Z"
+              fill="url(#hg-burst)" stroke="#241109" stroke-width="3"/>
+        <rect x="232" y="404" width="36" height="12" rx="3" fill="#241109"/>
+        <rect x="232" y="430" width="36" height="12" rx="3" fill="#241109"/>
+        <rect x="236" y="454" width="28" height="7" rx="2" fill="#241109"/>
+        <circle cx="279" cy="468" r="4.5" fill="#D9A13B"/>
+        <circle cx="290" cy="456" r="4.5" fill="#D9A13B"/>
+        <g stroke="#EADDBE" stroke-width="1.4" opacity=".5">
+          <line x1="247" y1="232" x2="247" y2="455"/>
+          <line x1="253" y1="232" x2="253" y2="455"/>
+        </g>
+      </g>
+
+      <!-- Guitar B: double-cut, cream -->
+      <g>
+        <rect x="445" y="196" width="10" height="14" fill="#241109"/>
+        <rect x="438" y="210" width="24" height="46" rx="6" fill="#C9822E"/>
+        <rect x="442" y="254" width="16" height="122" fill="#D9A13B"/>
+        <g stroke="#8A5A2B" stroke-width="1.6" opacity=".55">
+          <line x1="442" y1="276" x2="458" y2="276"/>
+          <line x1="442" y1="298" x2="458" y2="298"/>
+          <line x1="442" y1="320" x2="458" y2="320"/>
+          <line x1="442" y1="342" x2="458" y2="342"/>
+          <line x1="442" y1="364" x2="458" y2="364"/>
+        </g>
+        <path d="M450,388 C438,370 422,362 410,368 C398,374 400,392 404,404 C384,412 372,430 372,452 C372,486 400,508 450,508 C500,508 528,484 526,452 C524,428 512,410 496,404 C500,390 500,373 490,367 C479,362 462,370 450,388 Z"
+              fill="#EADDBE" stroke="#241109" stroke-width="3"/>
+        <ellipse cx="452" cy="456" rx="42" ry="32" fill="#F7EFDC" stroke="#C4B18A" stroke-width="2"/>
+        <rect x="436" y="424" width="32" height="8" rx="3" fill="#241109"/>
+        <rect x="436" y="444" width="32" height="8" rx="3" fill="#241109"/>
+        <rect x="436" y="464" width="32" height="8" rx="3" fill="#241109"/>
+        <circle cx="486" cy="470" r="4" fill="#8A3B1E"/>
+        <circle cx="497" cy="459" r="4" fill="#8A3B1E"/>
+        <g stroke="#8A5A2B" stroke-width="1.4" opacity=".6">
+          <line x1="447" y1="256" x2="447" y2="470"/>
+          <line x1="453" y1="256" x2="453" y2="470"/>
+        </g>
+      </g>
+
+      <!-- Guitar C: acoustic dreadnought -->
+      <g>
+        <rect x="645" y="172" width="10" height="14" fill="#241109"/>
+        <rect x="637" y="186" width="26" height="48" rx="6" fill="#241109"/>
+        <g fill="#EADDBE" opacity=".55">
+          <circle cx="643" cy="198" r="2.4"/><circle cx="657" cy="198" r="2.4"/>
+          <circle cx="643" cy="212" r="2.4"/><circle cx="657" cy="212" r="2.4"/>
+          <circle cx="643" cy="226" r="2.4"/><circle cx="657" cy="226" r="2.4"/>
+        </g>
+        <rect x="642" y="232" width="16" height="100" fill="#4A2C12"/>
+        <path d="M650,330 C610,330 594,352 596,376 C597,394 608,402 608,414 C608,420 600,428 598,442 C596,474 618,506 650,506 C682,506 704,474 702,442 C700,428 692,420 692,414 C692,402 703,394 704,376 C706,352 690,330 650,330 Z"
+              fill="#DFAE5A" stroke="#241109" stroke-width="3"/>
+        <circle cx="650" cy="410" r="24" fill="none" stroke="#8A5A2B" stroke-width="4"/>
+        <circle cx="650" cy="410" r="19" fill="#2A1206"/>
+        <rect x="630" y="452" width="40" height="9" rx="3" fill="#241109"/>
+        <g stroke="#F3E9D2" stroke-width="1.4" opacity=".5">
+          <line x1="647" y1="234" x2="647" y2="452"/>
+          <line x1="653" y1="234" x2="653" y2="452"/>
+        </g>
+      </g>
+
+      <!-- Guitar D: offset, teal -->
+      <g>
+        <rect x="853" y="200" width="10" height="14" fill="#241109"/>
+        <rect x="846" y="214" width="24" height="46" rx="6" fill="#241109"/>
+        <rect x="850" y="258" width="16" height="120" fill="#4A2C12"/>
+        <g stroke="#EADDBE" stroke-width="1.6" opacity=".3">
+          <line x1="850" y1="280" x2="866" y2="280"/>
+          <line x1="850" y1="302" x2="866" y2="302"/>
+          <line x1="850" y1="324" x2="866" y2="324"/>
+          <line x1="850" y1="346" x2="866" y2="346"/>
+        </g>
+        <path d="M858,390 C842,372 824,366 812,374 C800,382 802,398 806,408 C788,418 780,438 784,458 C790,488 818,506 858,504 C900,502 922,480 920,452 C918,430 906,412 892,404 C898,390 896,374 886,368 C876,363 866,372 858,390 Z"
+              fill="#46685C" stroke="#241109" stroke-width="3"/>
+        <ellipse cx="838" cy="452" rx="34" ry="26" fill="#EADDBE" opacity=".85"/>
+        <rect x="842" y="424" width="34" height="10" rx="4" fill="#241109"/>
+        <rect x="842" y="448" width="34" height="10" rx="4" fill="#241109"/>
+        <rect x="846" y="470" width="26" height="7" rx="2" fill="#241109"/>
+        <circle cx="894" cy="468" r="4" fill="#D9A13B"/>
+        <circle cx="904" cy="456" r="4" fill="#D9A13B"/>
+        <g stroke="#EADDBE" stroke-width="1.4" opacity=".45">
+          <line x1="855" y1="260" x2="855" y2="470"/>
+          <line x1="861" y1="260" x2="861" y2="470"/>
+        </g>
+      </g>
+
+      <!-- posters on the wall -->
+      <g transform="rotate(-2 1295 282)">
+        <rect x="1210" y="170" width="170" height="225" fill="#EFE3C6" stroke="#241109" stroke-width="3"/>
+        <g stroke="#B85C33" stroke-width="7" stroke-linecap="round">
+          <line x1="1295" y1="258" x2="1295" y2="196"/>
+          <line x1="1295" y1="258" x2="1338" y2="214"/>
+          <line x1="1295" y1="258" x2="1252" y2="214"/>
+          <line x1="1295" y1="258" x2="1352" y2="256"/>
+          <line x1="1295" y1="258" x2="1238" y2="256"/>
+        </g>
+        <circle cx="1295" cy="258" r="30" fill="#D9A13B" stroke="#241109" stroke-width="3"/>
+        <rect x="1240" y="318" width="112" height="9" rx="3" fill="#8A5A2B" opacity=".75"/>
+        <rect x="1240" y="336" width="78" height="9" rx="3" fill="#8A5A2B" opacity=".55"/>
+        <rect x="1240" y="354" width="94" height="9" rx="3" fill="#8A5A2B" opacity=".4"/>
+        <rect x="1224" y="162" width="30" height="14" fill="#D9A13B" opacity=".85" transform="rotate(-24 1239 169)"/>
+        <rect x="1338" y="162" width="30" height="14" fill="#D9A13B" opacity=".85" transform="rotate(20 1353 169)"/>
+      </g>
+      <g transform="rotate(2 1490 300)">
+        <rect x="1428" y="240" width="124" height="124" fill="#2E1D10" stroke="#D9A13B" stroke-width="5"/>
+        <rect x="1441" y="253" width="98" height="98" fill="#46685C"/>
+        <circle cx="1490" cy="302" r="26" fill="#EADDBE"/>
+        <circle cx="1490" cy="302" r="8" fill="#8A3B1E"/>
+      </g>
+
+      <!-- ============ amp + record crate ============ -->
+      <ellipse cx="1005" cy="800" rx="92" ry="14" fill="#1A0B04" opacity=".4"/>
+      <ellipse cx="1255" cy="808" rx="205" ry="18" fill="#1A0B04" opacity=".4"/>
+
+      <g>
+        <path d="M960,668 Q1005,640 1050,668" fill="none" stroke="#241109" stroke-width="8" stroke-linecap="round"/>
+        <rect x="940" y="662" width="130" height="132" rx="10" fill="#241109"/>
+        <rect x="948" y="672" width="114" height="26" rx="6" fill="#3A2414"/>
+        <circle cx="964" cy="685" r="6" fill="#D9A13B"/>
+        <circle cx="988" cy="685" r="6" fill="#D9A13B"/>
+        <circle cx="1012" cy="685" r="6" fill="#D9A13B"/>
+        <circle cx="1036" cy="685" r="6" fill="#D9A13B"/>
+        <circle cx="1054" cy="685" r="4" fill="#B85C33"/>
+        <rect x="948" y="704" width="114" height="80" rx="6" fill="#6B543E"/>
+        <g stroke="#241109" stroke-width="3" opacity=".55">
+          <line x1="960" y1="708" x2="960" y2="780"/>
+          <line x1="974" y1="708" x2="974" y2="780"/>
+          <line x1="988" y1="708" x2="988" y2="780"/>
+          <line x1="1002" y1="708" x2="1002" y2="780"/>
+          <line x1="1016" y1="708" x2="1016" y2="780"/>
+          <line x1="1030" y1="708" x2="1030" y2="780"/>
+          <line x1="1044" y1="708" x2="1044" y2="780"/>
+        </g>
+        <path d="M938,796 Q880,824 820,806 Q760,788 716,812" fill="none" stroke="#241109" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+      </g>
+
+      <!-- sleeves inside the crate (crate face covers their feet) -->
+      <g stroke="#241109" stroke-width="2">
+        <rect x="1092" y="472" width="21" height="180" rx="3" fill="#D9A13B" transform="rotate(-5 1102 560)"/>
+        <rect x="1116" y="464" width="21" height="188" rx="3" fill="#B85C33" transform="rotate(-3 1126 560)"/>
+        <rect x="1140" y="478" width="21" height="176" rx="3" fill="#EADDBE" transform="rotate(-4 1150 560)"/>
+        <rect x="1164" y="458" width="21" height="196" rx="3" fill="#46685C" transform="rotate(-2 1174 560)"/>
+        <rect x="1188" y="470" width="21" height="184" rx="3" fill="#8A3B1E" transform="rotate(-1 1198 560)"/>
+        <rect x="1212" y="482" width="21" height="172" rx="3" fill="#2A1206" transform="rotate(1 1222 560)"/>
+        <!-- divider card with tab -->
+        <g transform="rotate(1 1250 540)">
+          <rect x="1252" y="420" width="34" height="22" rx="4" fill="#EFE3C6"/>
+          <rect x="1238" y="438" width="26" height="216" rx="3" fill="#EFE3C6"/>
+        </g>
+        <rect x="1268" y="466" width="21" height="188" rx="3" fill="#C9822E" transform="rotate(2 1278 560)"/>
+        <rect x="1292" y="476" width="21" height="178" rx="3" fill="#99431F" transform="rotate(3 1302 560)"/>
+        <rect x="1316" y="460" width="21" height="194" rx="3" fill="#46685C" transform="rotate(4 1326 560)"/>
+        <rect x="1340" y="472" width="21" height="182" rx="3" fill="#EFE3C6" transform="rotate(5 1350 560)"/>
+        <rect x="1364" y="482" width="21" height="172" rx="3" fill="#6B543E" transform="rotate(6 1374 560)"/>
+        <rect x="1388" y="470" width="21" height="184" rx="3" fill="#D9A13B" transform="rotate(7 1398 560)"/>
+      </g>
+      <text x="1268" y="437" font-size="13" font-weight="700" letter-spacing="2" fill="#8A5A2B" text-anchor="middle" font-family="Karla, sans-serif">JAZZ</text>
+
+      <!-- crate box -->
+      <rect x="1078" y="608" width="344" height="192" rx="8" fill="#7A4A1E" stroke="#3E1B0C" stroke-width="4"/>
+      <line x1="1090" y1="668" x2="1410" y2="668" stroke="#5E3A16" stroke-width="4"/>
+      <line x1="1090" y1="732" x2="1410" y2="732" stroke="#5E3A16" stroke-width="4"/>
+      <rect x="1090" y="620" width="14" height="168" fill="#5E3A16" opacity=".5"/>
+      <rect x="1396" y="620" width="14" height="168" fill="#5E3A16" opacity=".5"/>
+      <text x="1250" y="710" font-size="26" font-weight="700" letter-spacing="6" fill="#3E1B0C" opacity=".7" text-anchor="middle" font-family="Karla, sans-serif">CRATE Nº 3</text>
+    </svg>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span>Est. 1974</span><span class="dot">◆</span><span>Records · Gear · Repairs</span></p>
+    <h1>Music, Records <span class="amp">&amp;</span> Luthiers</h1>
+    <p class="tagline">Vinyl, strings, and everything that sings.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#records">Browse the Crates</a>
+      <a class="btn btn-ghost" href="#repairs">Book a Repair</a>
     </div>
   </div>
+
+  <a class="hero-scroll" href="#records" aria-label="Scroll down to the records section">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </section>
 
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
+<!-- ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-group">
+      <span>New arrivals every Friday</span><span class="sep">✦</span>
+      <span>We buy your records</span><span class="sep">✦</span>
+      <span>Listening booths open daily</span><span class="sep">✦</span>
+      <span>Same-week setups &amp; restrings</span><span class="sep">✦</span>
+      <span>Trade-ins welcome</span><span class="sep">✦</span>
     </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
+    <div class="ticker-group">
+      <span>New arrivals every Friday</span><span class="sep">✦</span>
+      <span>We buy your records</span><span class="sep">✦</span>
+      <span>Listening booths open daily</span><span class="sep">✦</span>
+      <span>Same-week setups &amp; restrings</span><span class="sep">✦</span>
+      <span>Trade-ins welcome</span><span class="sep">✦</span>
     </div>
   </div>
 </div>
 
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
+<!-- ============================== RECORDS ============================== -->
+<section id="records" class="section">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Fresh from the crates</p>
+      <h2>This Week's Bin Highlights</h2>
+      <p class="section-sub">Eight sleeves our staff pulled so you don't have to dig — though honestly, the digging is the fun part.</p>
+    </header>
+
+    <div class="record-grid">
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#C9822E" aria-hidden="true"></div>
+          <div class="cover cv-sunburst"><span class="cover-code">MRL-001</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-jazz">Jazz</span><span class="price">$24</span></div>
+          <h3>Golden Hour Quartet</h3>
+          <p class="album">“Live at the Corner Booth” · 1977 press</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#99431F" aria-hidden="true"></div>
+          <div class="cover cv-stripes"><span class="cover-code">MRL-002</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-rock">Rock</span><span class="price">$18</span></div>
+          <h3>Canyon Drive</h3>
+          <p class="album">“Mile Marker Nowhere” · reissue, sealed</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#2E1D10" aria-hidden="true"></div>
+          <div class="cover cv-checker"><span class="cover-code">MRL-003</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-hiphop">Hip-Hop</span><span class="price">$22</span></div>
+          <h3>Corner Store Tapes</h3>
+          <p class="album">“Bodega Radio Vol. 2” · VG+</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#46685C" aria-hidden="true"></div>
+          <div class="cover cv-rings"><span class="cover-code">MRL-004</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-electronic">Electronic</span><span class="price">$20</span></div>
+          <h3>Orbit &amp; Echo</h3>
+          <p class="album">“Night Frequencies” · 2 × LP</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#D9A13B" aria-hidden="true"></div>
+          <div class="cover cv-arches"><span class="cover-code">MRL-005</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-local">Local Artists</span><span class="price">$15</span></div>
+          <h3>The Front Porch Collective</h3>
+          <p class="album">“Songs for Slow Sundays” · hand-numbered</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#C9822E" aria-hidden="true"></div>
+          <div class="cover cv-moon"><span class="cover-code">MRL-006</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-jazz">Jazz</span><span class="price">$26</span></div>
+          <h3>Marlene Okafor Trio</h3>
+          <p class="album">“Blue Basement Sessions” · original press</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#B85C33" aria-hidden="true"></div>
+          <div class="cover cv-zigzag"><span class="cover-code">MRL-007</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-rock">Rock</span><span class="price">$17</span></div>
+          <h3>Static Bloom</h3>
+          <p class="album">“Louder Than the Landlord” · EP</p>
+        </div>
+      </article>
+
+      <article class="record-card reveal">
+        <div class="sleeve">
+          <div class="vinyl" style="--label:#EADDBE" aria-hidden="true"></div>
+          <div class="cover cv-split"><span class="cover-code">MRL-008</span></div>
+        </div>
+        <div class="record-meta">
+          <div class="record-tags"><span class="tag tag-electronic">Electronic</span><span class="price">$21</span></div>
+          <h3>Modular Ghosts</h3>
+          <p class="album">“Patch Notes” · clear vinyl</p>
+        </div>
+      </article>
     </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
-      </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
-      </ul>
+
+    <p class="section-note reveal">Hunting for something specific? We do special orders and want-lists — bring us your white whale.</p>
+  </div>
+</section>
+
+<!-- ============================== INSTRUMENTS ============================== -->
+<section id="instruments" class="section section--alt">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">The gear wall</p>
+      <h2>Instruments &amp; Gear</h2>
+      <p class="section-sub">Every piece is inspected, set up, and played before it earns a spot on the wall. Come in and make some noise — that's what it's for.</p>
+    </header>
+
+    <div class="instrument-grid">
+      <article class="instrument-card reveal">
+        <div class="instrument-media im-a">
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <rect x="53" y="4" width="14" height="15" rx="4" fill="#2E1D10"/>
+            <rect x="56" y="16" width="8" height="50" rx="3" fill="#2E1D10"/>
+            <path d="M60,58 C46,58 40,66 41,74 C42,80 46,82 46,87 C46,96 51,104 60,104 C69,104 74,96 74,87 C74,82 78,80 79,74 C80,66 74,58 60,58 Z" fill="#8A3B1E" stroke="#2E1D10" stroke-width="3"/>
+            <circle cx="60" cy="80" r="12" fill="none" stroke="#D9A13B" stroke-width="2.5"/>
+            <circle cx="60" cy="80" r="9" fill="#2E1D10"/>
+            <line x1="60" y1="20" x2="60" y2="70" stroke="#F3E9D2" stroke-width="1.6" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="instrument-body">
+          <h3>Guitars</h3>
+          <p>Electrics, acoustics, basses, and the occasional beautiful oddball — new, used, and vintage.</p>
+          <span class="instrument-meta">From $189 · 40+ on the wall</span>
+        </div>
+      </article>
+
+      <article class="instrument-card reveal">
+        <div class="instrument-media im-b">
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <path d="M45,36 Q60,20 75,36" fill="none" stroke="#2E1D10" stroke-width="6" stroke-linecap="round"/>
+            <rect x="18" y="34" width="84" height="64" rx="10" fill="#2E1D10"/>
+            <rect x="25" y="41" width="70" height="16" rx="5" fill="#8A3B1E"/>
+            <circle cx="40" cy="49" r="4" fill="#D9A13B"/>
+            <circle cx="58" cy="49" r="4" fill="#D9A13B"/>
+            <circle cx="76" cy="49" r="4" fill="#D9A13B"/>
+            <circle cx="89" cy="49" r="3" fill="#B85C33"/>
+            <rect x="25" y="62" width="70" height="30" rx="6" fill="#6B543E"/>
+            <g stroke="#2E1D10" stroke-width="2.5" opacity=".6">
+              <line x1="35" y1="65" x2="35" y2="89"/><line x1="47" y1="65" x2="47" y2="89"/>
+              <line x1="59" y1="65" x2="59" y2="89"/><line x1="71" y1="65" x2="71" y2="89"/>
+              <line x1="83" y1="65" x2="83" y2="89"/>
+            </g>
+            <rect x="26" y="98" width="12" height="6" rx="2" fill="#2E1D10"/>
+            <rect x="82" y="98" width="12" height="6" rx="2" fill="#2E1D10"/>
+          </svg>
+        </div>
+        <div class="instrument-body">
+          <h3>Amps &amp; Pedals</h3>
+          <p>Tube combos, solid-state workhorses, and a pedal wall that will absolutely derail your afternoon.</p>
+          <span class="instrument-meta">From $79 · try before you buy</span>
+        </div>
+      </article>
+
+      <article class="instrument-card reveal">
+        <div class="instrument-media im-c">
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <rect x="14" y="30" width="52" height="6" rx="3" fill="#8A3B1E"/>
+            <circle cx="103" cy="36" r="4" fill="#B85C33"/>
+            <rect x="10" y="40" width="100" height="46" rx="8" fill="#2E1D10"/>
+            <rect x="16" y="46" width="88" height="34" rx="4" fill="#FAF3E3"/>
+            <g stroke="#2E1D10" stroke-width="2">
+              <line x1="30.5" y1="46" x2="30.5" y2="80"/><line x1="45" y1="46" x2="45" y2="80"/>
+              <line x1="59.5" y1="46" x2="59.5" y2="80"/><line x1="74" y1="46" x2="74" y2="80"/>
+              <line x1="88.5" y1="46" x2="88.5" y2="80"/>
+            </g>
+            <g fill="#2E1D10">
+              <rect x="25" y="46" width="9" height="19" rx="2"/>
+              <rect x="40" y="46" width="9" height="19" rx="2"/>
+              <rect x="69" y="46" width="9" height="19" rx="2"/>
+              <rect x="84" y="46" width="9" height="19" rx="2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="instrument-body">
+          <h3>Keyboards</h3>
+          <p>Stage pianos, combo organs, and analog synths — serviced, tuned, and ready to gig.</p>
+          <span class="instrument-meta">From $249 · headphones provided</span>
+        </div>
+      </article>
+
+      <article class="instrument-card reveal">
+        <div class="instrument-media im-d">
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <path d="M44,34 C59,34 70,43 70,56 C70,73 44,94 44,94 C44,94 18,73 18,56 C18,43 29,34 44,34 Z" fill="#46685C" stroke="#2E1D10" stroke-width="3" transform="rotate(-14 44 60)"/>
+            <path d="M76,34 C91,34 102,43 102,56 C102,73 76,94 76,94 C76,94 50,73 50,56 C50,43 61,34 76,34 Z" fill="#D9A13B" stroke="#2E1D10" stroke-width="3" transform="rotate(13 76 60)"/>
+            <path d="M60,26 C75,26 86,35 86,48 C86,65 60,88 60,88 C60,88 34,65 34,48 C34,35 45,26 60,26 Z" fill="#8A3B1E" stroke="#2E1D10" stroke-width="3"/>
+            <g fill="#F3E9D2" opacity=".9">
+              <circle cx="54" cy="43" r="2.2"/><circle cx="66" cy="43" r="2.2"/><circle cx="60" cy="52" r="2.2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="instrument-body">
+          <h3>Accessories</h3>
+          <p>Strings, straps, picks, capos, slides, cables, cases — the small stuff that saves the show.</p>
+          <span class="instrument-meta">From $3 · strings in every gauge</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
-    </div>
-    <div class="menu-grid">
+<!-- ============================== LUTHIER & REPAIRS ============================== -->
+<section id="repairs" class="section">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">The luthier's bench</p>
+      <h2>Repairs &amp; Setups, Done Right</h2>
+      <p class="section-sub">Our in-house luthier has thirty years of sawdust under their nails. If it has strings and a soul, we can bring it back.</p>
+    </header>
 
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
+    <div class="repairs-grid">
+      <div class="repairs-left reveal">
+        <figure class="bench-figure">
+          <svg viewBox="0 0 880 640" role="img" focusable="false" aria-labelledby="benchTitle">
+            <title id="benchTitle">Illustration of the luthier's workbench with a guitar mid-repair</title>
+            <defs>
+              <pattern id="wb-peg" width="34" height="34" patternUnits="userSpaceOnUse">
+                <circle cx="17" cy="17" r="3" fill="#C6AC7C"/>
+              </pattern>
+            </defs>
+            <rect width="880" height="640" fill="#E8D7B0"/>
+            <rect width="880" height="440" fill="url(#wb-peg)"/>
 
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
+            <!-- lamp -->
+            <g stroke="#3A2414" stroke-width="9" stroke-linecap="round" fill="none">
+              <line x1="60" y1="0" x2="150" y2="118"/>
+              <line x1="150" y1="118" x2="256" y2="180"/>
+            </g>
+            <circle cx="150" cy="118" r="9" fill="#3A2414"/>
+            <path d="M243,164 L308,212 L262,238 Z" fill="#8A3B1E" stroke="#3A2414" stroke-width="4" stroke-linejoin="round"/>
+            <polygon points="278,226 560,440 300,470" fill="#FFE8B0" opacity=".14"/>
+            <ellipse cx="430" cy="462" rx="240" ry="52" fill="#FFD98A" opacity=".25"/>
 
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
+            <!-- shelf + jars + manuals -->
+            <rect x="40" y="96" width="300" height="14" rx="3" fill="#8A5A2B"/>
+            <path d="M70,110 L70,132 L92,110 Z" fill="#6E4318"/>
+            <path d="M290,110 L290,132 L312,110 Z" fill="#6E4318"/>
+            <g>
+              <rect x="58" y="50" width="44" height="46" rx="7" fill="#F3E9D2" stroke="#B8A176" stroke-width="3"/>
+              <rect x="54" y="42" width="52" height="12" rx="4" fill="#8A3B1E"/>
+              <circle cx="70" cy="82" r="3" fill="#6B543E"/><circle cx="82" cy="76" r="3" fill="#6B543E"/><circle cx="90" cy="86" r="3" fill="#6B543E"/>
+            </g>
+            <g>
+              <rect x="118" y="54" width="40" height="42" rx="7" fill="#F3E9D2" stroke="#B8A176" stroke-width="3"/>
+              <rect x="114" y="46" width="48" height="12" rx="4" fill="#46685C"/>
+              <circle cx="130" cy="82" r="3" fill="#8A5A2B"/><circle cx="142" cy="74" r="3" fill="#8A5A2B"/>
+            </g>
+            <g>
+              <rect x="240" y="84" width="70" height="12" rx="2" fill="#46685C"/>
+              <rect x="246" y="72" width="62" height="12" rx="2" fill="#B85C33"/>
+              <rect x="250" y="60" width="56" height="12" rx="2" fill="#D9A13B"/>
+            </g>
 
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
+            <!-- hanging tools -->
+            <g>
+              <circle cx="640" cy="104" r="4" fill="#3E2A16"/>
+              <rect x="633" y="108" width="14" height="52" rx="6" fill="#5E4326"/>
+              <rect x="616" y="156" width="48" height="12" rx="6" fill="#5E4326"/>
+              <rect x="631" y="166" width="18" height="26" rx="5" fill="#8A3B1E"/>
+            </g>
+            <g>
+              <circle cx="716" cy="112" r="4" fill="#3E2A16"/>
+              <path d="M716,120 a26,26 0 1 0 26,26" fill="none" stroke="#5E4326" stroke-width="11" stroke-linecap="round"/>
+              <rect x="736" y="140" width="26" height="10" rx="4" fill="#5E4326"/>
+            </g>
+            <g>
+              <circle cx="796" cy="106" r="4" fill="#3E2A16"/>
+              <rect x="789" y="110" width="14" height="66" rx="7" fill="#5E4326"/>
+              <rect x="785" y="176" width="22" height="30" rx="8" fill="#8A3B1E"/>
+            </g>
+            <g stroke="#5E4326" stroke-width="7" fill="none" stroke-linecap="round">
+              <path d="M842,116 v34 h20"/>
+              <path d="M852,104 v22 h14" opacity=".7"/>
+            </g>
 
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
+            <!-- bench -->
+            <rect x="0" y="440" width="880" height="36" fill="#A66B2F"/>
+            <line x1="0" y1="444" x2="880" y2="444" stroke="#F3E9D2" stroke-opacity=".35" stroke-width="2"/>
+            <path d="M30,462 q80,-8 160,0 q90,8 180,-2" fill="none" stroke="#8A5220" stroke-width="3" opacity=".5"/>
+            <path d="M480,466 q110,-10 200,0 q80,7 170,-3" fill="none" stroke="#8A5220" stroke-width="3" opacity=".5"/>
+            <rect x="0" y="476" width="880" height="164" fill="#7A4A1E"/>
+            <g fill="#8A5528" stroke="#5E3A16" stroke-width="4">
+              <rect x="70" y="502" width="220" height="92" rx="10"/>
+              <rect x="350" y="502" width="220" height="92" rx="10"/>
+              <rect x="630" y="502" width="190" height="92" rx="10"/>
+            </g>
+            <circle cx="180" cy="548" r="8" fill="#2E1D10"/>
+            <circle cx="460" cy="548" r="8" fill="#2E1D10"/>
+            <circle cx="725" cy="548" r="8" fill="#2E1D10"/>
 
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- guitar on the bench -->
+            <g transform="rotate(-3 440 420)">
+              <rect x="586" y="420" width="48" height="30" rx="8" fill="#8A3B1E" stroke="#241109" stroke-width="3"/>
+              <path d="M300,362 C258,362 228,382 228,414 C228,448 260,468 302,468 C336,468 356,452 362,432 L362,398 C356,376 334,362 300,362 Z" fill="#46685C" stroke="#241109" stroke-width="4"/>
+              <rect x="356" y="400" width="290" height="26" rx="4" fill="#C9822E" stroke="#241109" stroke-width="3"/>
+              <g stroke="#7A4A1E" stroke-width="2.5" opacity=".8">
+                <line x1="392" y1="402" x2="392" y2="424"/><line x1="424" y1="402" x2="424" y2="424"/>
+                <line x1="456" y1="402" x2="456" y2="424"/><line x1="488" y1="402" x2="488" y2="424"/>
+                <line x1="520" y1="402" x2="520" y2="424"/><line x1="552" y1="402" x2="552" y2="424"/>
+                <line x1="584" y1="402" x2="584" y2="424"/><line x1="612" y1="402" x2="612" y2="424"/>
+              </g>
+              <path d="M644,398 L700,392 Q716,392 716,406 L716,420 Q716,432 700,432 L644,428 Z" fill="#D9A13B" stroke="#241109" stroke-width="3"/>
+              <g fill="#241109">
+                <circle cx="668" cy="388" r="4"/><circle cx="688" cy="386" r="4"/><circle cx="706" cy="386" r="4"/>
+              </g>
+              <g stroke="#F3E9D2" stroke-width="1.6" opacity=".8">
+                <line x1="300" y1="408" x2="700" y2="404"/>
+                <line x1="300" y1="414" x2="700" y2="412"/>
+                <line x1="300" y1="420" x2="700" y2="420"/>
+              </g>
+              <rect x="282" y="406" width="30" height="18" rx="4" fill="#241109"/>
+              <circle cx="330" cy="450" r="6" fill="#D9A13B" stroke="#241109" stroke-width="2"/>
+            </g>
 
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
+            <!-- bench clutter -->
+            <g>
+              <rect x="86" y="424" width="36" height="14" rx="7" fill="#8A3B1E"/>
+              <line x1="122" y1="431" x2="178" y2="431" stroke="#6B543E" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <g fill="none" stroke="#6B543E" stroke-width="2.5">
+              <circle cx="216" cy="430" r="13"/>
+              <circle cx="216" cy="430" r="8"/>
+              <circle cx="216" cy="430" r="3.5"/>
+            </g>
+            <rect x="700" y="428" width="96" height="16" rx="5" fill="#5E4326"/>
+            <g fill="#F3E9D2">
+              <circle cx="722" cy="436" r="2.5"/><circle cx="740" cy="436" r="2.5"/><circle cx="758" cy="436" r="2.5"/><circle cx="776" cy="436" r="2.5"/>
+            </g>
+            <path d="M806,420 q16,-14 34,-4 q16,9 2,18 q-20,12 -36,-2 Z" fill="#EFE3C6" stroke="#C6AC7C" stroke-width="2.5"/>
+          </svg>
+          <figcaption>The bench — where broken things get their voices back.</figcaption>
+        </figure>
+
+        <ul class="services">
+          <li class="service reveal">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="4" x2="5" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="19" y1="4" x2="19" y2="20"/></g><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="12" cy="15" r="2.4" fill="currentColor"/><circle cx="19" cy="7" r="2.4" fill="currentColor"/></svg>
+            </span>
+            <div class="service-body">
+              <div class="service-head"><h3>Setups</h3><span class="service-price">from $65</span></div>
+              <p>Action, intonation, neck relief, and a good talking-to. Leaves playing the way it should have from the factory.</p>
             </div>
           </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
+          <li class="service reveal">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="5" x2="20" y2="5"/><path d="M4 9 h16 M4 9 v10 M20 9 v10"/><line x1="8.5" y1="9" x2="8.5" y2="19"/><line x1="13" y1="9" x2="13" y2="19"/><line x1="17" y1="9" x2="17" y2="19"/></g></svg>
+            </span>
+            <div class="service-body">
+              <div class="service-head"><h3>Fret Work</h3><span class="service-price">from $120</span></div>
+              <p>Level, crown, and polish — through to partial and full refrets. Buzz-free, choke-free, gleaming.</p>
             </div>
           </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
+          <li class="service reveal">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M13 2 L5 13 h5 l-2 9 L19 10 h-6 Z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="service-body">
+              <div class="service-head"><h3>Electronics</h3><span class="service-price">from $45</span></div>
+              <p>Scratchy pots, dead jacks, pickup swaps, shielding, full rewires. We chase the crackle so you don't have to.</p>
             </div>
           </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
+          <li class="service reveal">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M2 12 q2.75,-6 5.5,0 t5.5,0 t5.5,0 t3.5,0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <div class="service-body">
+              <div class="service-head"><h3>Restringing</h3><span class="service-price">from $15 + strings</span></div>
+              <p>While-you-wait restrings with a fretboard clean and quick once-over. Browse the crates; we'll call your name.</p>
+            </div>
+          </li>
+          <li class="service reveal">
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 v6 a5 5 0 0 0 10 0 V4"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="9" y1="21" x2="15" y2="21"/></g></svg>
+            </span>
+            <div class="service-body">
+              <div class="service-head"><h3>Repairs</h3><span class="service-price">quoted at the bench</span></div>
+              <p>Cracks, breaks, lifting bridges, headstock heartbreak. Honest quotes before we touch a thing — heirlooms handled like heirlooms.</p>
             </div>
           </li>
         </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
       </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
+
+      <!-- Booking form (front-end only) -->
+      <div class="repairs-right reveal">
+        <div class="repair-form-card">
+          <h3 id="bookTitle">Book a Repair</h3>
+          <p class="form-intro">Tell us what hurts. We'll confirm your bench slot by phone within one business day.</p>
+
+          <form id="repairForm" aria-labelledby="bookTitle" novalidate>
+            <div class="field">
+              <label for="rf-name">Your name</label>
+              <input type="text" id="rf-name" name="name" autocomplete="name" placeholder="Jo Strummer" required>
+            </div>
+            <div class="field">
+              <label for="rf-phone">Phone</label>
+              <input type="tel" id="rf-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(555) 010-3345" pattern="[0-9\(\)\+\-\.\s]{7,}" title="Please enter a phone number (digits, spaces, and ()+-. are fine)." required>
+            </div>
+            <div class="field">
+              <label for="rf-instrument">Instrument</label>
+              <select id="rf-instrument" name="instrument" required>
+                <option value="" selected disabled>Choose one…</option>
+                <option>Electric guitar</option>
+                <option>Acoustic guitar</option>
+                <option>Bass</option>
+                <option>Banjo / mandolin / uke</option>
+                <option>Keys / synth</option>
+                <option>Something else entirely</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="rf-issue">What's going on?</label>
+              <textarea id="rf-issue" name="issue" rows="4" placeholder="Buzzing on the low E above the 7th fret, and the output jack crackles…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-solid btn-block">Request a Bench Slot</button>
+            <p class="form-note">Demo form — nothing is sent anywhere yet. Prefer voices? Call <a href="tel:+15550103345">(555) 010-3345</a>.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess" hidden aria-live="polite">
+            <span class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 12.5 L10 18.5 L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h4>You're on the list!</h4>
+            <p id="successMsg">Thanks — we'll call you shortly to lock in a bench slot.</p>
+            <p class="form-note">This is a front-end demo, so nothing actually left your browser. In the meantime, keep it in its case.</p>
+            <button type="button" class="btn btn-outline" id="formReset">Book another repair</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ——————— FOOTER ——————— -->
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
-    </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
+<!-- ============================== EVENTS ============================== -->
+<section id="events" class="section section--dark">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">On the shop calendar</p>
+      <h2>Nights Worth Staying Out For</h2>
+      <p class="section-sub">Small room, big speakers, good people. Everything happens right here on the shop floor.</p>
+    </header>
+
+    <div class="event-grid">
+      <article class="event-card reveal">
+        <div class="event-when">
+          <span class="date-badge"><span class="d1">3rd</span><span class="d2">FRI</span></span>
+          <span class="event-time">7:00 PM · Listening lounge</span>
+        </div>
+        <h3>Vinyl Listening Night</h3>
+        <p>One classic album, front to back, on the house hi-fi. Lights low, phones pocketed, snacks provided. This month: a certain 1971 soul masterpiece.</p>
+        <span class="event-tag">Free entry</span>
+      </article>
+
+      <article class="event-card reveal">
+        <div class="event-when">
+          <span class="date-badge"><span class="d1">Every</span><span class="d2">SUN</span></span>
+          <span class="event-time">Sign-up 6 PM · Two songs each</span>
+        </div>
+        <h3>Open Mic at the Bench</h3>
+        <p>Bring your songs; we bring the PA, a house guitar, and an audience that actually listens. First-timers get the warmest applause in town.</p>
+        <span class="event-tag">All levels welcome</span>
+      </article>
+
+      <article class="event-card reveal">
+        <div class="event-when">
+          <span class="date-badge"><span class="d1">1st</span><span class="d2">SAT</span></span>
+          <span class="event-time">Doors 9 AM sharp</span>
+        </div>
+        <h3>New-Arrivals Drop Day</h3>
+        <p>Fresh crates hit the floor the moment we open — estate finds, imports, and the weird stuff. Early birds get first flip and free coffee from the cart.</p>
+        <span class="event-tag">First come, first flip</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section id="testimonials" class="section" aria-label="Testimonials">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Word on the street</p>
+      <h2>Musicians Talk. We Blush.</h2>
+    </header>
+
+    <div class="quote-grid">
+      <figure class="quote-card tilt-l reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          <p>They re-fretted my '68 Melody Maker and it plays better than the day I stole it back from my brother. The bench here is the real deal.</p>
+        </blockquote>
+        <figcaption>
+          <strong>Marlene Okafor</strong>
+          <span>Session guitarist</span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote-card tilt-r reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          <p>Half my sample library started life as four-dollar sleeves from their hip-hop bin. The staff-picks wall has never once missed.</p>
+        </blockquote>
+        <figcaption>
+          <strong>Dez “Loops” Carter</strong>
+          <span>Producer &amp; DJ</span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote-card tilt-l reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          <p>I brought in my grandfather's parlor guitar, held together with hope and packing tape. It came back a month later, singing.</p>
+        </blockquote>
+        <figcaption>
+          <strong>June Delacroix</strong>
+          <span>Folk singer-songwriter</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== HOURS & LOCATION ============================== -->
+<section id="visit" class="section section--alt">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow">Come say hi</p>
+      <h2>Hours &amp; Location</h2>
+      <p class="section-sub">Look for the spinning record in the window — you'll hear us before you see us.</p>
+    </header>
+
+    <div class="visit-grid">
+      <div class="visit-info reveal">
+        <div class="hours-card">
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7 v5 l3.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Shop Hours
+          </h3>
+          <ul class="hours-list" id="hoursList">
+            <li class="hours-row" data-day="1"><span class="day">Monday</span><span class="time">10 AM – 7 PM</span></li>
+            <li class="hours-row" data-day="2"><span class="day">Tuesday</span><span class="time">10 AM – 7 PM</span></li>
+            <li class="hours-row" data-day="3"><span class="day">Wednesday</span><span class="time">10 AM – 7 PM</span></li>
+            <li class="hours-row" data-day="4"><span class="day">Thursday</span><span class="time">10 AM – 9 PM</span></li>
+            <li class="hours-row" data-day="5"><span class="day">Friday</span><span class="time">10 AM – 9 PM</span></li>
+            <li class="hours-row" data-day="6"><span class="day">Saturday</span><span class="time">9 AM – 9 PM</span></li>
+            <li class="hours-row" data-day="0"><span class="day">Sunday</span><span class="time">11 AM – 5 PM</span></li>
+          </ul>
+          <p class="hours-note">Repair drop-offs until one hour before close.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>
+            <svg class="h3-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21 C12 21 5 14.6 5 9.8 A7 7 0 0 1 19 9.8 C19 14.6 12 21 12 21 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>
+            Find Us
+          </h3>
+          <address>
+            4242 Analog Avenue<br>
+            Old Mill District<br>
+            Harmony Falls, OR 97000
+          </address>
+          <p class="contact-line"><strong>Phone:</strong> <a href="tel:+15550103345">(555) 010-3345</a></p>
+          <p class="contact-line"><strong>Email:</strong> <a href="mailto:hello@musicrecordsluthiers.example">hello@musicrecordsluthiers.example</a></p>
+          <ul class="visit-perks">
+            <li>Free lot behind the shop</li>
+            <li>Bus 12 stops out front</li>
+            <li>Step-free entrance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="map-card reveal">
+        <svg viewBox="0 0 640 460" role="img" focusable="false" aria-labelledby="mapTitle">
+          <title id="mapTitle">Stylized map showing the shop at the corner of Analog Avenue and Groove Street</title>
+          <rect width="640" height="460" fill="#E7D7AF"/>
+
+          <!-- building footprints -->
+          <g fill="#D9C69C">
+            <rect x="220" y="30" width="72" height="52" rx="6"/>
+            <rect x="310" y="44" width="56" height="44" rx="6"/>
+            <rect x="470" y="30" width="88" height="56" rx="6"/>
+            <rect x="40" y="260" width="52" height="60" rx="6"/>
+            <rect x="150" y="270" width="70" height="46" rx="6"/>
+            <rect x="440" y="270" width="66" height="52" rx="6"/>
+            <rect x="530" y="380" width="76" height="48" rx="6"/>
+            <rect x="230" y="386" width="90" height="44" rx="6"/>
+          </g>
+
+          <!-- streets -->
+          <g stroke="#F5ECD5" stroke-linecap="round">
+            <line x1="0" y1="110" x2="640" y2="110" stroke-width="24"/>
+            <line x1="0" y1="232" x2="640" y2="232" stroke-width="32"/>
+            <line x1="0" y1="352" x2="640" y2="352" stroke-width="24"/>
+            <line x1="110" y1="0" x2="110" y2="460" stroke-width="24"/>
+            <line x1="250" y1="0" x2="250" y2="460" stroke-width="24"/>
+            <line x1="392" y1="0" x2="392" y2="460" stroke-width="30"/>
+            <line x1="532" y1="0" x2="532" y2="460" stroke-width="24"/>
+          </g>
+          <line x1="-20" y1="438" x2="660" y2="40" stroke="#F8F0DC" stroke-width="40" stroke-linecap="round"/>
+
+          <!-- park (drawn over the grid so streets stop at its edges) -->
+          <rect x="24" y="24" width="160" height="136" rx="14" fill="#9C9A55"/>
+          <circle cx="60" cy="60" r="13" fill="#7C7C3E"/>
+          <circle cx="102" cy="88" r="16" fill="#7C7C3E"/>
+          <circle cx="146" cy="52" r="11" fill="#7C7C3E"/>
+          <circle cx="66" cy="120" r="12" fill="#7C7C3E"/>
+          <text x="104" y="146" font-size="11" font-weight="700" letter-spacing="2" fill="#5C5A2E" text-anchor="middle" font-family="Karla, sans-serif">NEEDLE PARK</text>
+
+          <!-- street labels -->
+          <text transform="translate(196,336) rotate(-30.5)" font-size="14" font-weight="700" letter-spacing="3" fill="#8A6A3E" font-family="Karla, sans-serif">ANALOG AVE</text>
+          <text x="26" y="225" font-size="12" font-weight="700" letter-spacing="3" fill="#8A6A3E" font-family="Karla, sans-serif">GROOVE ST</text>
+          <text transform="translate(388,140) rotate(-90)" font-size="12" font-weight="700" letter-spacing="3" fill="#8A6A3E" text-anchor="end" font-family="Karla, sans-serif">3RD ST</text>
+
+          <!-- the shop -->
+          <circle class="map-pulse" cx="352" cy="232" r="26" fill="none" stroke="#8A3B1E" stroke-width="3"/>
+          <circle cx="352" cy="232" r="15" fill="#8A3B1E" stroke="#FAF3E3" stroke-width="4"/>
+          <circle cx="352" cy="232" r="5.5" fill="#2E1D10"/>
+          <circle cx="352" cy="232" r="1.8" fill="#EADDBE"/>
+          <g>
+            <path d="M376,216 L386,222 L376,228 Z" fill="#FAF3E3" stroke="#2E1D10" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="384" y="196" width="188" height="44" rx="9" fill="#FAF3E3" stroke="#2E1D10" stroke-width="2.5"/>
+            <text x="396" y="215" font-size="13" font-weight="800" fill="#2E1D10" font-family="Karla, sans-serif">Music, Records &amp; Luthiers</text>
+            <text x="396" y="231" font-size="11" fill="#6B543E" font-family="Karla, sans-serif">4242 Analog Ave · corner of Groove</text>
+          </g>
+
+          <!-- compass + scale -->
+          <g>
+            <circle cx="586" cy="64" r="22" fill="#F3E9D2" stroke="#8A6A3E" stroke-width="2.5"/>
+            <path d="M586 48 L592 66 L586 62 L580 66 Z" fill="#8A3B1E"/>
+            <text x="586" y="80" font-size="10" font-weight="700" fill="#8A6A3E" text-anchor="middle" font-family="Karla, sans-serif">N</text>
+          </g>
+          <line x1="30" y1="432" x2="110" y2="432" stroke="#8A6A3E" stroke-width="3" stroke-linecap="round"/>
+          <text x="118" y="436" font-size="10" font-weight="700" fill="#8A6A3E" font-family="Karla, sans-serif">200 FT</text>
+        </svg>
+        <p class="map-caption">Corner of Analog Ave &amp; Groove St — map is decorative, the records are real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="#top">
+          <svg class="brand-disc" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="24" r="22" fill="#F3E9D2"/>
+            <circle cx="24" cy="24" r="17" fill="none" stroke="#2E1D10" stroke-opacity=".25" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="13" fill="none" stroke="#2E1D10" stroke-opacity=".25" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="8" fill="#C9822E"/>
+            <circle cx="24" cy="24" r="2" fill="#2E1D10"/>
+          </svg>
+          <span class="brand-name">
+            <strong>Music, Records</strong>
+            <em>&amp; Luthiers</em>
+          </span>
+        </a>
+        <p class="footer-tag">Vinyl, strings, and everything that sings.</p>
+        <p class="footer-blurb">An independent record shop, instrument store, and luthier's bench under one warm-lit roof since 1974.</p>
+        <div class="socials">
+          <a href="#top" aria-label="Instagram (placeholder link)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.4" fill="currentColor"/></svg>
+          </a>
+          <a href="#top" aria-label="Facebook (placeholder link)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8.5 V7 a1.5 1.5 0 0 1 1.5 -1.5 H17 V2.8 h-2.2 A4 4 0 0 0 10.8 6.8 V8.5 H8.5 V12 h2.3 v9 H14 v-9 h2.5 l.5 -3.5 Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#top" aria-label="YouTube (placeholder link)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="6" width="19" height="12.5" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.2 9.4 L15 12.2 L10.2 15 Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#top" aria-label="Spotify (placeholder link)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 9.8 c3.2 -.9 6.3 -.5 9 .9 M8 12.6 c2.6 -.7 5 -.4 7.2 .8 M8.6 15.3 c2 -.5 3.8 -.3 5.5 .6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer">
+        <h4>Around the Shop</h4>
+        <a href="#records">Records</a>
+        <a href="#instruments">Instruments</a>
+        <a href="#repairs">Repairs</a>
+        <a href="#events">Events</a>
+        <a href="#visit">Visit</a>
+      </nav>
+
+      <div class="footer-contact">
+        <h4>Drop By</h4>
+        <p>4242 Analog Avenue<br>Harmony Falls, OR 97000</p>
+        <p><a href="tel:+15550103345">(555) 010-3345</a></p>
+        <p>Open seven days a week —<br>late on Thursdays &amp; Fridays.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Music, Records &amp; Luthiers. All rights reserved.</p>
+      <p class="footer-quip">Analog at heart. Placeholder by design.</p>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </div>
   </div>
 </footer>
 
-<script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
-
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
-  });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
-
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
-  }
-})();
-
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
-
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
