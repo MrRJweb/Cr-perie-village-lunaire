@@ -1,609 +1,1202 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Hair Salons &amp; Barbers — Sharp cuts. Classic craft.</title>
+<meta name="description" content="Hair Salons &amp; Barbers — precision fades, classic cuts, hot towel shaves and color work. Book a chair online or walk in. 4620 Oakwood Avenue, Springfield.">
+<meta name="theme-color" content="#0E0C0A">
+<meta property="og:title" content="Hair Salons &amp; Barbers">
+<meta property="og:description" content="Sharp cuts. Classic craft. Book a chair online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230E0C0A' stroke='%23C89B4B' stroke-width='6'/><g stroke='%23C89B4B' stroke-width='6' stroke-linecap='round' fill='none'><path d='M67 30 39 62M39 38l12 13M55 55l12 12'/><circle cx='34' cy='33' r='7'/><circle cx='34' cy='67' r='7'/></g></svg>">
 <style>
+/* ============================================================
+   HAIR SALONS & BARBERS — single-page site
+   Palette: matte black / warm wood / brass
+   Type: Oswald (condensed headings) + Inter (body)
+   ============================================================ */
 :root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
+  --ink:#0E0C0A;          /* page background — warm matte black */
+  --ink-2:#131009;        /* deep alt */
+  --coal:#181209;         /* alt section background */
+  --card:#1B140D;         /* card surface */
+  --card-2:#20180F;       /* raised surface */
+  --wood:#5C3D24;         /* warm wood */
+  --wood-2:#7A5230;       /* light wood */
+  --brass:#C89B4B;        /* brass accent */
+  --brass-2:#E0B565;      /* bright brass */
+  --cream:#F1E7D8;        /* primary text */
+  --muted:#A99B87;        /* secondary text */
+  --line:rgba(200,155,75,.16);
+  --line-soft:rgba(241,231,216,.09);
+  --font-h:'Oswald','Arial Narrow',Impact,sans-serif;
+  --font-b:'Inter','Helvetica Neue',Arial,sans-serif;
+  --max:1160px;
+  --radius:10px;
+  color-scheme:dark;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
 body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
+  font-family:var(--font-b);
+  background:var(--ink);
+  color:var(--cream);
+  font-size:16px;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-::selection{background:var(--beurre);color:var(--nuit)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
 img,svg{display:block;max-width:100%}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+::selection{background:var(--brass);color:#14100C}
+:focus-visible{outline:2px solid var(--brass-2);outline-offset:3px;border-radius:2px}
 
-/* ——— eyebrow / utility type ——— */
-.eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
-}
-.serif{font-family:'Prata',serif;font-weight:400}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:clamp(20px,4vw,32px)}
+.section{padding-block:clamp(72px,9vw,110px)}
 
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
+h1,h2,h3{font-family:var(--font-h);text-transform:uppercase;line-height:1.08}
+
+/* --- skip link ------------------------------------------------ */
+.skip{
+  position:fixed;top:12px;left:12px;z-index:200;
+  background:var(--brass);color:#14100C;font-weight:600;
+  padding:10px 18px;border-radius:6px;
+  transform:translateY(-64px);transition:transform .25s;
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
+.skip:focus{transform:none}
+
+/* --- buttons --------------------------------------------------- */
 .btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-h);font-weight:500;font-size:14px;
+  text-transform:uppercase;letter-spacing:.14em;
+  padding:15px 30px;border-radius:3px;border:1px solid transparent;
+  cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s,border-color .25s;
 }
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn-solid{background:var(--brass);color:#191207}
+.btn-solid:hover{background:var(--brass-2);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(200,155,75,.55)}
+.btn-ghost{border-color:rgba(241,231,216,.35);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass-2);transform:translateY(-2px)}
+.btn-sm{padding:10px 20px;font-size:12.5px}
 
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
-}
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
-}
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
-
-/* ——— hero ——— */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
-  background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
-}
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
-.hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
-}
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
-
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
-}
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
+/* --- barber-pole stripe accent --------------------------------- */
+.pole-strip{
+  height:7px;
+  background:repeating-linear-gradient(-55deg,
+    var(--brass) 0 14px, #191207 14px 26px,
+    var(--cream) 26px 32px, #191207 32px 44px);
+  opacity:.9;
 }
 
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
-}
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
-
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
-.sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
-}
-.sec-head p{color:var(--brume)}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
-}
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
-
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
-}
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
-}
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
-
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
-}
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
-}
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
-}
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
-
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+/* --- reveal-on-scroll ------------------------------------------ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.35,1);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
 
-/* ——— responsive ——— */
-@media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
-  }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
 }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{
+  position:fixed;inset-inline:0;top:0;z-index:100;
+  padding-block:20px;
+  transition:padding .3s,background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  padding-block:12px;
+  background:rgba(14,12,10,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom-color:var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-mark{
+  width:36px;height:36px;flex:none;
+  color:var(--brass);border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;background:rgba(200,155,75,.07);
+}
+.brand-mark svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.brand-txt{
+  font-family:var(--font-h);font-weight:600;font-size:19px;
+  text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;
+}
+.brand-txt em{font-style:normal;color:var(--brass)}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.6vw,32px)}
+.nav-links a:not(.btn){
+  font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.15em;
+  color:rgba(241,231,216,.78);padding:6px 0;position:relative;transition:color .25s;
+}
+.nav-links a:not(.btn)::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.nav-links a:not(.btn):hover,.nav-links a:not(.btn).active{color:var(--brass-2)}
+.nav-links a:not(.btn):hover::after,.nav-links a:not(.btn).active::after{transform:scaleX(1)}
+.nav-cta{margin-left:6px}
+.burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;
+  background:none;border:1px solid var(--line);border-radius:8px;cursor:pointer;
+}
+.burger span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px;transition:transform .3s,opacity .3s}
+.nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media (max-width:920px){
+  .burger{display:flex}
+  .nav-links{
+    position:fixed;top:74px;left:16px;right:16px;z-index:99;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(20,15,10,.97);
+    border:1px solid var(--line);border-radius:14px;
+    padding:14px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .28s,transform .28s,visibility .28s;
+  }
+  .nav.open .nav-links{opacity:1;visibility:visible;transform:none}
+  .nav-links a:not(.btn){padding:13px 12px;font-size:14px;border-radius:8px}
+  .nav-links a:not(.btn)::after{display:none}
+  .nav-links a:not(.btn):hover{background:rgba(200,155,75,.08)}
+  .nav-cta{margin:10px 4px 2px}
+}
+@media (max-width:400px){.brand-txt{font-size:16px;letter-spacing:.06em}}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:120px 0 90px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'><defs><linearGradient id='w' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23211710'/><stop offset='1' stop-color='%23120C07'/></linearGradient><radialGradient id='glow' cx='0.5' cy='0.14' r='0.9'><stop offset='0' stop-color='%23D9A94F' stop-opacity='0.22'/><stop offset='0.5' stop-color='%23D9A94F' stop-opacity='0.05'/><stop offset='1' stop-color='%23D9A94F' stop-opacity='0'/></radialGradient><radialGradient id='vin' cx='0.5' cy='0.55' r='0.9'><stop offset='0.55' stop-color='%23000000' stop-opacity='0'/><stop offset='1' stop-color='%23000000' stop-opacity='0.62'/></radialGradient></defs><rect width='1600' height='900' fill='url(%23w)'/><g><rect x='0' width='197' height='900' fill='%231D140C'/><rect x='200' width='197' height='900' fill='%23231910'/><rect x='400' width='197' height='900' fill='%231B120B'/><rect x='600' width='197' height='900' fill='%23251A11'/><rect x='800' width='197' height='900' fill='%231C130C'/><rect x='1000' width='197' height='900' fill='%23221810'/><rect x='1200' width='197' height='900' fill='%231A110A'/><rect x='1400' width='200' height='900' fill='%23241910'/></g><g stroke='%23080502' stroke-width='4'><path d='M198 0v900M398 0v900M598 0v900M798 0v900M998 0v900M1198 0v900M1398 0v900'/></g><g stroke='%233C2B18' stroke-width='1.2' opacity='0.3' fill='none'><path d='M96 0c9 160-9 320 0 480s-7 280 0 420'/><path d='M300 0c7 200-7 380 0 560s-5 220 0 340'/><path d='M508 0c8 180-8 340 0 520s-6 240 0 380'/><path d='M704 0c6 220-6 400 0 600s-4 180 0 300'/><path d='M902 0c9 170-9 350 0 530s-7 230 0 370'/><path d='M1106 0c7 190-7 390 0 570s-5 210 0 330'/><path d='M1304 0c8 210-8 370 0 550s-6 220 0 350'/><path d='M1502 0c6 180-6 360 0 540s-4 240 0 360'/></g><g><path d='M420 0v128M800 0v168M1180 0v108' stroke='%23080502' stroke-width='2.5'/><circle cx='420' cy='140' r='72' fill='%23D9A94F' opacity='0.07'/><circle cx='420' cy='140' r='10' fill='%23E8BC63' opacity='0.85'/><circle cx='800' cy='180' r='92' fill='%23D9A94F' opacity='0.08'/><circle cx='800' cy='180' r='12' fill='%23EDC06A' opacity='0.9'/><circle cx='1180' cy='120' r='64' fill='%23D9A94F' opacity='0.07'/><circle cx='1180' cy='120' r='9' fill='%23E8BC63' opacity='0.85'/></g><rect width='1600' height='900' fill='url(%23glow)'/><rect width='1600' height='900' fill='url(%23vin)'/></svg>") center/cover no-repeat;
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,9,6,.5) 0%,rgba(12,9,6,.66) 55%,var(--ink) 100%);
+}
+.hero-kicker{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  font-family:var(--font-h);font-size:13px;font-weight:500;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--brass-2);
+}
+.hero-kicker::before,.hero-kicker::after{content:"";width:44px;height:1px;background:var(--brass);opacity:.6}
+.hero h1{
+  font-size:clamp(3rem,9.2vw,7rem);font-weight:600;letter-spacing:.02em;
+  margin:22px auto 10px;max-width:14ch;
+  text-shadow:0 4px 40px rgba(0,0,0,.5);
+}
+.hero h1 .amp{
+  color:var(--brass);font-weight:400;
+  font-size:.72em;vertical-align:.06em;padding-inline:.06em;
+}
+.hero-tag{
+  font-size:clamp(1.05rem,2.2vw,1.35rem);color:rgba(241,231,216,.88);
+  font-weight:400;letter-spacing:.02em;
+}
+.hero-tag em{font-style:normal;color:var(--brass-2)}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.hero-meta{
+  margin-top:46px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.06em;color:var(--muted);
+}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta svg{width:15px;height:15px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hero-scroll{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  width:40px;height:40px;display:grid;place-items:center;
+  color:rgba(241,231,216,.6);animation:bob 2.4s ease-in-out infinite;
+}
+.hero-scroll svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero-scroll:hover{color:var(--brass-2)}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.hero .pole-strip{position:absolute;left:0;right:0;bottom:0}
+
+/* hero entrance */
+.rise{animation:rise .9s cubic-bezier(.22,.8,.35,1) both}
+.rise-2{animation-delay:.15s}.rise-3{animation-delay:.3s}.rise-4{animation-delay:.45s}.rise-5{animation-delay:.6s}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.sec-head{text-align:center;max-width:640px;margin:0 auto clamp(44px,6vw,64px)}
+.kicker{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  font-family:var(--font-h);font-size:12.5px;font-weight:500;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--brass);
+}
+.kicker::before,.kicker::after{content:"";width:30px;height:1px;background:var(--brass);opacity:.55}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:600;letter-spacing:.03em;margin:14px 0 12px}
+.sec-head .lede{color:var(--muted);font-size:16px}
+
+/* ============================================================
+   SERVICES & PRICING
+   ============================================================ */
+#services{background:var(--ink)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{
+  position:relative;background:var(--card);
+  border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:30px 28px 26px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.svc:hover{transform:translateY(-5px);border-color:rgba(200,155,75,.4);box-shadow:0 24px 44px -22px rgba(0,0,0,.8)}
+.svc-icon{
+  width:52px;height:52px;border-radius:10px;flex:none;
+  background:linear-gradient(150deg,rgba(200,155,75,.16),rgba(200,155,75,.04));
+  border:1px solid var(--line);display:grid;place-items:center;color:var(--brass-2);
+}
+.svc-icon svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:20px;font-weight:600;letter-spacing:.05em}
+.svc-desc{color:var(--muted);font-size:14.5px;flex:1}
+.svc-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-top:1px dashed rgba(200,155,75,.25);padding-top:16px;
+}
+.svc-price{font-family:var(--font-h);font-size:26px;font-weight:600;color:var(--brass-2);letter-spacing:.02em}
+.svc-price small{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-right:4px}
+.svc-dur{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12.5px;letter-spacing:.08em;color:var(--muted);
+  background:rgba(241,231,216,.05);border:1px solid var(--line-soft);
+  padding:6px 12px;border-radius:99px;white-space:nowrap;
+}
+.svc-dur svg{width:13px;height:13px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round}
+.svc-badge{
+  position:absolute;top:-11px;right:20px;
+  font-family:var(--font-h);font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  background:var(--brass);color:#191207;padding:4px 12px;border-radius:99px;
+}
+.svc-note{
+  margin-top:34px;text-align:center;color:var(--muted);font-size:14.5px;
+}
+.svc-note a{color:var(--brass-2);font-weight:500;border-bottom:1px solid rgba(224,181,101,.4);transition:border-color .2s}
+.svc-note a:hover{border-color:var(--brass-2)}
+@media (max-width:920px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.svc-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   BARBERS
+   ============================================================ */
+#barbers{background:var(--coal);border-block:1px solid var(--line-soft)}
+.crew-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.barber{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);
+  overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.barber:hover{transform:translateY(-6px);border-color:rgba(200,155,75,.4);box-shadow:0 26px 48px -24px rgba(0,0,0,.85)}
+.barber-ph{
+  position:relative;aspect-ratio:1/1.02;overflow:hidden;
+  background:linear-gradient(165deg,var(--pa,#33251A),var(--pb,#171009));
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.barber-ph::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(closest-side at 50% 32%,rgba(224,181,101,.18),transparent 72%);
+}
+.barber-ph .bust{width:76%;height:auto;fill:#0D0A07;opacity:.94;transform:translateY(6%);transition:transform .45s}
+.barber:hover .barber-ph .bust{transform:translateY(3%)}
+.barber-ph .ph-tag{
+  position:absolute;top:12px;left:12px;
+  font-family:var(--font-h);font-size:10.5px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(241,231,216,.45);
+  border:1px solid rgba(241,231,216,.16);padding:4px 9px;border-radius:99px;
+}
+.barber-body{padding:20px 20px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.barber-body h3{font-size:19px;font-weight:600;letter-spacing:.05em}
+.barber-role{color:var(--brass-2);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:5px 0 7px}
+.barber-spec{color:var(--muted);font-size:13.5px;line-height:1.5}
+.ig{
+  flex:none;width:40px;height:40px;border-radius:10px;
+  border:1px solid var(--line);display:grid;place-items:center;
+  color:var(--muted);transition:color .25s,border-color .25s,background .25s,transform .25s;
+}
+.ig svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.ig:hover{color:#191207;background:var(--brass);border-color:var(--brass);transform:translateY(-2px)}
+@media (max-width:920px){.crew-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.crew-grid{grid-template-columns:1fr;max-width:360px;margin-inline:auto}}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+#gallery{background:var(--ink)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line-soft);aspect-ratio:4/5;cursor:pointer;
+}
+.gal-ph{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(120% 90% at 30% 18%,rgba(224,181,101,.14),transparent 55%),
+    linear-gradient(160deg,var(--ga,#2E2013),var(--gb,#171009));
+  display:grid;place-items:center;
+  transition:transform .6s cubic-bezier(.22,.8,.35,1);
+}
+.gal:hover .gal-ph,.gal:focus-visible .gal-ph{transform:scale(1.09)}
+.gal-ph svg{width:52px;height:52px;stroke:rgba(241,231,216,.35);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.gal:hover .gal-ph svg{stroke:rgba(224,181,101,.75)}
+.gal-sheen{
+  position:absolute;inset:-45%;pointer-events:none;
+  background:linear-gradient(115deg,transparent 42%,rgba(244,233,220,.08) 50%,transparent 58%);
+  transform:translateX(-65%);transition:transform .9s ease;
+}
+.gal:hover .gal-sheen{transform:translateX(65%)}
+.gal figcaption{
+  position:absolute;inset-inline:0;bottom:0;padding:34px 16px 13px;
+  background:linear-gradient(180deg,transparent,rgba(9,7,5,.88));
+  display:flex;align-items:baseline;justify-content:space-between;
+  flex-wrap:wrap;column-gap:8px;row-gap:2px;
+}
+.gal figcaption span{font-family:var(--font-h);font-size:14.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.gal figcaption em{font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2)}
+@media (max-width:920px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){
+  .gal-grid{gap:12px}
+  .gal figcaption{padding:26px 12px 10px}
+  .gal figcaption span{font-size:12.5px}
+  .gal figcaption em{font-size:10px}
+}
+
+/* ============================================================
+   BOOKING
+   ============================================================ */
+#booking{
+  background:
+    radial-gradient(900px 420px at 85% -5%,rgba(200,155,75,.07),transparent 65%),
+    var(--coal);
+  border-block:1px solid var(--line-soft);
+}
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,64px);align-items:start}
+.book-copy .kicker{justify-content:flex-start}
+.book-copy .kicker::after{display:none}
+.book-copy h2{font-size:clamp(2rem,4.2vw,2.9rem);font-weight:600;letter-spacing:.03em;margin:14px 0 14px}
+.book-copy>p{color:var(--muted);max-width:44ch}
+.book-perks{margin-top:30px;display:grid;gap:16px}
+.book-perks li{display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(241,231,216,.85)}
+.book-perks svg{width:19px;height:19px;flex:none;margin-top:2px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.book-call{
+  margin-top:34px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius);
+  background:rgba(200,155,75,.05);font-size:14.5px;color:var(--muted);
+  display:flex;gap:14px;align-items:center;
+}
+.book-call svg{width:20px;height:20px;flex:none;stroke:var(--brass-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.book-call a{color:var(--brass-2);font-weight:600;white-space:nowrap}
+.book-call a:hover{text-decoration:underline}
+
+.book-card{
+  background:var(--card-2);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(24px,3.4vw,38px);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.8);
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{
+  font-family:var(--font-h);font-size:12px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.field input,.field select{
+  width:100%;font-family:var(--font-b);font-size:15px;color:var(--cream);
+  background:#14100A;border:1px solid rgba(241,231,216,.14);border-radius:8px;
+  padding:13px 14px;transition:border-color .25s,box-shadow .25s;
+  appearance:none;-webkit-appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A99B87' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:40px;cursor:pointer;
+}
+.field input::placeholder{color:rgba(169,155,135,.55)}
+.field input:focus,.field select:focus{
+  outline:none;border-color:var(--brass);
+  box-shadow:0 0 0 3px rgba(200,155,75,.18);
+}
+.field input[type="date"]{min-height:49px}
+.book-card .btn{width:100%;margin-top:22px;padding-block:16px}
+.form-note{margin-top:14px;text-align:center;font-size:12.5px;color:rgba(169,155,135,.75)}
+
+.book-done{text-align:center;padding:clamp(10px,2vw,20px) 6px}
+.book-done[hidden]{display:none}
+.done-icon{
+  width:74px;height:74px;margin:6px auto 20px;border-radius:50%;
+  background:rgba(200,155,75,.12);border:1px solid var(--brass);
+  display:grid;place-items:center;color:var(--brass-2);
+  animation:pop .5s cubic-bezier(.22,1.4,.4,1) both;
+}
+.done-icon svg{width:32px;height:32px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.book-done h3{font-size:26px;font-weight:600;letter-spacing:.05em;margin-bottom:12px}
+.book-done p{color:var(--muted);font-size:15px;max-width:46ch;margin-inline:auto}
+#doneMsg{color:rgba(241,231,216,.92)}
+.done-note{margin-top:14px;font-size:12.5px!important;color:rgba(169,155,135,.7)!important}
+.book-done .btn{width:auto;margin-top:26px}
+@media (max-width:920px){.book-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.form-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+#reviews{background:var(--ink)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{
+  position:relative;background:var(--card);border:1px solid var(--line-soft);
+  border-radius:var(--radius);padding:32px 28px 26px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:transform .3s,border-color .3s;
+}
+.rev:hover{transform:translateY(-5px);border-color:rgba(200,155,75,.35)}
+.rev::before{
+  content:"\201C";position:absolute;top:6px;right:22px;
+  font-family:Georgia,serif;font-size:88px;line-height:1;color:rgba(200,155,75,.16);
+}
+.stars{display:flex;gap:4px;color:var(--brass-2)}
+.stars svg{width:16px;height:16px;fill:currentColor}
+.rev blockquote{font-size:15px;color:rgba(241,231,216,.9);flex:1}
+.rev-who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line-soft);padding-top:16px}
+.rev-ava{
+  width:42px;height:42px;border-radius:50%;flex:none;
+  background:linear-gradient(150deg,var(--wood-2),var(--wood));
+  display:grid;place-items:center;
+  font-family:var(--font-h);font-weight:600;font-size:15px;color:#F7EEDF;letter-spacing:.04em;
+}
+.rev-who strong{display:block;font-size:14.5px;font-weight:600}
+.rev-who span{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+@media (max-width:920px){.rev-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}}
+
+/* ============================================================
+   HOURS & LOCATION
+   ============================================================ */
+#contact{background:var(--coal);border-top:1px solid var(--line-soft)}
+.loc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(36px,5vw,64px);align-items:start}
+.hours-card{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:clamp(24px,3vw,34px)}
+.hours-card h3{font-size:21px;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hours-card h3 svg{width:20px;height:20px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hours li{display:flex;align-items:baseline;font-size:14.5px;padding:9px 0;color:rgba(241,231,216,.85)}
+.hours .d{font-weight:500;letter-spacing:.04em}
+.hours .dots{flex:1;border-bottom:1px dotted rgba(241,231,216,.22);margin:0 12px;transform:translateY(-4px)}
+.hours .t{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hours .d .now{display:inline-block}
+.hours li.closed .t{color:rgba(169,155,135,.6);letter-spacing:.1em;text-transform:uppercase;font-size:12.5px}
+.hours li.today .d,.hours li.today .t{color:var(--brass-2);font-weight:600}
+.hours li.today .now{
+  font-family:var(--font-h);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(200,155,75,.16);border:1px solid rgba(200,155,75,.4);color:var(--brass-2);
+  border-radius:99px;padding:2px 9px;margin-left:10px;
+}
+.loc-rows{margin-top:22px;display:grid;gap:14px}
+.loc-rows li{display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(241,231,216,.85)}
+.loc-rows svg{width:19px;height:19px;flex:none;margin-top:2px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.loc-rows a{color:var(--brass-2);font-weight:500}
+.loc-rows a:hover{text-decoration:underline}
+.loc-rows small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+
+.map-fig{margin:0}
+.map-frame{
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:#14100C;box-shadow:0 34px 70px -38px rgba(0,0,0,.85);
+}
+.map-frame svg{width:100%;height:auto}
+.map-pin-pulse{animation:pulse 2.6s ease-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pulse{0%{transform:scale(.4);opacity:.75}70%{transform:scale(1.9);opacity:0}100%{transform:scale(1.9);opacity:0}}
+.map-cap{margin-top:12px;font-size:12.5px;color:rgba(169,155,135,.75);text-align:center}
+@media (max-width:920px){.loc-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot{background:var(--ink-2);border-top:1px solid var(--line-soft)}
+.foot-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:clamp(28px,4vw,48px);
+  padding-block:clamp(48px,6vw,72px);
+}
+.foot-brand p{color:var(--muted);font-size:14px;margin-top:14px;max-width:34ch}
+.foot h4{
+  font-family:var(--font-h);font-size:13px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:16px;
+}
+.foot-links li{margin-bottom:9px;color:var(--muted);font-size:14px}
+.foot-links a{color:var(--muted);font-size:14px;transition:color .2s}
+.foot-links a:hover{color:var(--brass-2)}
+.foot-contact li{display:flex;gap:10px;color:var(--muted);font-size:14px;margin-bottom:10px;align-items:flex-start}
+.foot-contact svg{width:16px;height:16px;flex:none;margin-top:3px;stroke:var(--brass);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.foot-contact a:hover{color:var(--brass-2)}
+.socials{display:flex;gap:10px;margin-top:18px}
+.socials a{
+  width:38px;height:38px;border-radius:9px;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--muted);
+  transition:color .25s,border-color .25s,background .25s,transform .25s;
+}
+.socials a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8}
+.socials a svg.fill{fill:currentColor;stroke:none}
+.socials a:hover{color:#191207;background:var(--brass);border-color:var(--brass);transform:translateY(-2px)}
+.foot-bottom{
+  border-top:1px solid var(--line-soft);padding-block:22px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:13px;color:rgba(169,155,135,.7);
+}
+.foot-bottom em{font-style:normal;color:var(--brass)}
+@media (max-width:920px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}.foot-bottom{justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
+<a class="skip" href="#home">Skip to content</a>
+
+<!-- ==== SVG icon sprite (decorative placeholder art) ==== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></symbol>
+    <symbol id="i-clippers" viewBox="0 0 24 24"><path d="M8 7.5h8V18a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/><path d="M8 7.5V4.5M16 7.5V4.5M10.7 4.5v3M13.3 4.5v3M8 4.5h8"/><path d="M12 11.5V15"/></symbol>
+    <symbol id="i-razor" viewBox="0 0 24 24"><path d="M3 21l6-6"/><path d="M9 15 17.4 6.6a2.1 2.1 0 0 1 3 3L12 18l-3-3z"/><path d="M17.4 6.6 19 5"/></symbol>
+    <symbol id="i-mustache" viewBox="0 0 24 24"><path d="M12 10.5c-1.3-2.1-3.4-2.8-5.2-1.7C5.2 9.8 4 9.6 3 8.6c.3 2.8 2.4 4.5 4.9 4.3 1.7-.1 3-1 4.1-2.4 1.1 1.4 2.4 2.3 4.1 2.4 2.5.2 4.6-1.5 4.9-4.3-1 1-2.2 1.2-3.8.2-1.8-1.1-3.9-.4-5.2 1.7z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M5 13.5a7 7 0 0 1 14 0"/><path d="M19 13.5H5"/><path d="M19 13.5c1.9 0 3.2.8 3.2 1.7 0 1.1-2 2-4.4 2"/><path d="M12 6.5V4.8"/><circle cx="12" cy="4.2" r=".7"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3.5S6.2 10.2 6.2 14a5.8 5.8 0 0 0 11.6 0c0-3.8-5.8-10.5-5.8-10.5z"/></symbol>
+    <symbol id="i-comb" viewBox="0 0 24 24"><path d="M6.5 4h11v4h-11z"/><path d="M8.5 8v11.5M11 8v9M13.5 8v11.5M16 8v9"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5S5 15.6 5 10.3a7 7 0 0 1 14 0c0 5.3-7 11.2-7 11.2z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7h2.6l.4-3h-3V9.1c0-.9.3-1.6 1.7-1.6h1.5V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V11H7.7v3h2.6v7z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4.5 3.5h4.2L19.5 20.5h-4.2z"/><path d="M18.6 3.5 5.4 20.5"/></symbol>
+    <symbol id="i-bust" viewBox="0 0 120 120"><circle cx="60" cy="40" r="22"/><path d="M13 115c3-27 21-42 47-42s44 15 47 42l.3 5H12.7z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ==================== NAVBAR ==================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#home" aria-label="Hair Salons &amp; Barbers — home">
+      <span class="brand-mark"><svg aria-hidden="true"><use href="#i-scissors"/></svg></span>
+      <span class="brand-txt">Hair Salons <em>&amp;</em> Barbers</span>
     </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
+    <nav class="nav-links" id="navMenu" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#barbers">Barbers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-solid btn-sm nav-cta" href="#booking">Book a Chair</a>
+    </nav>
+    <button class="burger" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
+<main>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="hero-kicker rise">Est. 2009 · Oakwood Avenue</p>
+      <h1 class="rise rise-2">Hair Salons <span class="amp">&amp;</span> Barbers</h1>
+      <p class="hero-tag rise rise-3">Sharp cuts. <em>Classic craft.</em></p>
+      <div class="hero-cta rise rise-4">
+        <a class="btn btn-solid" href="#booking">Book a Chair <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#services">View Services</a>
+      </div>
+      <div class="hero-meta rise rise-5">
+        <span><svg aria-hidden="true"><use href="#i-pin"/></svg>4620 Oakwood Ave, Springfield</span>
+        <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Open six days a week</span>
+        <span><svg aria-hidden="true"><use href="#i-scissors"/></svg>Walk-ins welcome</span>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#services" aria-label="Scroll to services"><svg aria-hidden="true"><use href="#i-chev"/></svg></a>
+    <div class="pole-strip" aria-hidden="true"></div>
+  </section>
+
+  <!-- ==================== SERVICES & PRICING ==================== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">The menu</p>
+        <h2>Services &amp; Pricing</h2>
+        <p class="lede">Straight prices, no surprises. Every service ends with a hot towel, a style and a firm handshake.</p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc reveal" style="--d:0s">
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-scissors"/></svg></div>
+          <h3>Classic Haircut</h3>
+          <p class="svc-desc">Consultation, scissor cut, wash and a sharp finish — tailored to your head, not a template.</p>
+          <div class="svc-meta">
+            <span class="svc-price">$32</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>45 min</span>
+          </div>
+        </article>
+
+        <article class="svc reveal" style="--d:.07s">
+          <span class="svc-badge">Most booked</span>
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-clippers"/></svg></div>
+          <h3>Skin Fade</h3>
+          <p class="svc-desc">Zero to skin, blended to nothing. Precision clipper work with a razor-clean finish on the edges.</p>
+          <div class="svc-meta">
+            <span class="svc-price">$38</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>50 min</span>
+          </div>
+        </article>
+
+        <article class="svc reveal" style="--d:.14s">
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-mustache"/></svg></div>
+          <h3>Beard Trim</h3>
+          <p class="svc-desc">Shape, line-up and length work, finished with hot lather edges and cedar beard oil.</p>
+          <div class="svc-meta">
+            <span class="svc-price">$22</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>25 min</span>
+          </div>
+        </article>
+
+        <article class="svc reveal" style="--d:0s">
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-razor"/></svg></div>
+          <h3>Hot Towel Shave</h3>
+          <p class="svc-desc">The full ritual — steamed towels, straight razor, pre-shave oil and a cold-towel close.</p>
+          <div class="svc-meta">
+            <span class="svc-price">$40</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>45 min</span>
+          </div>
+        </article>
+
+        <article class="svc reveal" style="--d:.07s">
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></div>
+          <h3>Kids Cut</h3>
+          <p class="svc-desc">Ages 12 and under. Patient chairs, clean fades or classic trims, and a lollipop on the way out.</p>
+          <div class="svc-meta">
+            <span class="svc-price">$24</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>30 min</span>
+          </div>
+        </article>
+
+        <article class="svc reveal" style="--d:.14s">
+          <div class="svc-icon"><svg aria-hidden="true"><use href="#i-drop"/></svg></div>
+          <h3>Color &amp; Gray Blend</h3>
+          <p class="svc-desc">Natural-looking camo for grays or a full tone change, mixed and applied by our color specialist.</p>
+          <div class="svc-meta">
+            <span class="svc-price"><small>from</small>$65</span>
+            <span class="svc-dur"><svg aria-hidden="true"><use href="#i-clock"/></svg>90 min</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="svc-note reveal">Walk-ins are welcome whenever a chair is free — booking guarantees your slot. <a href="#booking">Reserve yours&nbsp;→</a></p>
+    </div>
+  </section>
+
+  <!-- ==================== BARBERS ==================== -->
+  <section class="section" id="barbers">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">The crew</p>
+        <h2>Meet the Barbers</h2>
+        <p class="lede">Four chairs, four specialists. Pick your regular or let the first free chair take care of you.</p>
+      </div>
+
+      <div class="crew-grid">
+        <article class="barber reveal" style="--d:0s">
+          <div class="barber-ph" style="--pa:#362718;--pb:#1B120B">
+            <span class="ph-tag">Photo</span>
+            <svg class="bust" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-bust"/></svg>
+          </div>
+          <div class="barber-body">
+            <div>
+              <h3>Marcus Cole</h3>
+              <p class="barber-role">Master Barber</p>
+              <p class="barber-spec">Skin fades &amp; straight-razor detail. 15 years on the clippers.</p>
+            </div>
+            <a class="ig" href="#" aria-label="Marcus Cole on Instagram (placeholder link)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          </div>
+        </article>
+
+        <article class="barber reveal" style="--d:.07s">
+          <div class="barber-ph" style="--pa:#2C2418;--pb:#15100A">
+            <span class="ph-tag">Photo</span>
+            <svg class="bust" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-bust"/></svg>
+          </div>
+          <div class="barber-body">
+            <div>
+              <h3>Diego Ramírez</h3>
+              <p class="barber-role">Senior Barber</p>
+              <p class="barber-spec">Classic cuts, pompadours &amp; scissor work with old-school patience.</p>
+            </div>
+            <a class="ig" href="#" aria-label="Diego Ramírez on Instagram (placeholder link)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          </div>
+        </article>
+
+        <article class="barber reveal" style="--d:.14s">
+          <div class="barber-ph" style="--pa:#3A2A16;--pb:#180F08">
+            <span class="ph-tag">Photo</span>
+            <svg class="bust" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-bust"/></svg>
+          </div>
+          <div class="barber-body">
+            <div>
+              <h3>Jayden Brooks</h3>
+              <p class="barber-role">Barber &amp; Stylist</p>
+              <p class="barber-spec">Beard sculpting, hot towel shaves &amp; textured modern crops.</p>
+            </div>
+            <a class="ig" href="#" aria-label="Jayden Brooks on Instagram (placeholder link)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          </div>
+        </article>
+
+        <article class="barber reveal" style="--d:.21s">
+          <div class="barber-ph" style="--pa:#2E1F1B;--pb:#160F0C">
+            <span class="ph-tag">Photo</span>
+            <svg class="bust" viewBox="0 0 120 120" aria-hidden="true"><use href="#i-bust"/></svg>
+          </div>
+          <div class="barber-body">
+            <div>
+              <h3>Sofia Lang</h3>
+              <p class="barber-role">Color Specialist</p>
+              <p class="barber-spec">Gray blending, full color &amp; salon styling for every hair type.</p>
+            </div>
+            <a class="ig" href="#" aria-label="Sofia Lang on Instagram (placeholder link)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">The work</p>
+        <h2>Fresh Off the Chair</h2>
+        <p class="lede">A few recent cuts from the shop floor. Placeholder shots — your head could be up here next.</p>
+      </div>
+
+      <div class="gal-grid">
+        <figure class="gal reveal" style="--ga:#2E2013;--gb:#171009;--d:0s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-clippers"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Classic Skin Fade</span><em>Marcus</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#26201A;--gb:#12100C;--d:.06s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-scissors"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Textured Crop</span><em>Jayden</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#33261B;--gb:#150F09;--d:.12s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-comb"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Executive Pompadour</span><em>Diego</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#2A1D12;--gb:#140D07;--d:.18s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-mustache"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Full Beard Sculpt</span><em>Jayden</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#302416;--gb:#160F08;--d:0s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-razor"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Hot Towel Shave</span><em>Marcus</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#28221B;--gb:#13100B;--d:.06s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-drop"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Silver Fox Blend</span><em>Sofia</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#342718;--gb:#170F08;--d:.12s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-cap"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Kid's First Cut</span><em>Diego</em></figcaption>
+        </figure>
+        <figure class="gal reveal" style="--ga:#2C1E14;--gb:#150E08;--d:.18s" tabindex="0">
+          <div class="gal-ph"><svg aria-hidden="true"><use href="#i-comb"/></svg></div>
+          <span class="gal-sheen" aria-hidden="true"></span>
+          <figcaption><span>Slick Back Taper</span><em>Marcus</em></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BOOKING ==================== -->
+  <section class="section" id="booking">
+    <div class="wrap book-grid">
+      <div class="book-copy reveal">
+        <p class="kicker">Reserve</p>
+        <h2>Book a Chair</h2>
+        <p>Pick your service, your barber and your time — we'll hold the chair. Bookings take priority over walk-ins, every time.</p>
+        <ul class="book-perks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free rebooking or cancellation up to 24&nbsp;hours before your slot.</li>
+          <li><svg aria-hidden="true"><use href="#i-clock"/></svg>Arrive 5 minutes early — your appointment starts on the minute.</li>
+          <li><svg aria-hidden="true"><use href="#i-scissors"/></svg>Not sure what to ask for? Book a Classic Haircut and we'll talk it through.</li>
+        </ul>
+        <p class="book-call">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>
+          <span>Prefer to talk it out? Call us at <a href="tel:+15550123456">(555)&nbsp;012-3456</a> during opening hours.</span>
+        </p>
+      </div>
+
+      <div class="book-card reveal" style="--d:.1s">
+        <form id="bookForm" autocomplete="on">
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Full name</label>
+              <input id="f-name" name="name" type="text" placeholder="Alex Carter" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" placeholder="(555) 012-3456" autocomplete="tel" pattern="[0-9()+\-. ]{7,}" title="Enter a phone number (digits, spaces, parentheses and dashes)" required>
+            </div>
+            <div class="field">
+              <label for="f-service">Service</label>
+              <select id="f-service" name="service" required>
+                <option value="" selected disabled>Choose a service</option>
+                <option value="Classic Haircut">Classic Haircut — $32</option>
+                <option value="Skin Fade">Skin Fade — $38</option>
+                <option value="Beard Trim">Beard Trim — $22</option>
+                <option value="Hot Towel Shave">Hot Towel Shave — $40</option>
+                <option value="Kids Cut">Kids Cut — $24</option>
+                <option value="Color &amp; Gray Blend">Color &amp; Gray Blend — from $65</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-barber">Preferred barber</label>
+              <select id="f-barber" name="barber">
+                <option value="any" selected>First available chair</option>
+                <option value="Marcus Cole">Marcus Cole — Master Barber</option>
+                <option value="Diego Ramírez">Diego Ramírez — Senior Barber</option>
+                <option value="Jayden Brooks">Jayden Brooks — Barber &amp; Stylist</option>
+                <option value="Sofia Lang">Sofia Lang — Color Specialist</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-date">Date</label>
+              <input id="f-date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="f-time">Time</label>
+              <select id="f-time" name="time" required>
+                <option value="" selected disabled>Pick a time</option>
+                <option>9:00 AM</option><option>9:30 AM</option>
+                <option>10:00 AM</option><option>10:30 AM</option>
+                <option>11:00 AM</option><option>11:30 AM</option>
+                <option>12:00 PM</option><option>12:30 PM</option>
+                <option>1:00 PM</option><option>1:30 PM</option>
+                <option>2:00 PM</option><option>2:30 PM</option>
+                <option>3:00 PM</option><option>3:30 PM</option>
+                <option>4:00 PM</option><option>4:30 PM</option>
+                <option>5:00 PM</option><option>5:30 PM</option>
+                <option>6:00 PM</option><option>6:30 PM</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-solid" type="submit">Request Appointment <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="form-note">Demo form — nothing is sent anywhere. We'll pretend to text you back.</p>
+        </form>
+
+        <div class="book-done" id="bookDone" hidden tabindex="-1" role="status" aria-live="polite">
+          <div class="done-icon"><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+          <h3>You're on the books</h3>
+          <p id="doneMsg"></p>
+          <p class="done-note">This is a demo — no real booking was made. Call (555) 012-3456 to lock in the real thing.</p>
+          <button class="btn btn-ghost" id="bookAgain" type="button">Book another slot</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">Word on the street</p>
+        <h2>What the Chair Says</h2>
+        <p class="lede">Real talk from the regulars. Placeholder reviews, genuine attitude.</p>
+      </div>
+
+      <div class="rev-grid">
+        <article class="rev reveal" style="--d:0s">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg>
+          </div>
+          <blockquote>"Best fade in town, hands down. Marcus takes his time and it shows — I haven't let anyone else near my head in three years."</blockquote>
+          <div class="rev-who">
+            <span class="rev-ava" aria-hidden="true">AP</span>
+            <div><strong>Andre P.</strong><span>Regular since 2021</span></div>
+          </div>
+        </article>
+
+        <article class="rev reveal" style="--d:.08s">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg>
+          </div>
+          <blockquote>"Brought my son in for his first proper haircut and they made it an event. Patient, friendly, and the cut was razor sharp."</blockquote>
+          <div class="rev-who">
+            <span class="rev-ava" aria-hidden="true">MR</span>
+            <div><strong>Melissa R.</strong><span>Kids cut convert</span></div>
+          </div>
+        </article>
+
+        <article class="rev reveal" style="--d:.16s">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg>
+          </div>
+          <blockquote>"The hot towel shave is a ritual. Forty-five minutes in the chair and you walk out feeling like a new man. Worth every cent."</blockquote>
+          <div class="rev-who">
+            <span class="rev-ava" aria-hidden="true">TS</span>
+            <div><strong>Tom S.</strong><span>Hot towel devotee</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOURS & LOCATION ==================== -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker">Find us</p>
+        <h2>Hours &amp; Location</h2>
+        <p class="lede">Corner of Oakwood and 5th — look for the pole. Street parking out front, lot around back.</p>
+      </div>
+
+      <div class="loc-grid">
+        <div class="hours-card reveal">
+          <h3><svg aria-hidden="true"><use href="#i-clock"/></svg>Opening Hours</h3>
+          <ul class="hours">
+            <li data-day="1"><span class="d">Monday</span><span class="dots"></span><span class="t">9:00 AM – 7:00 PM</span></li>
+            <li data-day="2"><span class="d">Tuesday</span><span class="dots"></span><span class="t">9:00 AM – 7:00 PM</span></li>
+            <li data-day="3"><span class="d">Wednesday</span><span class="dots"></span><span class="t">9:00 AM – 7:00 PM</span></li>
+            <li data-day="4"><span class="d">Thursday</span><span class="dots"></span><span class="t">9:00 AM – 8:00 PM</span></li>
+            <li data-day="5"><span class="d">Friday</span><span class="dots"></span><span class="t">9:00 AM – 8:00 PM</span></li>
+            <li data-day="6"><span class="d">Saturday</span><span class="dots"></span><span class="t">8:00 AM – 6:00 PM</span></li>
+            <li data-day="0" class="closed"><span class="d">Sunday</span><span class="dots"></span><span class="t">Closed</span></li>
+          </ul>
+          <ul class="loc-rows">
+            <li>
+              <svg aria-hidden="true"><use href="#i-pin"/></svg>
+              <span>4620 Oakwood Avenue, Suite 12<small>Springfield, ST 00000 — placeholder address</small></span>
+            </li>
+            <li>
+              <svg aria-hidden="true"><use href="#i-phone"/></svg>
+              <span><a href="tel:+15550123456">(555) 012-3456</a><small>Call or text for same-day slots</small></span>
+            </li>
+            <li>
+              <svg aria-hidden="true"><use href="#i-mail"/></svg>
+              <span><a href="mailto:hello@hairsalonsandbarbers.example">hello@hairsalonsandbarbers.example</a><small>We reply within a business day</small></span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="map-fig reveal" style="--d:.1s">
+          <div class="map-frame">
+            <svg viewBox="0 0 640 460" role="img" aria-label="Stylized placeholder map marking the shop at 4620 Oakwood Avenue">
+              <rect width="640" height="460" fill="#14100C"/>
+              <g fill="#1C1610">
+                <rect x="18" y="18" width="112" height="84" rx="4"/>
+                <rect x="154" y="18" width="136" height="84" rx="4"/>
+                <rect x="314" y="18" width="136" height="84" rx="4"/>
+                <rect x="474" y="18" width="148" height="84" rx="4"/>
+                <rect x="18" y="126" width="112" height="94" rx="4"/>
+                <rect x="154" y="126" width="136" height="94" rx="4"/>
+                <rect x="474" y="126" width="148" height="94" rx="4"/>
+                <rect x="18" y="244" width="112" height="96" rx="4"/>
+                <rect x="314" y="244" width="136" height="96" rx="4"/>
+                <rect x="474" y="244" width="148" height="96" rx="4"/>
+                <rect x="154" y="364" width="136" height="78" rx="4"/>
+                <rect x="314" y="364" width="136" height="78" rx="4"/>
+                <rect x="474" y="364" width="148" height="78" rx="4"/>
+              </g>
+              <g>
+                <rect x="18" y="364" width="112" height="78" rx="4" fill="#1A1D10"/>
+                <circle cx="48" cy="392" r="9" fill="#28331C"/>
+                <circle cx="76" cy="414" r="12" fill="#243018"/>
+                <circle cx="104" cy="390" r="8" fill="#28331C"/>
+              </g>
+              <g stroke="#2A2014" stroke-width="3" opacity=".9">
+                <path d="M0 114h640M0 232h640M0 352h640M142 0v460M302 0v460M462 0v460"/>
+              </g>
+              <path d="M0 420 640 96" stroke="#332717" stroke-width="26" opacity=".55"/>
+              <path d="M0 420 640 96" stroke="#4A3720" stroke-width="2.5" stroke-dasharray="14 12"/>
+              <text x="356" y="222" fill="#6B5A41" font-family="Oswald, Arial Narrow, sans-serif" font-size="13" letter-spacing="4" transform="rotate(-26.9 356 222)">OAKWOOD AVE</text>
+              <text x="150" y="108" fill="#57493A" font-family="Oswald, Arial Narrow, sans-serif" font-size="11" letter-spacing="3">5TH ST</text>
+              <g>
+                <circle class="map-pin-pulse" cx="320" cy="252" r="26" fill="none" stroke="#C89B4B" stroke-width="2"/>
+                <path d="M320 216c-14 0-24 10-24 23 0 16 24 36 24 36s24-20 24-36c0-13-10-23-24-23z" fill="#C89B4B"/>
+                <circle cx="320" cy="240" r="8" fill="#14100C"/>
+              </g>
+              <text x="622" y="442" text-anchor="end" fill="rgba(241,231,216,.2)" font-family="Oswald, Arial Narrow, sans-serif" font-size="11" letter-spacing="5">MAP PLACEHOLDER</text>
+            </svg>
+          </div>
+          <figcaption class="map-cap">Placeholder map — swap in an embedded map of 4620 Oakwood Avenue when the site goes live.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="foot">
+  <div class="pole-strip" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#home" aria-label="Back to top">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="#i-scissors"/></svg></span>
+        <span class="brand-txt">Hair Salons <em>&amp;</em> Barbers</span>
+      </a>
+      <p>Sharp cuts. Classic craft. A neighborhood shop where the coffee is black, the towels are hot and the lines are crisp.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram (placeholder link)"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="#" aria-label="Facebook (placeholder link)"><svg class="fill" aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="#" aria-label="X (placeholder link)"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <h4>Quick Links</h4>
+      <ul class="foot-links">
+        <li><a href="#services">Services &amp; Pricing</a></li>
+        <li><a href="#barbers">Meet the Barbers</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Book a Chair</a></li>
+        <li><a href="#contact">Hours &amp; Location</a></li>
+      </ul>
+    </nav>
     <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
-      </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
+      <h4>Hours</h4>
+      <ul class="foot-links">
+        <li>Mon – Wed · 9 AM – 7 PM</li>
+        <li>Thu – Fri · 9 AM – 8 PM</li>
+        <li>Sat · 8 AM – 6 PM</li>
+        <li>Sun · Closed</li>
+      </ul>
     </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
-        </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
-    </div>
-  </div>
-</div>
-
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
-    </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
-      </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
+    <div>
+      <h4>Visit</h4>
+      <ul class="foot-contact">
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span>4620 Oakwood Ave, Suite 12<br>Springfield, ST 00000</span></li>
+        <li><svg aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+15550123456">(555) 012-3456</a></li>
+        <li><svg aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@hairsalonsandbarbers.example">hello@hairsalonsandbarbers.example</a></li>
       </ul>
     </div>
   </div>
-</section>
-
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
-
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
-
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— FOOTER ——————— -->
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
-    </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> Hair Salons <em>&amp;</em> Barbers. All rights reserved.</span>
+    <span>Sharp cuts. Classic craft. <em>·</em> Demo site with placeholder content.</span>
   </div>
 </footer>
 
 <script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
+(() => {
+  "use strict";
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
-  });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
+  /* ---------- navbar: scroll state + mobile menu ---------- */
+  const nav = $("#nav");
+  const toggle = $("#navToggle");
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 24);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
-  }
-})();
+  const setMenu = (open) => {
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+  };
+  toggle.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+  $$("#navMenu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
+  /* ---------- fade-in on scroll ---------- */
+  const revealEls = $$(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("in"));
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+
+  /* ---------- active nav link ---------- */
+  const links = $$('#navMenu a[href^="#"]').filter((a) => !a.classList.contains("nav-cta"));
+  const byId = new Map(links.map((a) => [a.hash.slice(1), a]));
+  const secObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      links.forEach((l) => l.classList.remove("active"));
+      const link = byId.get(en.target.id);
+      if (link) link.classList.add("active");
     });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  $$("main section[id]").forEach((s) => secObs.observe(s));
 
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+  /* ---------- opening hours: mark today ---------- */
+  const todayRow = $(`.hours li[data-day="${new Date().getDay()}"]`);
+  if (todayRow) {
+    todayRow.classList.add("today");
+    const tag = document.createElement("em");
+    tag.className = "now";
+    tag.textContent = "Today";
+    todayRow.querySelector(".d").appendChild(tag);
+  }
+
+  /* ---------- booking form (front-end only) ---------- */
+  const form = $("#bookForm");
+  const done = $("#bookDone");
+  const dateInput = $("#f-date");
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  dateInput.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const data = Object.fromEntries(new FormData(form));
+    const [y, m, d] = data.date.split("-").map(Number);
+    const niceDate = new Date(y, m - 1, d).toLocaleDateString("en-US", {
+      weekday: "long", month: "long", day: "numeric",
     });
+    const first = data.name.trim().split(/\s+/)[0];
+    const barber = data.barber === "any" ? "the first available barber" : data.barber;
+
+    // textContent only — user input is never parsed as HTML
+    $("#doneMsg").textContent =
+      `Thanks, ${first}! Your ${data.service} with ${barber} is requested for ` +
+      `${niceDate} at ${data.time}. We'll text a confirmation to ${data.phone.trim()} shortly.`;
+
+    form.hidden = true;
+    done.hidden = false;
+    done.focus();
+    done.scrollIntoView({ block: "center", behavior: "smooth" });
   });
+
+  $("#bookAgain").addEventListener("click", () => {
+    form.reset();
+    done.hidden = true;
+    form.hidden = false;
+    $("#f-name").focus();
+  });
+
+  /* ---------- footer year ---------- */
+  $("#year").textContent = new Date().getFullYear();
 })();
 </script>
 </body>
