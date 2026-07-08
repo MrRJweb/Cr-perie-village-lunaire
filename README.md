@@ -1,39 +1,66 @@
-# Music, Records &amp; Luthiers
+# Le Bistro Indien — site web
 
-A modern, single-page marketing site for a fictional record shop, instrument
-store, and luthier's workbench — styled as warm, grainy **vintage analog**
-(cream + burnt-umber palette, 70s-inspired display type).
+Site vitrine bilingue (FR ⇄ EN) pour **Le Bistro Indien**, un bistro indien
+authentique au cœur du Village, à Montréal. / Bilingual marketing site for
+Le Bistro Indien, an authentic Indian bistro in Montréal's Village.
 
-Everything is placeholder content and hand-drawn SVG art, so the site runs with
-**no build step, no dependencies, and no external images** — just open it.
+Design chaleureux et haut de gamme inspiré d'Amrit Palace : charbon foncé, or,
+crème · serifs Playfair Display + sans Jost · animations calmes et cinématiques.
 
-## Run it
+## Lancer / Run
 
-Open `index.html` in any modern browser, or serve the folder:
+Fichier unique, sans dépendance ni étape de build — ouvrez `index.html`, ou :
 
 ```bash
-python3 -m http.server 8000   # then visit http://localhost:8000
+python3 -m http.server 8000   # puis / then visit http://localhost:8000
 ```
 
-## Files
+## Points clés / Highlights
 
-| File | Purpose |
+- **Une seule page, un seul fichier** : HTML + CSS + JS en ligne, zéro framework.
+- **Bilingue FR/EN** : bascule dans la navbar et le pied de page ; français par
+  défaut, détection de `navigator.language` (`en-*` → anglais) ; `<html lang>` et
+  `hreflang` mis à jour sans rechargement (Loi 96 / Québec).
+- **Commande d'abord** : les CTA « Commander » ouvrent un sélecteur Uber Eats ·
+  DoorDash · SkipTheDishes ; téléphone cliquable partout.
+- **Contenu réel** : NAP identique sur tout le site, menu et prix réels
+  (certains marqués `[[confirm]]`), signaux de confiance honnêtes et modifiables.
+- **Sections** : navbar collante · héros · à propos · plats signature · menu à
+  onglets · galerie + lightbox · ouvert tard/Village · avis (carrousel) ·
+  réservation + contact · heures & carte · pied de page.
+- **Accessibilité (WCAG AA)** : repères sémantiques, navigation clavier
+  (onglets/carrousel/lightbox), focus visibles or, `prefers-reduced-motion`.
+- **SEO** : JSON-LD `Restaurant`, meta + Open Graph/Twitter, hreflang, images
+  `loading="lazy"` avec dimensions.
+
+## Modifier le contenu / Editing content
+
+Tout le contenu modifiable par le client est regroupé en **constantes de
+configuration en haut du `<script>`** dans `index.html` :
+
+| Constante | Contenu |
 | --- | --- |
-| `index.html` | Markup and inline SVG illustrations (hero scene, workbench, map, cover art) |
-| `styles.css` | Design system, responsive layout, and the CSS-generated retro album covers |
-| `script.js`  | Sticky/scrolled navbar, mobile menu, scroll-reveal, active-link spy, demo booking form, today's-hours highlight |
+| `CONFIG` | Téléphone, liens de commande (Uber Eats / DoorDash / Skip), note & preuve sociale (honnêtes, modifiables) |
+| `I18N` | Toutes les chaînes visibles, en FR et EN |
+| `DISHES` | Les 6 plats signature (nom FR/EN, description, prix, image) |
+| `MENU` | Catégories et items du menu (nom FR/EN, description, prix, étiquettes 🌱/🌶/Halal) |
+| `REVIEWS` | Témoignages (citation FR/EN, prénom, plateforme) |
+| `GALLERY` | Images de la galerie |
+| `HOURS` / `DAYS` | Heures d'ouverture (jour courant surligné automatiquement) |
 
-## Sections
+## À faire avant la mise en ligne / Before going live — `[[MR.RJ]]`
 
-Sticky navbar · Hero · Records (8 covers, genre tags) · Instruments · Luthier &amp;
-Repairs (with a front-end-only booking form) · Events · Testimonials · Hours &amp;
-Location · Footer.
+- Coller les **vraies URL** de commande Uber Eats / DoorDash / Skip dans `CONFIG.order`.
+- Confirmer les **prix** marqués `[[confirm]]` / `[[$]]` et le statut **halal**
+  (ajouter `'halal'` aux `tags` d'un item pour afficher le badge).
+- Brancher les formulaires (réservation + contact) à Formspree / Web3Forms /
+  Netlify Forms — actuellement en démonstration front-end (aucun envoi).
+- Remplacer les images Unsplash par de vraies photos du restaurant.
+- Mettre à jour l'URL canonique et les valeurs de `AggregateRating` (JSON-LD)
+  avec des chiffres honnêtes.
 
-## Notes
+## Coordonnées / NAP
 
-- Fully responsive down to small phones; hamburger menu under 880px.
-- Honors `prefers-reduced-motion` (disables animation and scroll-reveal).
-- Fonts (Fraunces + Karla) load from Google Fonts; the page degrades gracefully
-  to system serif/sans if offline.
-- The "Book a Repair" form is a front-end demo — it validates and shows a
-  confirmation, but sends nothing anywhere.
+**Le Bistro Indien** · 926 Rue Sainte-Catherine E, Montréal, QC H2L 2E5 ·
++1 (514) 315-3005 · Instagram [@le.bistro.indien](https://www.instagram.com/le.bistro.indien/)
+Sun–Thu 11:00–23:00 · Fri–Sat 11:00–03:00
