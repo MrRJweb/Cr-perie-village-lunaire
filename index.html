@@ -1,609 +1,1212 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Repair Shops &amp; Services — If it's broken, we fix it.</title>
+<meta name="description" content="Repair Shops & Services is your one-stop general repair shop: appliances, electronics, phones, computers, small engines and home fixes. Free estimates, upfront pricing and a 90-day warranty on every repair.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23FF6B00'/%3E%3Cpath d='M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z' fill='%230F172A' transform='translate(12 12) scale(0.7) translate(-12 -12)'/%3E%3C/svg%3E">
 <style>
+/* ==========================================================================
+   Repair Shops & Services — single-page site
+   Palette: dark slate + white sections, safety-orange accent
+   Type:    Oswald (headings) / Barlow (body)
+   ========================================================================== */
 :root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
+  --slate-950:#0B1220;
+  --slate-900:#0F172A;
+  --slate-800:#1E293B;
+  --line-dark:#2B3B54;
+  --paper:#F8FAFC;
+  --line-light:#E2E8F0;
+  --ink:#0F172A;
+  --body-on-light:#475569;
+  --body-on-dark:#A9B6CE;
+  --muted-on-dark:#8B99B5;
+  --orange:#FF6B00;
+  --orange-deep:#E85F00;
+  --orange-soft:rgba(255,107,0,.12);
+  --radius:8px;
+  --max:1140px;
+  --font-head:'Oswald','Arial Narrow',sans-serif;
+  --font-body:'Barlow','Helvetica Neue',Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
+  background:var(--slate-900);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:1rem;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-::selection{background:var(--beurre);color:var(--nuit)}
+::selection{background:var(--orange);color:var(--slate-950)}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,label:focus-visible{
+  outline:2px solid var(--orange);outline-offset:3px;border-radius:2px;
+}
 img,svg{display:block;max-width:100%}
+ul{list-style:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--orange);color:var(--slate-950);font-weight:700;padding:12px 20px;text-decoration:none}
+.skip:focus{left:0}
 
-/* ——— eyebrow / utility type ——— */
+/* ——— hazard-stripe divider ——— */
+.hazard{
+  height:6px;
+  background:repeating-linear-gradient(-45deg,var(--orange) 0 14px,var(--slate-950) 14px 28px);
+}
+
+/* ——— section scaffolding ——— */
+.section{padding:100px 0}
+.section--dark{background:var(--slate-900);color:#fff}
+.section--light{background:#fff;color:var(--ink)}
+.section-head{max-width:720px;margin-bottom:52px}
+.section-head--center{margin-left:auto;margin-right:auto;text-align:center}
 .eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
-}
-.serif{font-family:'Prata',serif;font-weight:400}
-
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
-.btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
-}
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
-
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
-}
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
-}
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
-
-/* ——— hero ——— */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
-  background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
-}
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
-.hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
-}
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
-
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
-}
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
-}
-
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
-}
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
-
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
-.sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
-}
-.sec-head p{color:var(--brume)}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
-}
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
-
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
   display:flex;align-items:center;gap:12px;
+  font-size:.78rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:14px;
 }
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
+.eyebrow::before{content:'';width:30px;height:3px;background:var(--orange);flex:none}
+.section-head--center .eyebrow{justify-content:center}
+.section-head--center .eyebrow::after{content:'';width:30px;height:3px;background:var(--orange);flex:none}
+.section-title{
+  font-family:var(--font-head);font-weight:700;text-transform:uppercase;
+  font-size:clamp(2rem,4.2vw,2.8rem);line-height:1.08;letter-spacing:.015em;
 }
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
+.section-sub{margin-top:14px;font-size:1.06rem}
+.section--light .section-sub{color:var(--body-on-light)}
+.section--dark .section-sub{color:var(--body-on-dark)}
 
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
+/* ——— buttons ——— */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-head);font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  font-size:.95rem;line-height:1;padding:16px 30px;border-radius:4px;
+  border:2px solid transparent;cursor:pointer;text-decoration:none;
+  transition:transform .2s,box-shadow .2s,background .2s,color .2s,border-color .2s;
 }
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
+.btn--orange{background:var(--orange);color:var(--slate-950);border-color:var(--orange)}
+.btn--orange:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 0 rgba(255,107,0,.35);background:var(--orange-deep);border-color:var(--orange-deep)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn--ghost:hover{border-color:var(--orange);color:var(--orange)}
+.btn--dark{background:var(--slate-900);color:#fff;border-color:var(--slate-900)}
+.btn--dark:hover{background:var(--orange);border-color:var(--orange);color:var(--slate-950)}
+
+/* ==========================================================================
+   1. Navbar
+   ========================================================================== */
+header{position:fixed;top:0;left:0;right:0;z-index:60}
+.nav-bar{
+  background:rgba(11,18,32,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:box-shadow .3s,background .3s;
 }
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
+header.scrolled .nav-bar{background:rgba(11,18,32,.97);box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand-mark{
+  width:42px;height:42px;flex:none;border-radius:6px;background:var(--orange);
+  display:grid;place-items:center;color:var(--slate-950);
 }
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
+.brand-mark svg{width:24px;height:24px}
+.brand-name{display:flex;flex-direction:column;line-height:1.05}
+.brand-name strong{font-family:var(--font-head);font-weight:600;font-size:1.08rem;letter-spacing:.06em;text-transform:uppercase}
+.brand-name span{font-size:.66rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  text-decoration:none;font-size:.84rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:#C7D2E4;position:relative;padding:6px 0;transition:color .2s;
+}
+.nav-links a:not(.nav-cta)::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+.nav-links a:not(.nav-cta):hover,.nav-links a:not(.nav-cta).active{color:#fff}
+.nav-links a:not(.nav-cta):hover::after,.nav-links a:not(.nav-cta).active::after{transform:scaleX(1)}
+.nav-cta{
+  background:var(--orange);color:var(--slate-950)!important;border-radius:4px;
+  padding:11px 20px!important;font-family:var(--font-head);letter-spacing:.09em;
+  transition:background .2s,transform .2s;
+}
+.nav-cta:hover{background:var(--orange-deep);transform:translateY(-2px)}
 
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
+/* hamburger */
+.menu-toggle{
+  display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  width:46px;height:46px;background:none;border:1px solid rgba(255,255,255,.22);border-radius:6px;cursor:pointer;
+}
+.menu-toggle span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
+/* mobile panel */
+.mobile-panel{
+  display:none;position:fixed;top:78px;left:0;right:0;z-index:59;
+  background:rgba(11,18,32,.98);border-bottom:2px solid var(--orange);
+  padding:8px 24px 26px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.mobile-panel.open{display:block;animation:panel-in .25s ease}
+@keyframes panel-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mobile-panel a:not(.btn){
+  display:block;padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.08);
+  text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:#DCE4F2;
+}
+.mobile-panel a:not(.btn):hover{color:var(--orange)}
+.mobile-panel .btn{width:100%;margin-top:20px}
 
-/* ——— responsive ——— */
-@media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
+@media (max-width:900px){
+  .nav-links{display:none}
+  .menu-toggle{display:inline-flex}
+}
+@media (min-width:901px){
+  .mobile-panel{display:none!important}
+}
+
+/* ==========================================================================
+   2. Hero
+   ========================================================================== */
+.hero{
+  position:relative;display:flex;align-items:center;
+  min-height:min(100vh,860px);
+  padding:190px 0 140px;
+  background:var(--slate-950);
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(11,18,32,.95) 0%,rgba(11,18,32,.84) 45%,rgba(15,23,42,.55) 100%);
+}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.hero h1{
+  font-family:var(--font-head);font-weight:700;text-transform:uppercase;
+  font-size:clamp(3rem,8vw,5.6rem);line-height:.98;letter-spacing:.01em;
+}
+.hero h1 .line{display:block}
+@supports (-webkit-text-stroke:2px #fff){
+  .hero h1 .outline{color:transparent;-webkit-text-stroke:2px #fff}
+}
+.tagline{margin:26px 0 18px}
+.tag-mark{
+  display:inline-block;background:var(--orange);color:var(--slate-950);
+  font-family:var(--font-head);font-weight:600;text-transform:uppercase;letter-spacing:.05em;
+  font-size:clamp(1.05rem,2.2vw,1.5rem);
+  padding:9px 18px;transform:skewX(-6deg);
+}
+.hero-sub{max-width:560px;color:var(--body-on-dark);font-size:1.1rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:44px}
+.hero-trust span{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9C6DB;
+}
+.hero-trust svg{width:15px;height:15px;color:var(--orange);flex:none}
+.hero .hazard{position:absolute;left:0;right:0;bottom:0}
+.scroll-cue{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:1;
+  color:#8B99B5;transition:color .2s;
+}
+.scroll-cue:hover{color:var(--orange)}
+.scroll-cue svg{width:26px;height:26px;transform:rotate(90deg);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%,100%{translate:0 0}50%{translate:0 8px}}
+@media (max-height:640px){.scroll-cue{display:none}}
+
+/* ==========================================================================
+   3. Services
+   ========================================================================== */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{
+  position:relative;overflow:hidden;
+  background:#fff;border:1px solid var(--line-light);border-radius:var(--radius);
+  padding:32px 28px;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 38px -20px rgba(15,23,42,.28);border-color:#CBD5E1}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{
+  width:56px;height:56px;border-radius:8px;background:var(--orange-soft);color:var(--orange);
+  display:grid;place-items:center;margin-bottom:20px;
+}
+.card-icon svg{width:30px;height:30px}
+.card h3{
+  font-family:var(--font-head);font-weight:600;text-transform:uppercase;
+  font-size:1.15rem;letter-spacing:.045em;margin-bottom:10px;
+}
+.card p{color:var(--body-on-light);font-size:.96rem}
+.services-note{margin-top:36px;text-align:center;color:var(--body-on-light);font-size:.98rem}
+.services-note a{color:var(--orange);font-weight:600}
+
+/* ==========================================================================
+   4. How It Works
+   ========================================================================== */
+.steps{display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;gap:10px;align-items:stretch}
+.step{
+  background:var(--slate-800);border:1px solid var(--line-dark);border-radius:var(--radius);
+  padding:34px 30px;
+}
+.step-num{
+  display:block;font-family:var(--font-head);font-weight:700;font-size:3.2rem;line-height:1;
+  color:var(--orange);margin-bottom:16px;
+}
+@supports (-webkit-text-stroke:2px #fff){
+  .step-num{color:transparent;-webkit-text-stroke:2px var(--orange)}
+}
+.step h3{
+  font-family:var(--font-head);font-weight:600;text-transform:uppercase;
+  font-size:1.2rem;letter-spacing:.04em;margin-bottom:10px;
+}
+.step p{color:var(--body-on-dark);font-size:.96rem}
+.step-arrow{display:grid;place-items:center;color:var(--orange)}
+.step-arrow svg{width:30px;height:30px}
+
+/* ==========================================================================
+   5. Why Us
+   ========================================================================== */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tile{
+  background:var(--slate-900);color:#fff;border:1px solid var(--slate-900);border-radius:var(--radius);
+  padding:32px 26px;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.tile:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:0 18px 34px -20px rgba(15,23,42,.5)}
+.tile-icon{color:var(--orange);margin-bottom:18px}
+.tile-icon svg{width:34px;height:34px}
+.tile-stat{
+  display:block;font-family:var(--font-head);font-weight:700;text-transform:uppercase;
+  font-size:1.9rem;line-height:1.05;color:var(--orange);
+}
+.tile-label{
+  display:block;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
+  font-size:.85rem;margin:4px 0 12px;
+}
+.tile p{color:var(--body-on-dark);font-size:.92rem}
+
+/* ==========================================================================
+   6. Quote Request
+   ========================================================================== */
+.quote-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+.quote-pitch .section-head{margin-bottom:34px}
+.quote-points li{display:flex;gap:14px;align-items:flex-start;padding:10px 0;font-size:1.02rem;color:var(--body-on-dark)}
+.quote-points svg{width:22px;height:22px;color:var(--orange);flex:none;margin-top:2px}
+.quote-alt{margin-top:34px;padding-top:30px;border-top:1px solid var(--line-dark)}
+.quote-alt p{font-size:.82rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-on-dark)}
+.quote-alt a{
+  display:inline-block;margin-top:6px;text-decoration:none;color:var(--orange);
+  font-family:var(--font-head);font-weight:600;font-size:1.7rem;letter-spacing:.03em;
+}
+.quote-alt a:hover{text-decoration:underline}
+
+.quote-form{
+  background:var(--slate-800);border:1px solid var(--line-dark);border-radius:10px;
+  padding:36px 34px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:20px}
+.field label:not(.dropzone){
+  display:block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#B9C6DB;margin-bottom:8px;
+}
+.field .opt{color:var(--muted-on-dark);font-weight:500;text-transform:none;letter-spacing:.02em}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--slate-900);border:1px solid #33415C;border-radius:6px;
+  color:#fff;font-family:inherit;font-size:1rem;padding:13px 14px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input::placeholder,.field textarea::placeholder{color:#64748B}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,0,.18);
+}
+.field select{
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF6B00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:44px;
+}
+.field select:invalid{color:#64748B}
+.field textarea{resize:vertical;min-height:110px}
+
+.dropzone{
+  display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;
+  border:2px dashed #3A4A68;border-radius:8px;padding:26px 18px;cursor:pointer;
+  color:#93A3BD;transition:border-color .2s,background .2s,color .2s;
+}
+.dropzone:hover,.dropzone.drag{border-color:var(--orange);background:rgba(255,107,0,.06);color:#DCE4F2}
+.dropzone svg{width:30px;height:30px;color:var(--orange)}
+.dropzone strong{font-weight:700;color:#DCE4F2}
+.dropzone span{font-size:.85rem}
+.file-list{margin-top:10px;font-size:.88rem;color:var(--orange);word-break:break-word}
+.quote-form .btn{width:100%;margin-top:6px}
+.fine-print{margin-top:14px;font-size:.82rem;color:var(--muted-on-dark);text-align:center}
+
+/* success state */
+.form-success{display:none;text-align:center;padding:26px 6px}
+.quote-form.sent .form-body{display:none}
+.quote-form.sent .form-success{display:block}
+.form-success svg{width:60px;height:60px;color:var(--orange);margin:0 auto 18px}
+.form-success h3{
+  font-family:var(--font-head);font-weight:600;text-transform:uppercase;
+  font-size:1.6rem;letter-spacing:.04em;margin-bottom:12px;
+}
+.form-success h3:focus{outline:none}
+.form-success p{color:var(--body-on-dark);max-width:420px;margin:0 auto 8px}
+.form-success .btn{width:auto;margin-top:22px}
+
+/* ==========================================================================
+   7. Testimonials
+   ========================================================================== */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review{
+  display:flex;flex-direction:column;
+  background:var(--paper);border:1px solid var(--line-light);border-top:4px solid var(--orange);
+  border-radius:var(--radius);padding:30px 28px;
+}
+.stars{display:flex;gap:3px;color:var(--orange);margin-bottom:16px}
+.stars svg{width:18px;height:18px}
+.review blockquote{flex:1;color:#334155;font-size:.99rem;font-style:italic}
+.review-who{display:flex;align-items:center;gap:14px;margin-top:22px}
+.avatar{
+  width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-family:var(--font-head);font-weight:600;letter-spacing:.04em;font-size:.95rem;
+}
+.avatar--a{background:var(--slate-900);color:var(--orange)}
+.avatar--b{background:var(--orange);color:var(--slate-950)}
+.avatar--c{background:#475569;color:#fff}
+.review-who b{display:block;font-size:.98rem}
+.review-who small{color:var(--body-on-light);font-size:.85rem}
+
+/* ==========================================================================
+   8. Hours & Location
+   ========================================================================== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.hours{margin-top:6px}
+.hours li{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:12px 2px;border-bottom:1px solid #24324D;font-size:.99rem;
+}
+.hours .day{font-weight:600;color:#DCE4F2}
+.hours .time{color:#9FB0CB}
+.hours li.today{border-bottom-color:rgba(255,107,0,.5)}
+.hours li.today .day,.hours li.today .time{color:var(--orange);font-weight:700}
+.hours li.today .day::after{
+  content:'· Today';margin-left:8px;font-size:.72em;letter-spacing:.14em;text-transform:uppercase;
+}
+.info-row{display:flex;gap:14px;align-items:flex-start;margin-top:26px}
+.info-icon{
+  width:44px;height:44px;flex:none;border-radius:8px;background:var(--orange-soft);color:var(--orange);
+  display:grid;place-items:center;
+}
+.info-icon svg{width:22px;height:22px}
+.info-row b{display:block;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#B9C6DB;margin-bottom:2px}
+.info-row p,.info-row a{color:var(--body-on-dark);font-size:1rem;text-decoration:none}
+.info-row a.big{font-family:var(--font-head);font-weight:600;font-size:1.35rem;color:#fff;letter-spacing:.03em}
+.info-row a:hover{color:var(--orange)}
+.contact-note{margin-top:30px;font-size:.9rem;color:var(--muted-on-dark)}
+
+.map{
+  position:relative;border:1px solid var(--line-dark);border-radius:10px;overflow:hidden;
+  background:#17233C;min-height:400px;height:100%;
+}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map-badge{
+  position:absolute;top:14px;left:14px;z-index:1;
+  background:rgba(11,18,32,.85);border:1px solid var(--line-dark);border-radius:5px;
+  padding:6px 12px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9FB0CB;
+}
+.map-pulse{animation:pulse 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}70%{transform:scale(1.1);opacity:0}100%{transform:scale(1.1);opacity:0}}
+
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
+footer{background:var(--slate-950);color:var(--body-on-dark)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:52px;padding:72px 0 56px}
+.footer-blurb{margin:18px 0 24px;font-size:.96rem;max-width:340px}
+.soc{display:flex;gap:12px}
+.soc a{
+  width:40px;height:40px;border:1px solid #26334D;border-radius:8px;color:#9FB0CB;
+  display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.soc a:hover{background:var(--orange);border-color:var(--orange);color:var(--slate-950);transform:translateY(-3px)}
+.soc svg{width:18px;height:18px}
+footer h4{
+  font-family:var(--font-head);font-weight:600;text-transform:uppercase;
+  font-size:.95rem;letter-spacing:.16em;color:#fff;margin-bottom:18px;
+}
+.footer-links a{display:inline-block;padding:5px 0;text-decoration:none;color:#9FB0CB;font-size:.95rem;transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+.footer-contact li{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:.95rem}
+.footer-contact svg{width:18px;height:18px;color:var(--orange);flex:none;margin-top:3px}
+.footer-contact a{color:#9FB0CB;text-decoration:none}
+.footer-contact a:hover{color:var(--orange)}
+.footer-bottom{border-top:1px solid #1C2A44}
+.footer-bottom .wrap{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  padding-top:22px;padding-bottom:22px;font-size:.85rem;color:#7C8BA8;
+}
+
+/* ==========================================================================
+   Reveal-on-scroll (gated on JS + motion preference)
+   ========================================================================== */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{
+    opacity:0;transform:translateY(26px);
+    transition:opacity .6s ease,transform .6s ease;
+    transition-delay:var(--d,0s);
   }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
+  .js .reveal.in{opacity:1;transform:none}
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:1fr;max-width:640px;margin:0 auto}
+  .steps{grid-template-columns:1fr}
+  .step-arrow{padding:2px 0}
+  .step-arrow svg{transform:rotate(90deg)}
+}
+@media (max-width:980px){
+  .quote-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .map{min-height:340px}
+}
+@media (max-width:720px){
+  .section{padding:76px 0}
+  .hero{padding:150px 0 120px}
+}
+@media (max-width:640px){
+  .services-grid{grid-template-columns:1fr}
+  .quote-form{padding:28px 22px}
+}
+@media (max-width:560px){
+  .form-row{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr}
+  .hero-cta .btn{width:100%}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
-    </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
+<!-- reusable inline icons -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-wrench" viewBox="0 0 24 24">
+    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-star" viewBox="0 0 24 24">
+    <path d="M12 2.5l2.95 6.2 6.55.85-4.8 4.7 1.2 6.55L12 17.6l-5.9 3.2 1.2-6.55-4.8-4.7 6.55-.85z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M8.2 12.4l2.6 2.6 5-5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24">
+    <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24">
+    <path d="M12 21.5s-6.8-5.6-6.8-10.4a6.8 6.8 0 0 1 13.6 0c0 4.8-6.8 10.4-6.8 10.4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="12" cy="10.8" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M12 6.8V12l3.4 2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ===================== 1. NAVBAR ===================== -->
+<header id="site-header">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="nav-bar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Repair Shops &amp; Services — back to top">
+        <span class="brand-mark" aria-hidden="true"><svg><use href="#i-wrench"/></svg></span>
+        <span class="brand-name"><strong>Repair Shops</strong><span>&amp; Services</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a class="nav-cta" href="#quote">Get a Quote</a>
+        <a href="#contact">Contact</a>
       </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </div>
 </header>
+<div class="mobile-panel" id="mobile-menu">
+  <a href="#services">Services</a>
+  <a href="#why-us">Why Us</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn--orange" href="#quote">Get a Quote</a>
+</div>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
+<main id="main">
+<!-- ===================== 2. HERO ===================== -->
+<section class="hero" id="top">
+  <!-- stock-style workshop placeholder illustration -->
+  <svg class="hero-bg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1D2A44"/><stop offset="1" stop-color="#141F36"/>
+      </linearGradient>
+      <pattern id="peg" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="20" cy="20" r="2" fill="#2E3E5E"/>
+      </pattern>
+      <radialGradient id="vig" cx="0.5" cy="0.42" r="0.8">
+        <stop offset="0.55" stop-color="#0B1220" stop-opacity="0"/>
+        <stop offset="1" stop-color="#0B1220" stop-opacity="0.55"/>
+      </radialGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#wall)"/>
+    <rect width="1600" height="700" fill="url(#peg)" opacity="0.55"/>
+    <!-- hanging lamps + light cones -->
+    <line x1="430" y1="0" x2="430" y2="34" stroke="#22304A" stroke-width="3"/>
+    <path d="M402 34h56l15 28h-86z" fill="#22304A"/>
+    <circle cx="430" cy="70" r="7" fill="#FFB37A" opacity="0.5"/>
+    <polygon points="430,70 340,620 520,620" fill="#FF6B00" opacity="0.04"/>
+    <line x1="1150" y1="0" x2="1150" y2="40" stroke="#22304A" stroke-width="3"/>
+    <path d="M1118 40h64l17 30h-98z" fill="#22304A"/>
+    <circle cx="1150" cy="80" r="8" fill="#FFB37A" opacity="0.5"/>
+    <polygon points="1150,80 1040,700 1265,700" fill="#FF6B00" opacity="0.05"/>
+    <!-- shelf with boxes -->
+    <rect x="120" y="212" width="520" height="10" fill="#2A3A5C"/>
+    <rect x="150" y="152" width="90" height="60" rx="4" fill="#26344F"/>
+    <rect x="258" y="142" width="70" height="70" rx="4" fill="#2E3E5E"/>
+    <rect x="346" y="160" width="112" height="52" rx="4" fill="#26344F"/>
+    <rect x="476" y="150" width="76" height="62" rx="4" fill="#2B3B58"/>
+    <!-- gears top right -->
+    <g fill="none" stroke="#2C3C5E" opacity="0.55">
+      <circle cx="1420" cy="185" r="95" stroke-width="30" stroke-dasharray="26 16"/>
+      <circle cx="1420" cy="185" r="50" stroke-width="10"/>
+      <circle cx="1298" cy="308" r="48" stroke-width="18" stroke-dasharray="15 10"/>
+      <circle cx="1298" cy="308" r="24" stroke-width="7"/>
+    </g>
+    <!-- hanging tools -->
+    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+          transform="translate(690 300) rotate(35) scale(9)" fill="#243350" opacity="0.85"/>
+    <g transform="translate(925 330) rotate(-24)" fill="#243350" opacity="0.85">
+      <rect x="-9" y="0" width="18" height="150" rx="8"/>
+      <rect x="-46" y="-36" width="92" height="42" rx="10"/>
+    </g>
+    <g transform="translate(1050 345) rotate(18)" fill="#22304C" opacity="0.85">
+      <rect x="-6" y="0" width="12" height="82" rx="4"/>
+      <rect x="-12" y="80" width="24" height="66" rx="11"/>
+    </g>
+    <!-- workbench -->
+    <rect x="0" y="700" width="1600" height="26" fill="#223049"/>
+    <rect x="140" y="726" width="26" height="174" fill="#1D2A42"/>
+    <rect x="560" y="726" width="26" height="174" fill="#1D2A42"/>
+    <rect x="980" y="726" width="26" height="174" fill="#1D2A42"/>
+    <rect x="1400" y="726" width="26" height="174" fill="#1D2A42"/>
+    <rect x="120" y="812" width="1330" height="14" fill="#1F2C47"/>
+    <!-- toolbox on bench -->
+    <path d="M345 640v-14a12 12 0 0 1 12-12h36a12 12 0 0 1 12 12v14" fill="none" stroke="#26344F" stroke-width="10"/>
+    <rect x="300" y="638" width="150" height="62" rx="6" fill="#26344F"/>
+    <rect x="300" y="664" width="150" height="9" fill="#FF6B00" opacity="0.35"/>
+    <!-- jars on bench -->
+    <rect x="1180" y="654" width="30" height="46" rx="4" fill="#2B3B58"/>
+    <rect x="1222" y="662" width="26" height="38" rx="4" fill="#26344F"/>
+    <rect x="1258" y="648" width="34" height="52" rx="4" fill="#2E3E5E"/>
+    <rect width="1600" height="900" fill="url(#vig)"/>
+  </svg>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero-inner" data-stagger>
+      <p class="eyebrow reveal">Family-owned · Fixing things since 2009</p>
+      <h1 class="reveal"><span class="line">Repair Shops</span> <span class="line outline">&amp; Services</span></h1>
+      <p class="tagline reveal"><span class="tag-mark">If it&rsquo;s broken, we fix it.</span></p>
+      <p class="hero-sub reveal">Appliances, electronics, phones, small engines and everything in between — one workshop, honest prices, and repairs that actually last.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn--orange" href="#quote">Request a Quote</a>
+        <a class="btn btn--ghost" href="#services">Our Services</a>
       </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
+      <div class="hero-trust reveal">
+        <span><svg aria-hidden="true"><use href="#i-star"/></svg> 4.9/5 average rating</span>
+        <span><svg aria-hidden="true"><use href="#i-wrench"/></svg> 12,000+ repairs completed</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg> 90-day warranty</span>
+      </div>
     </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
-        </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
+  </div>
+
+  <a class="scroll-cue" href="#services" aria-label="Scroll to services">
+    <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+  </a>
+  <div class="hazard" aria-hidden="true"></div>
+</section>
+
+<!-- ===================== 3. SERVICES ===================== -->
+<section id="services" class="section section--light">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">What we fix</p>
+      <h2 class="section-title">One shop for every repair</h2>
+      <p class="section-sub">From dead dryers to cracked screens to mowers that won&rsquo;t start — bring it in and we&rsquo;ll get it running.</p>
+    </div>
+
+    <div class="services-grid" data-stagger>
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M4 7h16"/>
+            <circle cx="6.9" cy="4.8" r="0.9"/><circle cx="10" cy="4.8" r="0.9"/>
+            <circle cx="12" cy="14" r="4.2"/><path d="M8.4 13.3c1.2.9 2.4.9 3.6 0s2.4-.9 3.6 0"/>
+          </svg>
+        </div>
+        <h3>Appliance Repair</h3>
+        <p>Washers, dryers, fridges, ovens and dishwashers. Fast diagnosis, common parts in stock, repairs on-site whenever possible.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="7" width="10" height="10" rx="1.5"/><rect x="10.2" y="10.2" width="3.6" height="3.6"/>
+            <path d="M9.5 7V4M14.5 7V4M9.5 20v-3M14.5 20v-3M7 9.5H4M7 14.5H4M20 9.5h-3M20 14.5h-3"/>
+          </svg>
+        </div>
+        <h3>Electronics</h3>
+        <p>TVs, audio gear, game consoles and more. Board-level diagnostics and honest advice on repairing versus replacing.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="5" width="12.5" height="9" rx="1.2"/><path d="M2 17.2h12"/>
+            <rect x="16" y="8" width="6.5" height="12" rx="1.5"/><path d="M18.6 17.6h1.3"/>
+          </svg>
+        </div>
+        <h3>Phones &amp; Computers</h3>
+        <p>Cracked screens, dead batteries, slow laptops and data rescue. Most phone repairs are finished the same day.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3.4"/>
+            <path d="M12 3v2.8M12 18.2V21M21 12h-2.8M5.8 12H3M18.4 5.6l-2 2M7.6 16.4l-2 2M18.4 18.4l-2-2M7.6 7.6l-2-2"/>
+          </svg>
+        </div>
+        <h3>Small Engines</h3>
+        <p>Mowers, trimmers, snow blowers and generators. Tune-ups, carb cleaning and seasonal servicing that beats buying new.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.5 11.5L12 4l8.5 7.5"/><path d="M5.5 10.2V20h13v-9.8"/>
+            <path d="M8.8 17.2l4.6-4.6"/><path d="M12.6 11.8l2.2-2.2 2.6 2.6-2.2 2.2z"/>
+          </svg>
+        </div>
+        <h3>Home Fixes</h3>
+        <p>Leaky faucets, sticky doors, drywall patches — the small jobs that never make it off your to-do list. We knock them out.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6.5h8.4M17.4 6.5H20"/><circle cx="15" cy="6.5" r="2.1"/>
+            <path d="M4 12h1.7M10.3 12H20"/><circle cx="8" cy="12" r="2.1"/>
+            <path d="M4 17.5h6.7M15.3 17.5H20"/><circle cx="13" cy="17.5" r="2.1"/>
+          </svg>
+        </div>
+        <h3>Custom Jobs</h3>
+        <p>Odd, old or one-of-a-kind? Bring it in. If it has moving parts or a power switch, we&rsquo;ll take a serious look at it.</p>
+      </article>
+    </div>
+
+    <p class="services-note reveal">Don&rsquo;t see your item on the list? <a href="#quote">Ask us anyway</a> — odds are we&rsquo;ve fixed one before.</p>
+  </div>
+</section>
+
+<!-- ===================== 4. HOW IT WORKS ===================== -->
+<section id="how" class="section section--dark">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Simple process</p>
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">Three steps between &ldquo;it&rsquo;s broken&rdquo; and &ldquo;it&rsquo;s back&rdquo; — no runaround, no surprise charges.</p>
+    </div>
+
+    <div class="steps" data-stagger>
+      <article class="step reveal">
+        <span class="step-num" aria-hidden="true">01</span>
+        <h3>Describe the Problem</h3>
+        <p>Tell us what&rsquo;s wrong — online, by phone or in person. Photos help, but &ldquo;it makes a weird noise&rdquo; works too.</p>
+      </article>
+      <div class="step-arrow reveal" aria-hidden="true"><svg><use href="#i-chevron"/></svg></div>
+      <article class="step reveal">
+        <span class="step-num" aria-hidden="true">02</span>
+        <h3>Get a Free Estimate</h3>
+        <p>We diagnose it and send you a written, upfront quote. Nothing gets opened, ordered or replaced without your OK.</p>
+      </article>
+      <div class="step-arrow reveal" aria-hidden="true"><svg><use href="#i-chevron"/></svg></div>
+      <article class="step reveal">
+        <span class="step-num" aria-hidden="true">03</span>
+        <h3>Fast Repair with Warranty</h3>
+        <p>Most jobs are finished within the week, and every repair leaves the shop backed by our 90-day warranty.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
+<!-- ===================== 5. WHY US ===================== -->
+<section id="why-us" class="section section--light">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Why us</p>
+      <h2 class="section-title">Repairs you can count on</h2>
+      <p class="section-sub">We win customers by fixing things right the first time — and standing behind the work when it matters.</p>
     </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
+
+    <div class="tiles" data-stagger>
+      <article class="tile reveal">
+        <div class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.8l7 2.8v5.5c0 4.6-3 7.8-7 9.4-4-1.6-7-4.8-7-9.4V5.6z"/>
+            <path d="M9 11.9l2.1 2.1 3.9-4.3"/>
+          </svg>
+        </div>
+        <span class="tile-stat">90-Day</span>
+        <span class="tile-label">Warranty</span>
+        <p>Every repair is covered for a full 90 days — parts and labor, in writing.</p>
+      </article>
+
+      <article class="tile reveal">
+        <div class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/>
+            <path d="M12.8 11.5l-2.4 3.1h3.2l-2.4 3.1"/>
+          </svg>
+        </div>
+        <span class="tile-stat">Same-Week</span>
+        <span class="tile-label">Service</span>
+        <p>Most items are diagnosed within 48 hours and fixed within the week.</p>
+      </article>
+
+      <article class="tile reveal">
+        <div class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.5 12.5V5A1.5 1.5 0 0 1 5 3.5h7.5L21 12l-8.5 8.5z"/>
+            <circle cx="7.6" cy="7.6" r="1.3"/>
+          </svg>
+        </div>
+        <span class="tile-stat">Upfront</span>
+        <span class="tile-label">Pricing</span>
+        <p>Flat, written quotes before we touch a single screw. No surprises at pickup.</p>
+      </article>
+
+      <article class="tile reveal">
+        <div class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="9.5" r="5.8"/>
+            <path d="M9.8 9.3l1.6 1.6 2.8-3"/>
+            <path d="M8.6 14.4L7.2 21l4.8-2.5L16.8 21l-1.4-6.6"/>
+          </svg>
+        </div>
+        <span class="tile-stat">Certified</span>
+        <span class="tile-label">Technicians</span>
+        <p>Factory-trained, background-checked, and genuinely obsessed with fixing things.</p>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
-    </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
+<!-- ===================== 6. QUOTE REQUEST ===================== -->
+<section id="quote" class="section section--dark">
+  <div class="wrap quote-grid">
+    <div class="quote-pitch reveal">
+      <div class="section-head">
+        <p class="eyebrow">Get a quote</p>
+        <h2 class="section-title">Request a free estimate</h2>
+        <p class="section-sub">Tell us what&rsquo;s broken and we&rsquo;ll get back to you with an honest, no-obligation quote.</p>
       </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
+      <ul class="quote-points">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg> Free, no-obligation estimates on every job</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg> Reply within one business day — usually faster</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg> Walk-ins and drop-offs welcome, no appointment needed</li>
+      </ul>
+      <div class="quote-alt">
+        <p>Prefer to talk it through?</p>
+        <a href="tel:+15550123456">(555) 012-3456</a>
+      </div>
+    </div>
+
+    <form class="quote-form reveal" id="quote-form" novalidate>
+      <div class="form-body">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Jordan Smith" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="item-type">What needs fixing?</label>
+          <select id="item-type" name="item-type" required>
+            <option value="" disabled selected>Select item type&hellip;</option>
+            <option>Appliance (washer, fridge, oven&hellip;)</option>
+            <option>TV / Audio / Electronics</option>
+            <option>Phone / Tablet</option>
+            <option>Computer / Laptop</option>
+            <option>Small engine (mower, generator&hellip;)</option>
+            <option>Home fix (doors, faucets, drywall&hellip;)</option>
+            <option>Something else / custom job</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="problem">Describe the problem</label>
+          <textarea id="problem" name="problem" rows="4" placeholder="Tell us what&rsquo;s wrong — brand, model and symptoms all help. e.g. &ldquo;Samsung dryer spins but won&rsquo;t heat.&rdquo;" required></textarea>
+        </div>
+        <div class="field">
+          <label for="photos">Photos <span class="opt">(optional — they help us quote faster)</span></label>
+          <label class="dropzone" for="photos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3.5 8.5A1.5 1.5 0 0 1 5 7h2.2l1.5-2.3h6.6L16.8 7H19a1.5 1.5 0 0 1 1.5 1.5V18a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 18z"/>
+              <circle cx="12" cy="13" r="3.4"/>
+            </svg>
+            <strong>Add photos of the item</strong>
+            <span>Drag &amp; drop here, or click to browse</span>
+          </label>
+          <input type="file" id="photos" name="photos" accept="image/*" multiple class="sr-only">
+          <div class="file-list" id="file-list" aria-live="polite"></div>
+        </div>
+        <button class="btn btn--orange" type="submit">Send Quote Request</button>
+        <p class="fine-print">Demo form — nothing is sent or stored. Wire it to your backend or a form service before going live.</p>
+      </div>
+
+      <div class="form-success" aria-live="polite">
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <h3 id="success-title" tabindex="-1">Request received!</h3>
+        <p>Thanks, <strong id="success-name">friend</strong>! We&rsquo;ll call or text you at <strong id="success-phone"></strong> with a free estimate within one business day.</p>
+        <p class="fine-print">(This is a front-end demo — no data actually left your browser.)</p>
+        <button class="btn btn--ghost" type="button" id="send-another">Send Another Request</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== 7. TESTIMONIALS ===================== -->
+<section id="testimonials" class="section section--light">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="section-title">What customers say</h2>
+      <p class="section-sub">Real reviews from people whose stuff we&rsquo;ve brought back from the dead.</p>
+    </div>
+
+    <div class="reviews-grid" data-stagger>
+      <article class="review reveal">
+        <div class="stars" aria-hidden="true">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <span class="sr-only">Rated 5 out of 5 stars</span>
+        <blockquote>&ldquo;My dryer died on a Sunday; by Thursday it was back and running like new. The quote they texted me was exactly what I paid — not a penny more.&rdquo;</blockquote>
+        <div class="review-who">
+          <span class="avatar avatar--a" aria-hidden="true">DW</span>
+          <div><b>Dana W.</b><small>Dryer repair · Maple Heights</small></div>
+        </div>
+      </article>
+
+      <article class="review reveal">
+        <div class="stars" aria-hidden="true">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <span class="sr-only">Rated 5 out of 5 stars</span>
+        <blockquote>&ldquo;Cracked my phone screen at 9 AM and picked it up fixed on my lunch break. Fast, friendly, and cheaper than the mall kiosk.&rdquo;</blockquote>
+        <div class="review-who">
+          <span class="avatar avatar--b" aria-hidden="true">MT</span>
+          <div><b>Marcus T.</b><small>Phone screen · Downtown</small></div>
+        </div>
+      </article>
+
+      <article class="review reveal">
+        <div class="stars" aria-hidden="true">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <span class="sr-only">Rated 5 out of 5 stars</span>
+        <blockquote>&ldquo;They brought my grandfather&rsquo;s 40-year-old sewing machine back to life after three other shops told me to just buy a new one. Absolute wizards.&rdquo;</blockquote>
+        <div class="review-who">
+          <span class="avatar avatar--c" aria-hidden="true">PS</span>
+          <div><b>Priya S.</b><small>Custom job · Riverside</small></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. HOURS & LOCATION ===================== -->
+<section id="contact" class="section section--dark">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="section-head">
+        <p class="eyebrow">Visit us</p>
+        <h2 class="section-title">Hours &amp; Location</h2>
+        <p class="section-sub">Swing by the shop — drop-offs welcome any time we&rsquo;re open.</p>
+      </div>
+
+      <ul class="hours">
+        <li data-day="1"><span class="day">Monday</span><span class="time">8:00 AM – 6:00 PM</span></li>
+        <li data-day="2"><span class="day">Tuesday</span><span class="time">8:00 AM – 6:00 PM</span></li>
+        <li data-day="3"><span class="day">Wednesday</span><span class="time">8:00 AM – 6:00 PM</span></li>
+        <li data-day="4"><span class="day">Thursday</span><span class="time">8:00 AM – 6:00 PM</span></li>
+        <li data-day="5"><span class="day">Friday</span><span class="time">8:00 AM – 6:00 PM</span></li>
+        <li data-day="6"><span class="day">Saturday</span><span class="time">9:00 AM – 4:00 PM</span></li>
+        <li data-day="0"><span class="day">Sunday</span><span class="time">Closed</span></li>
+      </ul>
+
+      <div class="info-row">
+        <span class="info-icon" aria-hidden="true"><svg><use href="#i-pin"/></svg></span>
+        <div>
+          <b>Address</b>
+          <p>2481 Industrial Way, Unit 3<br>Springfield, ST 62704</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon" aria-hidden="true"><svg><use href="#i-phone"/></svg></span>
+        <div>
+          <b>Phone</b>
+          <a class="big" href="tel:+15550123456">(555) 012-3456</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon" aria-hidden="true"><svg><use href="#i-mail"/></svg></span>
+        <div>
+          <b>Email</b>
+          <a href="mailto:hello@repairshops.example">hello@repairshops.example</a>
+        </div>
+      </div>
+      <p class="contact-note">Free parking out front · Wheelchair accessible · Se habla español</p>
+    </div>
+
+    <div class="map reveal">
+      <span class="map-badge">Map placeholder</span>
+      <!-- stock-style map placeholder -->
+      <svg viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylized map placeholder showing the shop location at 2481 Industrial Way">
+        <rect width="640" height="480" fill="#17233C"/>
+        <g stroke="#1F2C47" stroke-width="10" fill="none">
+          <path d="M-20 225H660"/><path d="M280 -20V500"/><path d="M40 -20V500"/><path d="M-20 430H660"/>
+        </g>
+        <g stroke="#243350" stroke-width="26" stroke-linecap="round" fill="none">
+          <path d="M-20 120H660"/><path d="M-20 330H660"/><path d="M140 -20V500"/><path d="M420 -20V500"/><path d="M560 -20L320 500"/>
+        </g>
+        <rect x="450" y="150" width="140" height="120" rx="10" fill="#1E3A34"/>
+        <circle cx="520" cy="210" r="26" fill="#1D3A50"/>
+        <path d="M-20 120H280V330H660" stroke="#FF6B00" stroke-width="6" stroke-dasharray="14 10" fill="none" opacity="0.85"/>
+        <circle class="map-pulse" cx="280" cy="330" r="30" fill="rgba(255,107,0,0.3)"/>
+        <g transform="translate(280 330)">
+          <path d="M0 0C-9-8-14-15-14-22a14 14 0 0 1 28 0C14-15 9-8 0 0z" fill="#FF6B00"/>
+          <circle cy="-22" r="5.5" fill="#0F172A"/>
+        </g>
+        <g transform="translate(280 352)">
+          <rect x="-98" y="0" width="196" height="34" rx="6" fill="#0F172A" stroke="#33415C"/>
+          <text x="0" y="22" text-anchor="middle" fill="#E8EEF9" font-family="Barlow, sans-serif" font-size="15" font-weight="600">2481 Industrial Way</text>
+        </g>
+        <g transform="translate(596 44)">
+          <circle r="20" fill="#0F172A" stroke="#33415C"/>
+          <path d="M0 -11L5 7l-5-3.4L-5 7z" fill="#FF6B00"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== 9. FOOTER ===================== -->
+<footer>
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top" aria-label="Repair Shops &amp; Services — back to top">
+        <span class="brand-mark" aria-hidden="true"><svg><use href="#i-wrench"/></svg></span>
+        <span class="brand-name"><strong>Repair Shops</strong><span>&amp; Services</span></span>
+      </a>
+      <p class="footer-blurb">Your neighborhood fix-it shop. If it&rsquo;s broken, bring it in — we&rsquo;ll give it an honest look and a fair price.</p>
+      <div class="soc">
+        <a href="#top" aria-label="Facebook (placeholder link)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.5-3h-3.2V8.2c0-.9.3-1.5 1.6-1.5H17V4.1c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2V10H8v3h2.5v8z"/></svg>
+        </a>
+        <a href="#top" aria-label="Instagram (placeholder link)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="4.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.8" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#top" aria-label="X, formerly Twitter (placeholder link)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l6.9 9.5L4.3 20h2.5l5.2-5.9 4.3 5.9H20l-7.2-9.9L19.3 4h-2.5l-4.6 5.2L8.4 4z"/></svg>
+        </a>
+        <a href="#top" aria-label="YouTube (placeholder link)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.6" y="6" width="18.8" height="12" rx="3.4"/><path d="M10.4 9.6v4.8l4.4-2.4z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <nav aria-label="Footer quick links">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#quote">Get a Quote</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-contact">
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span>2481 Industrial Way, Unit 3<br>Springfield, ST 62704</span></li>
+        <li><svg aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+15550123456">(555) 012-3456</a></li>
+        <li><svg aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@repairshops.example">hello@repairshops.example</a></li>
+        <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span>Mon–Fri 8–6 · Sat 9–4 · Sun closed</span></li>
       </ul>
     </div>
   </div>
-</section>
-
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <span>&copy; <span id="year">2026</span> Repair Shops &amp; Services. All rights reserved.</span>
+      <span>Placeholder content for demo purposes.</span>
     </div>
-    <div class="menu-grid">
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
-
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
-
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— FOOTER ——————— -->
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
-    </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
   </div>
 </footer>
 
 <script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
+(function(){
+  'use strict';
+  document.documentElement.classList.replace('no-js','js');
 
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
+  /* ——— sticky header shadow ——— */
+  var header = document.getElementById('site-header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 10); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ——— mobile menu ——— */
+  var toggle = document.querySelector('.menu-toggle');
+  var panel = document.getElementById('mobile-menu');
+  function setMenu(open){
+    panel.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function(){ setMenu(!panel.classList.contains('open')); });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setMenu(false); });
   });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
 
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
-  }
-})();
-
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
-
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+  /* ——— stagger delays for grouped reveals ——— */
+  document.querySelectorAll('[data-stagger]').forEach(function(group){
+    Array.prototype.forEach.call(group.children, function(el, i){
+      el.style.setProperty('--d', (i * 0.07) + 's');
     });
   });
+
+  /* ——— reveal on scroll ——— */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+
+    /* ——— nav link highlighting ——— */
+    var spyLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        spyLinks.forEach(function(link){
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){ spy.observe(s); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ——— quote form (front-end only) ——— */
+  var form = document.getElementById('quote-form');
+  var fileInput = document.getElementById('photos');
+  var fileList = document.getElementById('file-list');
+  var dropzone = document.querySelector('.dropzone');
+
+  function listFiles(){
+    var files = Array.prototype.slice.call(fileInput.files || []);
+    fileList.textContent = files.length
+      ? files.length + ' photo' + (files.length > 1 ? 's' : '') + ' attached — ' + files.map(function(f){ return f.name; }).join(', ')
+      : '';
+  }
+  fileInput.addEventListener('change', listFiles);
+  ['dragover','dragenter'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ e.preventDefault(); dropzone.classList.add('drag'); });
+  });
+  ['dragleave','drop'].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ e.preventDefault(); dropzone.classList.remove('drag'); });
+  });
+  dropzone.addEventListener('drop', function(e){
+    if (e.dataTransfer && e.dataTransfer.files.length){
+      fileInput.files = e.dataTransfer.files;
+      listFiles();
+    }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var name = document.getElementById('name').value.trim().split(/\s+/)[0] || 'friend';
+    document.getElementById('success-name').textContent = name;
+    document.getElementById('success-phone').textContent = document.getElementById('phone').value.trim();
+    form.classList.add('sent');
+    document.getElementById('success-title').focus();
+  });
+  document.getElementById('send-another').addEventListener('click', function(){
+    form.reset();
+    fileList.textContent = '';
+    form.classList.remove('sent');
+    document.getElementById('name').focus();
+  });
+
+  /* ——— highlight today's hours ——— */
+  var today = new Date().getDay();
+  document.querySelectorAll('.hours li[data-day]').forEach(function(li){
+    if (Number(li.getAttribute('data-day')) === today) li.classList.add('today');
+  });
+
+  /* ——— footer year ——— */
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
 </body>
