@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crêperie Village Lunaire — Crêpes sucrées &amp; salées | Le Village, Montréal</title>
-<meta name="description" id="metaDesc" content="Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est.">
+<title>Dépanneurs &amp; Tabagies — Your Corner Store, Open Late</title>
+<meta name="description" content="Dépanneurs &amp; Tabagies — your friendly neighborhood corner store. Snacks, beer &amp; wine, lottery, tobacco and everyday basics. Open 7 days, late every night. 1234 Rue Principale, Montréal.">
+<meta name="theme-color" content="#E63946">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Karla:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23F4E7C8'/><circle cx='38' cy='40' r='5' fill='%23E3AC52' opacity='.55'/><circle cx='62' cy='58' r='7' fill='%23E3AC52' opacity='.4'/><circle cx='55' cy='32' r='3' fill='%23E3AC52' opacity='.5'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23E63946'/><path d='M14 62h72v10a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6z' fill='%23fff'/><circle cx='26' cy='62' r='12' fill='%23fff'/><circle cx='50' cy='62' r='12' fill='%23E63946' stroke='%23fff' stroke-width='6'/><circle cx='74' cy='62' r='12' fill='%23fff'/><rect x='30' y='18' width='40' height='26' rx='6' fill='%23fff'/></svg>">
 <style>
+/* ============================================================
+   Dépanneurs & Tabagies — single-page site
+   Palette: bright red / white with navy accents
+   ============================================================ */
 :root{
-  --nuit:#131A2C;
-  --nuit-2:#1A2340;
-  --nuit-3:#222D4F;
-  --lune:#F4E7C8;
-  --beurre:#E3AC52;
-  --fraise:#D0707F;
-  --brume:#9AA5C0;
-  --ligne:rgba(244,231,200,.14);
-  --max:1120px;
+  --red:#E63946;
+  --red-deep:#C81E2E;
+  --red-soft:#FCE9EB;
+  --red-light:#FF97A0;   /* red for dark backgrounds */
+  --navy:#1D3557;
+  --navy-deep:#152947;
+  --gold:#FFC94B;
+  --green:#59C57A;
+  --paper:#FBF7F2;
+  --ink:#25324B;
+  --muted:#5C6A84;
+  --line:#E9E4DC;
+  --radius:20px;
+  --shadow:0 16px 40px rgba(29,53,87,.10);
+  --max:1140px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -28,582 +39,879 @@ html{scroll-behavior:smooth}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 body{
-  background:var(--nuit);
-  color:var(--lune);
-  font-family:'Karla',sans-serif;
-  font-weight:300;
+  font-family:'Nunito',sans-serif;
+  color:var(--ink);
+  background:#fff;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-::selection{background:var(--beurre);color:var(--nuit)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--beurre);outline-offset:3px;border-radius:2px}
+::selection{background:var(--red);color:#fff}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;color:var(--navy);line-height:1.12;letter-spacing:-.01em}
 img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:10px 18px;z-index:100;border-radius:0 0 10px 0}
+.skip-link:focus{left:0}
 
-/* ——— eyebrow / utility type ——— */
+/* ——— section scaffolding ——— */
+section{scroll-margin-top:92px}
+.section-pad{padding:96px 0}
+.section-head{max-width:660px;margin:0 auto 54px;text-align:center}
+.section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:14px 0 14px}
+.section-head .lead{color:var(--muted);font-size:1.06rem}
 .eyebrow{
-  font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--beurre);
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:.76rem;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--red);
 }
-.serif{font-family:'Prata',serif;font-weight:400}
+.eyebrow::before,.eyebrow::after{content:"";width:26px;height:3px;border-radius:2px;background:var(--red);opacity:.85}
+.on-dark h2{color:#fff}
+.on-dark .lead{color:rgba(255,255,255,.75)}
+.on-dark .eyebrow{color:var(--red-light)}
+.on-dark .eyebrow::before,.on-dark .eyebrow::after{background:var(--red-light)}
 
-/* ——— nav ——— */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(19,26,44,.82);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ligne);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px}
-.brand span{font-family:'Prata',serif;font-size:1.02rem;letter-spacing:.02em}
-.nav-right{display:flex;align-items:center;gap:22px}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  color:var(--brume);transition:color .2s;
-}
-.nav-links a:hover{color:var(--lune)}
+/* ——— buttons ——— */
 .btn{
-  display:inline-block;text-decoration:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;
-  padding:11px 24px;border-radius:100px;transition:transform .2s,background .2s,color .2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;
+  padding:15px 30px;border-radius:999px;border:2px solid transparent;
+  cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease,border-color .2s ease;
 }
-.btn-gold{background:var(--beurre);color:var(--nuit);border:1px solid var(--beurre)}
-.btn-gold:hover{transform:translateY(-2px);background:var(--lune);border-color:var(--lune)}
-.btn-ghost{background:transparent;color:var(--lune);border:1px solid var(--ligne)}
-.btn-ghost:hover{border-color:var(--beurre);color:var(--beurre)}
-.menu-toggle{display:none;background:none;border:none;color:var(--lune);font-size:1.6rem;cursor:pointer;line-height:1}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px rgba(230,57,70,.38)}
+.btn-red:hover{background:var(--red-deep);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.75);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--navy);transform:translateY(-2px)}
+.btn-navy{border-color:var(--navy);color:var(--navy)}
+.btn-navy:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
 
-/* ——— language switch (top right) ——— */
-.lang-switch{
-  display:flex;align-items:center;flex:none;
-  border:1px solid var(--ligne);border-radius:100px;overflow:hidden;
-  background:rgba(244,231,200,.05);
+/* ——— sticky navbar ——— */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .25s ease;
 }
-.lang-switch button{
-  background:none;border:none;cursor:pointer;
-  font-family:'Karla',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;
-  color:var(--brume);padding:8px 14px;transition:background .2s,color .2s;
+header::before{content:"";display:block;height:4px;background:var(--red)}
+header.scrolled{box-shadow:0 8px 28px rgba(29,53,87,.10)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:46px;height:46px;flex:none;border-radius:13px;
+  background:var(--red);color:#fff;display:grid;place-items:center;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:1rem;letter-spacing:-.02em;
+  box-shadow:0 8px 18px rgba(230,57,70,.35);transform:rotate(-4deg);
 }
-.lang-switch button[aria-pressed="true"]{background:var(--beurre);color:var(--nuit)}
-.lang-switch button:not([aria-pressed="true"]):hover{color:var(--lune)}
+.brand-text{line-height:1.15}
+.brand-name{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:1.02rem;color:var(--navy)}
+.brand-sub{display:block;font-size:.62rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{
+  display:inline-block;padding:10px 15px;border-radius:999px;
+  font-weight:700;font-size:.95rem;color:var(--navy);transition:background .2s,color .2s;
+}
+.nav-links a:hover{background:var(--red-soft);color:var(--red)}
+.burger{
+  display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;
+  background:#fff;cursor:pointer;position:relative;
+}
+.burger span{
+  position:absolute;left:12px;right:12px;height:2.5px;border-radius:2px;
+  background:var(--navy);transition:transform .25s ease,opacity .2s ease,top .25s ease;
+}
+.burger span:nth-child(1){top:15px}
+.burger span:nth-child(2){top:22px}
+.burger span:nth-child(3){top:29px}
+header.open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}
+header.open .burger span:nth-child(2){opacity:0}
+header.open .burger span:nth-child(3){top:22px;transform:rotate(-45deg)}
+@media (max-width:880px){
+  .burger{display:block}
+  .nav-links{
+    position:absolute;top:100%;left:0;right:0;
+    display:none;flex-direction:column;align-items:stretch;gap:4px;
+    background:#fff;padding:14px 20px 20px;
+    border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(29,53,87,.12);
+  }
+  header.open .nav-links{display:flex}
+  .nav-links a{display:block;padding:13px 16px;font-size:1.02rem}
+}
 
 /* ——— hero ——— */
 .hero{
-  position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:120px 0 80px;
+  position:relative;display:flex;align-items:center;
+  min-height:min(94vh,880px);padding:120px 0 110px;
+  background:var(--navy-deep);color:#fff;overflow:hidden;
+}
+.hero-art{position:absolute;inset:0}
+.hero-art svg{width:100%;height:100%}
+.hero-overlay{
+  position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 900px 600px at 78% 30%, rgba(227,172,82,.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 15% 85%, rgba(208,112,127,.05), transparent 60%),
-    var(--nuit);
+    linear-gradient(180deg,rgba(16,31,58,.32) 0%,rgba(16,31,58,0) 30%,rgba(16,31,58,.55) 100%),
+    linear-gradient(100deg,rgba(16,31,58,.93) 0%,rgba(16,31,58,.60) 38%,rgba(16,31,58,.12) 70%,rgba(16,31,58,.30) 100%);
 }
-.stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.stars i{
-  position:absolute;width:2px;height:2px;border-radius:50%;
-  background:var(--lune);opacity:.5;
-  animation:twinkle 4s ease-in-out infinite;
+.hero-inner{position:relative;z-index:2;max-width:660px;text-align:left}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.30);
+  backdrop-filter:blur(6px);border-radius:999px;padding:9px 18px;
+  font-weight:700;font-size:.86rem;letter-spacing:.04em;
 }
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.7}}
-.hero-grid{
-  position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
-}
+.hero-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(89,197,122,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(89,197,122,0)}100%{box-shadow:0 0 0 0 rgba(89,197,122,0)}}
 .hero h1{
-  font-family:'Prata',serif;font-size:clamp(2.4rem,5.4vw,4.4rem);
-  line-height:1.12;letter-spacing:.005em;margin:20px 0 22px;
+  margin:26px 0 10px;color:#fff;text-transform:uppercase;
+  font-weight:900;font-size:clamp(2.5rem,6.6vw,4.5rem);letter-spacing:.01em;
+  text-shadow:0 4px 30px rgba(0,0,0,.35);
 }
-.hero h1 em{font-style:normal;color:var(--beurre)}
-.hero p.lead{font-size:1.1rem;color:var(--brume);max-width:46ch;margin-bottom:34px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--brume)}
-.hero-note .dot{width:8px;height:8px;border-radius:50%;background:var(--beurre);box-shadow:0 0 10px var(--beurre)}
+.hero h1 .amp{color:var(--red-light)}
+.hero-tagline{
+  font-family:'Archivo',sans-serif;font-weight:700;
+  font-size:clamp(1.15rem,2.6vw,1.55rem);color:#fff;
+}
+.hero-tagline em{font-style:normal;color:var(--gold)}
+.hero-tagline,.hero-sub{text-shadow:0 2px 14px rgba(16,31,58,.65)}
+.hero-sub{max-width:540px;margin:18px 0 0;color:rgba(255,255,255,.82);font-size:1.04rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 
-.moon-wrap{position:relative;display:flex;justify-content:center}
-.moon{
-  width:min(400px,80vw);height:auto;
-  filter:drop-shadow(0 0 60px rgba(244,231,200,.18)) drop-shadow(0 0 120px rgba(227,172,82,.12));
-  animation:rise 1.6s cubic-bezier(.2,.7,.3,1) both;
+/* ——— red ticker strip ——— */
+.ticker{background:var(--red);color:#fff;overflow:hidden;padding:13px 0}
+.ticker-track{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.ticker ul{display:flex;list-style:none;padding:0 0}
+.ticker li{
+  display:flex;align-items:center;gap:26px;padding:0 13px;white-space:nowrap;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
 }
-@keyframes rise{from{opacity:0;transform:translateY(46px) rotate(-4deg)}to{opacity:1;transform:none}}
-.moon-caption{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brume);white-space:nowrap;
+.ticker li::after{content:"●";font-size:.5rem;opacity:.7}
+@keyframes ticker{to{transform:translateX(-50%)}}
+</style>
+<style>
+/* ——— what we carry ——— */
+#carry{background:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{
+  position:relative;overflow:hidden;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{
+  width:58px;height:58px;border-radius:16px;margin-bottom:18px;
+  background:var(--red-soft);color:var(--red);display:grid;place-items:center;
+}
+.card-icon svg{width:28px;height:28px}
+.card h3{font-size:1.16rem;font-weight:800;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.97rem}
+
+/* ——— services ——— */
+#services{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+#services::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.07) 1.2px,transparent 1.2px);
+  background-size:24px 24px;
+}
+.services-grid{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.service{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;padding:28px 14px;text-align:center;
+  transition:transform .25s ease,background .25s ease,border-color .25s ease;
+}
+.service:hover{transform:translateY(-5px);background:rgba(255,255,255,.10);border-color:var(--red-light)}
+.service-icon{
+  width:56px;height:56px;margin:0 auto 14px;border-radius:50%;
+  background:var(--red);color:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 20px rgba(230,57,70,.45);
+}
+.service-icon svg{width:26px;height:26px}
+.service h3{color:#fff;font-size:.98rem;font-weight:700;letter-spacing:0}
+.service p{margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.65)}
+@media (max-width:1000px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ——— why locals love us ——— */
+#why{background:var(--paper)}
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+.badge{
+  background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:44px 30px 38px;text-align:center;box-shadow:0 10px 30px rgba(29,53,87,.06);
+}
+.badge-icon{
+  width:86px;height:86px;margin:0 auto 22px;border-radius:50%;
+  background:var(--red);color:#fff;display:grid;place-items:center;
+  box-shadow:0 0 0 7px var(--red-soft);outline:2px dashed rgba(230,57,70,.45);outline-offset:12px;
+}
+.badge-icon svg{width:38px;height:38px}
+.badge h3{font-size:1.3rem;font-weight:800;margin-bottom:10px}
+.badge p{color:var(--muted);font-size:.97rem;max-width:280px;margin:0 auto}
+
+/* ——— testimonials ——— */
+#testimonials{background:#fff}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.quote{
+  display:flex;flex-direction:column;background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;
+}
+.qmark{font-family:'Archivo',sans-serif;font-weight:900;font-size:3rem;line-height:.6;color:var(--red);margin-bottom:18px}
+.stars{color:var(--gold);font-size:.95rem;letter-spacing:4px;margin-bottom:12px}
+.quote blockquote p{font-size:1.01rem}
+.quote figcaption{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:22px}
+.avatar{
+  width:44px;height:44px;flex:none;border-radius:50%;
+  background:var(--navy);color:#fff;display:grid;place-items:center;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:.85rem;
+}
+.who b{display:block;color:var(--navy);font-size:.95rem}
+.who span{font-size:.83rem;color:var(--muted)}
+
+/* ——— hours & location ——— */
+#hours{background:var(--paper)}
+.hours-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:stretch}
+.hours-card,.map-card{
+  display:flex;flex-direction:column;overflow:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+}
+.hours-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--navy);color:#fff;padding:24px 30px}
+.hours-head h3{color:#fff;font-size:1.25rem;font-weight:800}
+.open-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:700;
+}
+.open-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.hours-table{width:100%;border-collapse:collapse;font-size:1.02rem}
+.hours-table tr{border-bottom:1px solid var(--line)}
+.hours-table tr:last-child{border-bottom:0}
+.hours-table th,.hours-table td{padding:15px 30px;text-align:left}
+.hours-table th{font-family:'Nunito',sans-serif;font-weight:800;color:var(--navy);white-space:nowrap}
+.hours-table td{text-align:right;font-weight:700;white-space:nowrap}
+tr.late td{color:var(--red)}
+.late-pill,.today-pill{
+  display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.late-pill{background:var(--red-soft);color:var(--red)}
+.today-pill{background:var(--navy);color:#fff}
+tr.today{background:var(--red-soft);box-shadow:inset 4px 0 0 var(--red)}
+.hours-note{padding:16px 30px 20px;font-size:.88rem;color:var(--muted);background:#FFF8EE;border-top:1px solid var(--line)}
+.map-ph{position:relative;aspect-ratio:16/10;background:#EDEAE3}
+.map-ph svg{position:absolute;inset:0;width:100%;height:100%}
+.map-tag{
+  position:absolute;left:14px;bottom:14px;background:rgba(21,41,71,.85);color:#fff;
+  border-radius:999px;padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:.06em;
+}
+.loc-body{display:grid;gap:18px;padding:28px 30px 30px}
+.loc-row{display:flex;gap:14px;align-items:flex-start}
+.loc-ico{width:42px;height:42px;flex:none;border-radius:12px;background:var(--red-soft);color:var(--red);display:grid;place-items:center}
+.loc-ico svg{width:21px;height:21px}
+.loc-row b{display:block;color:var(--navy);font-size:.98rem}
+.loc-row address,.loc-row p{font-style:normal;color:var(--muted);font-size:.94rem}
+.loc-row a.tel{font-weight:800;color:var(--navy)}
+.loc-row a.tel:hover{color:var(--red)}
+.loc-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.loc-cta .btn{padding:13px 24px;font-size:.9rem}
+@media (max-width:960px){.hours-grid{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .hours-table th,.hours-table td{padding:13px 16px;font-size:.9rem}
+  .late-pill{display:block;width:max-content;margin:5px 0 0 auto}
+  .hours-head,.hours-note{padding-left:16px;padding-right:16px}
+  .loc-body{padding:24px 18px 26px}
 }
 
-/* ——— phases divider (signature) ——— */
-.phases{border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);background:var(--nuit-2)}
-.phases-row{
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:34px 0;flex-wrap:wrap;
+/* ——— footer ——— */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.78)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:44px;padding:72px 0 52px}
+.foot-brand .brand-name{color:#fff}
+.foot-brand p{margin-top:16px;font-size:.94rem;color:rgba(255,255,255,.6);max-width:340px}
+.foot h4{color:#fff;font-family:'Archivo',sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
+.foot ul{list-style:none;display:grid;gap:10px}
+.foot a{font-size:.95rem;color:rgba(255,255,255,.78);transition:color .2s}
+.foot a:hover{color:var(--red-light)}
+.foot-hours li{display:flex;justify-content:space-between;gap:18px;font-size:.92rem}
+.foot-hours span:last-child{font-weight:700;color:#fff}
+.age-banner{border-top:1px solid rgba(255,255,255,.12);padding:20px 0}
+.age-banner .wrap{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
+.age-chip{
+  flex:none;background:var(--red);color:#fff;border-radius:9px;padding:4px 10px;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:.82rem;letter-spacing:.02em;
 }
-.phase{display:flex;align-items:center;gap:14px;min-width:150px}
-.phase svg{width:44px;height:44px;flex:none}
-.phase b{display:block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-.phase small{display:block;color:var(--brume);font-size:.78rem}
+.age-banner p{font-size:.9rem;color:rgba(255,255,255,.8)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0}
+.foot-bottom .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.83rem;color:rgba(255,255,255,.5)}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:36px;padding:56px 0 40px}}
 
-/* ——— sections ——— */
-section{padding:110px 0}
-.sec-head{max-width:620px;margin-bottom:56px}
-.sec-head h2{
-  font-family:'Prata',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);
-  line-height:1.2;margin:16px 0 14px;
-}
-.sec-head p{color:var(--brume)}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about-grid p{color:var(--brume);margin-bottom:18px}
-.about-grid p strong{color:var(--lune);font-weight:500}
-.fact-list{list-style:none;border-top:1px solid var(--ligne)}
-.fact-list li{
-  display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--ligne);
-}
-.fact-list .k{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume)}
-.fact-list .v{font-family:'Prata',serif;font-size:1.05rem;text-align:right}
-
-/* menu */
-#menu{background:var(--nuit-2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.menu-col h3{
-  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
-}
-.menu-col h3 svg{width:26px;height:26px}
-.menu-col .sub{font-size:.85rem;color:var(--brume);margin-bottom:26px}
-.dish{padding:20px 0;border-bottom:1px solid var(--ligne)}
-.dish-top{display:flex;align-items:baseline;gap:10px}
-.dish-top h4{font-family:'Prata',serif;font-size:1.06rem;font-weight:400}
-.dish-top .leader{flex:1;border-bottom:1px dotted rgba(244,231,200,.3);transform:translateY(-4px)}
-.dish-top .price{font-weight:700;color:var(--beurre);font-size:.95rem}
-.dish p{font-size:.9rem;color:var(--brume);margin-top:5px;max-width:52ch}
-.tag{
-  display:inline-block;margin-top:8px;font-size:.68rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--fraise);
-  border:1px solid rgba(208,112,127,.4);border-radius:100px;padding:3px 10px;
-}
-.tag.gold{color:var(--beurre);border-color:rgba(227,172,82,.4)}
-.menu-note{margin-top:44px;font-size:.82rem;color:var(--brume);font-style:italic}
-
-/* hours */
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hours-card{
-  background:var(--nuit-2);border:1px solid var(--ligne);border-radius:20px;padding:44px;
-}
-.hours-card .big{
-  font-family:'Prata',serif;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15;margin:14px 0 8px;
-}
-.hours-card .big span{color:var(--beurre)}
-.hours-card p{color:var(--brume);font-size:.95rem}
-.midnight{display:flex;gap:18px;align-items:flex-start;margin-top:28px;padding-top:28px;border-top:1px solid var(--ligne)}
-.midnight svg{width:36px;height:36px;flex:none;margin-top:2px}
-.midnight b{display:block;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
-.midnight p{font-size:.9rem}
-
-/* visit */
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.visit-list{list-style:none;margin-top:8px}
-.visit-list li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--ligne)}
-.visit-list svg{width:22px;height:22px;flex:none;margin-top:3px}
-.visit-list b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brume);margin-bottom:3px;font-weight:700}
-.visit-list a{color:var(--lune);text-decoration:none;border-bottom:1px solid rgba(244,231,200,.3);transition:border-color .2s,color .2s}
-.visit-list a:hover{color:var(--beurre);border-color:var(--beurre)}
-.map-frame{
-  border:1px solid var(--ligne);border-radius:20px;overflow:hidden;
-  height:100%;min-height:380px;background:var(--nuit-2);
-}
-.map-frame iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.35) contrast(1.05)}
-
-/* footer */
-footer{border-top:1px solid var(--ligne);padding:44px 0;background:var(--nuit-2)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot p{font-size:.82rem;color:var(--brume)}
-.foot .brand span{font-size:.95rem}
-
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+/* ——— scroll reveal (class added by JS only) ——— */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
-
-/* ——— responsive ——— */
-@media (max-width:960px){
-  .hero-grid,.about-grid,.menu-grid,.hours-grid,.visit-grid{grid-template-columns:1fr;gap:44px}
-  .hero{padding-top:150px}
-  .moon-wrap{order:-1}
-  .moon{width:min(280px,70vw)}
-  section{padding:80px 0}
-  .brand span{display:none}
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;background:var(--nuit-2);
-    flex-direction:column;align-items:flex-start;padding:24px;gap:20px;
-    border-bottom:1px solid var(--ligne);display:none;
-  }
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .phases-row{justify-content:flex-start}
-}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ——————— NAV ——————— -->
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#accueil" aria-label="Crêperie Village Lunaire — accueil / home">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/><circle cx="55" cy="32" r="3" fill="#E3AC52" opacity=".5"/></svg>
-      <span>Village Lunaire</span>
+<!-- ======================= NAVBAR ======================= -->
+<header id="top">
+  <nav class="nav wrap" aria-label="Main navigation">
+    <a class="brand" href="#top" aria-label="Dépanneurs &amp; Tabagies — back to top">
+      <span class="brand-mark" aria-hidden="true">D&amp;T</span>
+      <span class="brand-text">
+        <span class="brand-name">Dépanneurs &amp; Tabagies</span>
+        <span class="brand-sub">Open late · 7 days</span>
+      </span>
     </a>
-    <div class="nav-right">
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#menu" data-fr="Menu" data-en="Menu">Menu</a></li>
-          <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
-          <li><a href="#horaires" data-fr="Horaires" data-en="Hours">Horaires</a></li>
-          <li><a href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></li>
-          <li><a class="btn btn-gold" href="tel:+15142505621" data-fr="Commander · (514) 250-5621" data-en="Order · (514) 250-5621">Commander · (514) 250-5621</a></li>
-        </ul>
-      </nav>
-      <!-- Language switch — top right -->
-      <div class="lang-switch" role="group" aria-label="Langue / Language">
-        <button type="button" id="btnFr" aria-pressed="true" onclick="setLang('fr')">FR</button>
-        <button type="button" id="btnEn" aria-pressed="false" onclick="setLang('en')">EN</button>
-      </div>
-      <button class="menu-toggle" aria-label="Menu de navigation / Navigation menu" aria-expanded="false">☰</button>
-    </div>
-  </div>
+    <button class="burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#carry">What We Carry</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#find-us">Find Us</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- ——————— HERO ——————— -->
-<section class="hero" id="accueil">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-fr="Crêperie · Le Village, Montréal" data-en="Crêperie · The Village, Montreal">Crêperie · Le Village, Montréal</span>
-      <h1 data-fr="La crêpe est<br>notre <em>pleine lune</em>." data-en="The crêpe is<br>our <em>full moon</em>.">La crêpe est<br>notre <em>pleine lune</em>.</h1>
-      <p class="lead"
-         data-fr="Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit."
-         data-en="Sweet crêpes, savoury crêpes and Breton buckwheat galettes, hand-turned under the neon lights of Sainte-Catherine Street — from morning until late into the night.">
-         Crêpes sucrées, crêpes salées et galettes bretonnes au sarrasin, tournées à la main sous les néons de la rue Sainte-Catherine — du matin jusqu'à tard dans la nuit.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-gold" href="#menu" data-fr="Voir le menu" data-en="See the menu">Voir le menu</a>
-        <a class="btn btn-ghost" href="#visite" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
-      </div>
-      <div class="hero-note"><span class="dot" aria-hidden="true"></span> <span data-fr="Ouvert tous les jours · 10 h — 1 h du matin" data-en="Open every day · 10 a.m. — 1 a.m.">Ouvert tous les jours · 10 h — 1 h du matin</span></div>
-    </div>
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 400 400" role="img" aria-label="Une crêpe dorée en forme de pleine lune / A golden crêpe shaped like a full moon">
-        <defs>
-          <radialGradient id="crepe" cx="42%" cy="38%" r="72%">
-            <stop offset="0%" stop-color="#F9EFD6"/>
-            <stop offset="55%" stop-color="#F1E0BC"/>
-            <stop offset="100%" stop-color="#E4C58F"/>
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="172" fill="url(#crepe)"/>
-        <g fill="#DDA95B">
-          <circle cx="140" cy="130" r="20" opacity=".45"/>
-          <circle cx="255" cy="110" r="12" opacity=".35"/>
-          <circle cx="290" cy="205" r="26" opacity=".38"/>
-          <circle cx="115" cy="235" r="15" opacity=".4"/>
-          <circle cx="200" cy="300" r="22" opacity=".33"/>
-          <circle cx="235" cy="245" r="10" opacity=".45"/>
-          <circle cx="175" cy="185" r="8" opacity=".4"/>
-          <circle cx="95" cy="175" r="9" opacity=".3"/>
-          <circle cx="270" cy="290" r="9" opacity=".35"/>
-          <circle cx="220" cy="70" r="8" opacity=".3"/>
+<main id="main">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <!-- Stock-style storefront illustration (placeholder image) -->
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1440 810" preserveAspectRatio="xMidYMax slice" role="img">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#101F3A"/><stop offset="1" stop-color="#1D3557"/>
+        </linearGradient>
+        <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFD98A"/><stop offset="1" stop-color="#FFC94B"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="810" fill="url(#sky)"/>
+      <g fill="#fff">
+        <circle cx="120" cy="90" r="2.2" opacity=".8"/><circle cx="300" cy="150" r="1.6" opacity=".5"/>
+        <circle cx="520" cy="70" r="1.8" opacity=".6"/><circle cx="900" cy="110" r="2" opacity=".7"/>
+        <circle cx="1130" cy="60" r="1.6" opacity=".5"/><circle cx="1320" cy="140" r="2.2" opacity=".8"/>
+        <circle cx="740" cy="50" r="1.5" opacity=".45"/><circle cx="1020" cy="190" r="1.4" opacity=".4"/>
+      </g>
+      <circle cx="1330" cy="115" r="46" fill="#FFF3D2"/>
+      <circle cx="1330" cy="115" r="74" fill="#FFF3D2" opacity=".14"/>
+      <!-- neighbour buildings -->
+      <g fill="#16233B">
+        <rect x="-20" y="330" width="360" height="480"/>
+        <rect x="1100" y="300" width="380" height="510"/>
+      </g>
+      <g fill="#FFC94B" opacity=".35">
+        <rect x="40" y="370" width="34" height="46" rx="3"/><rect x="110" y="370" width="34" height="46" rx="3"/>
+        <rect x="40" y="460" width="34" height="46" rx="3"/><rect x="180" y="460" width="34" height="46" rx="3"/>
+        <rect x="1150" y="350" width="34" height="46" rx="3"/><rect x="1220" y="440" width="34" height="46" rx="3"/>
+        <rect x="1290" y="350" width="34" height="46" rx="3"/><rect x="1150" y="530" width="34" height="46" rx="3"/>
+      </g>
+      <!-- the store -->
+      <g transform="translate(240 0)">
+        <rect x="400" y="250" width="640" height="470" fill="#24365C"/>
+        <rect x="388" y="238" width="664" height="26" rx="6" fill="#1A2A49"/>
+        <!-- sign band -->
+        <rect x="424" y="286" width="592" height="74" rx="10" fill="#E63946"/>
+        <g fill="#fff" opacity=".9">
+          <rect x="484" y="313" width="148" height="20" rx="10"/>
+          <rect x="652" y="313" width="92" height="20" rx="10"/>
+          <rect x="764" y="313" width="136" height="20" rx="10"/>
+          <rect x="920" y="313" width="56" height="20" rx="10"/>
         </g>
-        <circle cx="200" cy="200" r="172" fill="none" stroke="#C9A15E" stroke-width="2" opacity=".5"/>
-      </svg>
-      <span class="moon-caption" data-fr="pleine lune, cuite à la demande" data-en="a full moon, cooked to order">pleine lune, cuite à la demande</span>
+        <!-- awning -->
+        <g>
+          <rect x="416" y="374" width="608" height="46" fill="#E63946"/>
+          <rect x="454" y="374" width="38" height="46" fill="#fff"/><rect x="530" y="374" width="38" height="46" fill="#fff"/>
+          <rect x="606" y="374" width="38" height="46" fill="#fff"/><rect x="682" y="374" width="38" height="46" fill="#fff"/>
+          <rect x="758" y="374" width="38" height="46" fill="#fff"/><rect x="834" y="374" width="38" height="46" fill="#fff"/>
+          <rect x="910" y="374" width="38" height="46" fill="#fff"/><rect x="986" y="374" width="38" height="46" fill="#fff"/>
+          <g>
+            <circle cx="435" cy="420" r="19" fill="#E63946"/><circle cx="473" cy="420" r="19" fill="#fff"/>
+            <circle cx="511" cy="420" r="19" fill="#E63946"/><circle cx="549" cy="420" r="19" fill="#fff"/>
+            <circle cx="587" cy="420" r="19" fill="#E63946"/><circle cx="625" cy="420" r="19" fill="#fff"/>
+            <circle cx="663" cy="420" r="19" fill="#E63946"/><circle cx="701" cy="420" r="19" fill="#fff"/>
+            <circle cx="739" cy="420" r="19" fill="#E63946"/><circle cx="777" cy="420" r="19" fill="#fff"/>
+            <circle cx="815" cy="420" r="19" fill="#E63946"/><circle cx="853" cy="420" r="19" fill="#fff"/>
+            <circle cx="891" cy="420" r="19" fill="#E63946"/><circle cx="929" cy="420" r="19" fill="#fff"/>
+            <circle cx="967" cy="420" r="19" fill="#E63946"/><circle cx="1005" cy="420" r="19" fill="#fff"/>
+          </g>
+          <rect x="416" y="430" width="608" height="290" fill="#24365C"/>
+        </g>
+        <!-- windows + door -->
+        <rect x="448" y="470" width="200" height="200" rx="8" fill="url(#glow)" opacity=".95"/>
+        <rect x="792" y="470" width="200" height="200" rx="8" fill="url(#glow)" opacity=".95"/>
+        <g stroke="#24365C" stroke-width="8">
+          <line x1="548" y1="470" x2="548" y2="670"/><line x1="448" y1="570" x2="648" y2="570"/>
+          <line x1="892" y1="470" x2="892" y2="670"/><line x1="792" y1="570" x2="992" y2="570"/>
+        </g>
+        <!-- neon OPEN in left window -->
+        <rect x="472" y="492" width="118" height="52" rx="12" fill="#101F3A" opacity=".85"/>
+        <rect x="472" y="492" width="118" height="52" rx="12" fill="none" stroke="#FF97A0" stroke-width="3"/>
+        <text x="531" y="527" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800"
+              font-size="24" letter-spacing="4" fill="#FF97A0">OPEN</text>
+        <!-- shelves silhouette in right window -->
+        <g fill="#B9862F" opacity=".55">
+          <rect x="806" y="600" width="172" height="10"/><rect x="806" y="640" width="172" height="10"/>
+          <rect x="820" y="576" width="20" height="24" rx="3"/><rect x="852" y="580" width="16" height="20" rx="3"/>
+          <rect x="882" y="574" width="22" height="26" rx="3"/><rect x="918" y="580" width="16" height="20" rx="3"/>
+          <rect x="948" y="576" width="18" height="24" rx="3"/>
+          <rect x="820" y="616" width="16" height="24" rx="3"/><rect x="850" y="620" width="22" height="20" rx="3"/>
+          <rect x="886" y="614" width="16" height="26" rx="3"/><rect x="916" y="620" width="20" height="20" rx="3"/>
+        </g>
+        <!-- door -->
+        <rect x="676" y="470" width="88" height="250" rx="8" fill="#1A2A49"/>
+        <rect x="688" y="484" width="64" height="150" rx="6" fill="url(#glow)" opacity=".75"/>
+        <circle cx="742" cy="600" r="5" fill="#FFC94B"/>
+      </g>
+      <!-- sidewalk -->
+      <rect x="0" y="720" width="1440" height="90" fill="#0E1B31"/>
+      <rect x="0" y="712" width="1440" height="12" fill="#33538A" opacity=".5"/>
+      <!-- lamppost -->
+      <g>
+        <rect x="330" y="470" width="10" height="250" fill="#0B1526"/>
+        <circle cx="335" cy="455" r="16" fill="#FFEFC9"/>
+        <circle cx="335" cy="455" r="34" fill="#FFEFC9" opacity=".12"/>
+      </g>
+      <!-- A-frame sidewalk sign -->
+      <g>
+        <path d="M1078 620 L1108 720 L1048 720 Z" fill="#fff"/>
+        <path d="M1078 620 L1108 720 L1048 720 Z" fill="none" stroke="#E63946" stroke-width="5"/>
+        <text x="1078" y="702" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800"
+              font-size="14" fill="#E63946">LOTO</text>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="hero-badge"><span class="dot" aria-hidden="true"></span> Bonjour-Hi! Open tonight until midnight</p>
+      <h1 id="hero-title">Dépanneurs <span class="amp">&amp;</span> Tabagies</h1>
+      <p class="hero-tagline">Your corner store, <em>open late.</em></p>
+      <p class="hero-sub">Cold drinks, fresh snacks, lottery, smokes and all the little things you forgot —
+        two minutes from your front door, with a smile every time.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="#hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          See Our Hours</a>
+        <a class="btn btn-ghost" href="#find-us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          Get Directions</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ——————— SIGNATURE : LES PHASES DE LA CRÊPE ——————— -->
-<div class="phases" aria-label="Les phases de la crêpe / The phases of the crêpe">
-  <div class="wrap phases-row">
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="#F4E7C8"/><circle cx="18" cy="18" r="4" fill="#E3AC52" opacity=".5"/><circle cx="30" cy="28" r="5" fill="#E3AC52" opacity=".4"/></svg>
-      <div><b data-fr="Pleine lune" data-en="Full moon">Pleine lune</b><small data-fr="la crêpe ouverte" data-en="the open crêpe">la crêpe ouverte</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 24 43 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 24 43 Z" fill="#E4C58F" opacity=".5"/></svg>
-      <div><b data-fr="Demi-lune" data-en="Half moon">Demi-lune</b><small data-fr="le premier pli" data-en="the first fold">le premier pli</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 A19 19 0 0 1 43 24 L24 24 Z" fill="#F4E7C8"/><path d="M24 5 A19 19 0 0 0 5 24 A19 19 0 0 0 24 43 A19 19 0 0 0 43 24 L24 24 Z" fill="#E4C58F" opacity=".35"/></svg>
-      <div><b data-fr="Quartier" data-en="Quarter">Quartier</b><small data-fr="plié en quatre" data-en="folded in four">plié en quatre</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 L40 12 L24 42 Z" fill="#F4E7C8"/><path d="M8 12 L40 12 L24 42 Z" fill="none" stroke="#C9A15E" stroke-width="1.5" opacity=".6"/></svg>
-      <div><b data-fr="Croissant filant" data-en="Shooting crescent">Croissant filant</b><small data-fr="prêt à emporter" data-en="ready to go">prêt à emporter</small></div>
-    </div>
-    <div class="phase">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#F4E7C8" stroke-width="1.6" stroke-dasharray="3 5"/></svg>
-      <div><b data-fr="Nouvelle lune" data-en="New moon">Nouvelle lune</b><small data-fr="l'assiette vide" data-en="the empty plate">l'assiette vide</small></div>
-    </div>
+<!-- ======================= TICKER ======================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <ul>
+      <li>Open late every night</li><li>Cold beer &amp; wine</li><li>Loto-Québec terminal</li>
+      <li>ATM inside</li><li>Bags of ice</li><li>Propane exchange</li><li>Parcel pickup</li>
+    </ul>
+    <ul>
+      <li>Open late every night</li><li>Cold beer &amp; wine</li><li>Loto-Québec terminal</li>
+      <li>ATM inside</li><li>Bags of ice</li><li>Propane exchange</li><li>Parcel pickup</li>
+    </ul>
   </div>
 </div>
 
-<!-- ——————— À PROPOS ——————— -->
-<section id="apropos">
+<!-- ======================= WHAT WE CARRY ======================= -->
+<section id="carry" class="section-pad" aria-labelledby="carry-title">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="À propos" data-en="About us">À propos</span>
-      <h2 data-fr="Une petite crêperie qui veille tard sur Sainte-Catherine" data-en="A little crêperie that stays up late on Sainte-Catherine">Une petite crêperie qui veille tard sur Sainte-Catherine</h2>
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Aisles full of good stuff</p>
+      <h2 id="carry-title">What We Carry</h2>
+      <p class="lead">From late-night cravings to last-minute essentials, the shelves are always stocked.
+        Placeholder text — swap in your own favourites.</p>
     </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p data-fr="Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir."
-           data-en="In the heart of the Village, <strong>Crêperie Village Lunaire</strong> hand-turns its crêpes from morning until the bars close. A light, well-balanced batter, fresh ingredients, generous fillings — and a welcome that keeps people coming back.">
-           Au cœur du Village, la <strong>Crêperie Village Lunaire</strong> tourne ses crêpes à la main du matin jusqu'à la fermeture des bars. Une pâte légère et bien équilibrée, des ingrédients frais, des garnitures généreuses — et un accueil qui donne envie de revenir.</p>
-        <p data-fr="Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>."
-           data-en="On the savoury side, our <strong>buckwheat galettes</strong> follow the Breton tradition. On the sweet side, the house celebrates the great classics: Nutella, strawberries, bananas, lemon-sugar. Every savoury crêpe comes with its own <strong>fresh side salad</strong>.">
-           Côté salé, nos <strong>galettes de sarrasin</strong> s'inspirent de la tradition bretonne. Côté sucré, la maison célèbre les grands classiques : Nutella, fraises, bananes, sucre-citron. Chaque crêpe salée arrive accompagnée de sa <strong>petite salade fraîche</strong>.</p>
-        <p data-fr="Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà."
-           data-en="Dine in, take out or get it delivered — and above all, open while most kitchens are already asleep.">
-           Sur place, à emporter ou en livraison — et surtout, ouvert quand la plupart des cuisines dorment déjà.</p>
+    <div class="cards">
+      <article class="card" data-reveal>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h7l-1 5H8z"/><path d="M8.5 9 7 20h9l-1.5-11"/><path d="M12.5 4 15 2"/><path d="M4 13c1.5-1 3-1 4.5 0"/><path d="M3 16c1.2-.8 2.4-.8 3.6 0"/></svg>
+        </div>
+        <h3>Snacks &amp; Drinks</h3>
+        <p>Chips, chocolate, candy and a wall of cold drinks — slushies in summer, hot coffee all year round.</p>
+      </article>
+      <article class="card" data-reveal style="--d:.05s">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h3v5c2 1 2.5 2.5 2.5 4v9a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 20v-9c0-1.5.5-3 2.5-4z"/><path d="M17 8h2.5l-1 7.5V21H16v-5.5"/><path d="M5.5 13h8"/></svg>
+        </div>
+        <h3>Beer &amp; Wine</h3>
+        <p>Local microbrews, big-name lagers and easy-drinking wines, always chilled and ready to go.</p>
+      </article>
+      <article class="card" data-reveal style="--d:.1s">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C7 17 4.5 12.5 6 7c3 .5 5 1.5 6 4 1-2.5 3-3.5 6-4 1.5 5.5-1 10-6 14z"/><path d="M12 11v10"/></svg>
+        </div>
+        <h3>Tobacco &amp; Vape</h3>
+        <p>A full tabagie counter — cigarettes, cigars, vapes and accessories. Valid ID required, 18+.</p>
+      </article>
+      <article class="card" data-reveal style="--d:.15s">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v3a2.2 2.2 0 0 0 0 5v3a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v-3a2.2 2.2 0 0 0 0-5z" transform="rotate(-8 12 12)"/><path d="m12 8.6 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2L8.8 10.9l2.2-.3z" transform="rotate(-8 12 12)"/></svg>
+        </div>
+        <h3>Lottery</h3>
+        <p>Scratch tickets, Lotto Max, 6/49 and more. Someone has to win — might as well be a neighbour.</p>
+      </article>
+      <article class="card" data-reveal style="--d:.2s">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h4l1 4a3 3 0 0 1 2 3v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9a3 3 0 0 1 2-3z"/><path d="M9.5 3 8 5.5H5.5"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>
+        </div>
+        <h3>Household Basics</h3>
+        <p>Milk, bread, eggs, paper towels, batteries, phone chargers — the "phew, they have it" aisle.</p>
+      </article>
+      <article class="card" data-reveal style="--d:.25s">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.5 3-.5 5-2.5 6.5L11 11l-4.5 1L8 14.5 3.5 15l3 2.5L5 19.5c4 .5 7 0 9.5-2.5S18 11 21 9.5l-2-1 .5-3-3 .5-1-3z"/><path d="M12 12 7.5 19"/></svg>
+        </div>
+        <h3>Local Products</h3>
+        <p>Maple syrup, Québec cheeses, fresh bagels and treats from makers just down the street.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section id="services" class="section-pad" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head on-dark" data-reveal>
+      <p class="eyebrow">More than a store</p>
+      <h2 id="services-title">Handy Services, Every Day</h2>
+      <p class="lead">Little errands, sorted in one stop. All services available right at the counter.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service" data-reveal>
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v16l-2-1.4L14 19l-2-1.4L10 19l-2-1.4L6 19z"/><path d="M9 7.5h6"/><path d="M9 11h6"/><path d="M9 14.5h4"/></svg>
+        </div>
+        <h3>Lottery Terminal</h3>
+        <p>Play &amp; check tickets</p>
       </div>
-      <ul class="fact-list reveal">
-        <li><span class="k" data-fr="Quartier" data-en="Neighbourhood">Quartier</span><span class="v" data-fr="Le Village / Centre-Sud" data-en="The Village / Centre-Sud">Le Village / Centre-Sud</span></li>
-        <li><span class="k" data-fr="Spécialité" data-en="Specialty">Spécialité</span><span class="v" data-fr="Crêpes &amp; galettes bretonnes" data-en="Crêpes &amp; Breton galettes">Crêpes &amp; galettes bretonnes</span></li>
-        <li><span class="k" data-fr="Note des clients" data-en="Customer rating">Note des clients</span><span class="v">4,6 / 5 ★</span></li>
-        <li><span class="k" data-fr="Dernier service" data-en="Last service">Dernier service</span><span class="v" data-fr="1 h du matin" data-en="1 a.m.">1 h du matin</span></li>
-        <li><span class="k">Options</span><span class="v" data-fr="Sur place · Emporter · Livraison" data-en="Dine in · Takeout · Delivery">Sur place · Emporter · Livraison</span></li>
+      <div class="service" data-reveal style="--d:.05s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9.5h18"/><path d="M7 14.5h4"/><circle cx="16.5" cy="14.5" r="1.4"/></svg>
+        </div>
+        <h3>ATM</h3>
+        <p>Cash 24/7 inside</p>
+      </div>
+      <div class="service" data-reveal style="--d:.1s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a1 1 0 0 1 1 1v17l-2.5-1.5L13 21l-2.5-1.5L8 21l-2-1.5V4a1 1 0 0 1 1-1z"/><path d="m9.5 11 2 2 3.5-4"/></svg>
+        </div>
+        <h3>Bill Payments</h3>
+        <p>Utilities &amp; more</p>
+      </div>
+      <div class="service" data-reveal style="--d:.15s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M12 3 9.5 5.5M12 3l2.5 2.5M12 21l-2.5-2.5M12 21l2.5-2.5"/><path d="m4.2 7.5 15.6 9M4.2 7.5 7.6 8M4.2 7.5l.4-3.4M19.8 16.5l-3.4-.5m3.4.5-.4 3.4"/><path d="m19.8 7.5-15.6 9m15.6-9L16.4 8m3.4-.5-.4-3.4M4.2 16.5l3.4-.5m-3.4.5.4 3.4"/></svg>
+        </div>
+        <h3>Ice</h3>
+        <p>Bags &amp; blocks</p>
+      </div>
+      <div class="service" data-reveal style="--d:.2s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="14" rx="4"/><path d="M10 7V4.5A1.5 1.5 0 0 1 11.5 3h1A1.5 1.5 0 0 1 14 4.5V7"/><path d="M12 12c-1.3 1.5-1.3 3 0 4.5 1.3-1.5 1.3-3 0-4.5z"/></svg>
+        </div>
+        <h3>Propane Exchange</h3>
+        <p>BBQ tanks swapped</p>
+      </div>
+      <div class="service" data-reveal style="--d:.25s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 12 4l8.5 4v8L12 20l-8.5-4z"/><path d="M3.5 8 12 12l8.5-4"/><path d="M12 12v8"/><path d="M7.5 6 16 10v3"/></svg>
+        </div>
+        <h3>Parcel Pickup</h3>
+        <p>Grab your packages</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHY LOCALS LOVE US ======================= -->
+<section id="why" class="section-pad" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">The neighbourhood favourite</p>
+      <h2 id="why-title">Why Locals Love Us</h2>
+      <p class="lead">Three simple promises we've kept since day one.</p>
+    </div>
+    <div class="badges">
+      <article class="badge" data-reveal>
+        <div class="badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17"/><path d="M8 3v3.5M16 3v3.5"/><path d="M10 13.5h4l-2.6 4"/></svg>
+        </div>
+        <h3>Open 7 Days</h3>
+        <p>Rain, shine or snowstorm — the lights are on every single day of the week, holidays included.</p>
+      </article>
+      <article class="badge" data-reveal style="--d:.08s">
+        <div class="badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/><path d="M17 4.5v4M15 6.5h4"/></svg>
+        </div>
+        <h3>Late Hours</h3>
+        <p>Craving strikes at 11 pm? We're still here. Open until midnight or later, every night.</p>
+      </article>
+      <article class="badge" data-reveal style="--d:.16s">
+        <div class="badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14c1 1.5 2.2 2.2 3.5 2.2s2.5-.7 3.5-2.2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>
+        </div>
+        <h3>Friendly Service</h3>
+        <p>We know our regulars by name — and their usual order. First visit? You're a regular now.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS ======================= -->
+<section id="testimonials" class="section-pad" aria-labelledby="testimonials-title">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Word on the street</p>
+      <h2 id="testimonials-title">What the Neighbours Say</h2>
+      <p class="lead">Placeholder quotes from around the block.</p>
+    </div>
+    <div class="quotes">
+      <figure class="quote" data-reveal>
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+        <blockquote>
+          <p>Saved my BBQ twice this summer — propane, ice and limes at 10 pm on a Sunday. This place is a lifesaver.</p>
+        </blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">MT</span>
+          <span class="who"><b>Marie-T.</b><span>Two streets over</span></span>
+        </figcaption>
+      </figure>
+      <figure class="quote" data-reveal style="--d:.08s">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+        <blockquote>
+          <p>The friendliest counter in the neighbourhood. They set aside my newspaper every morning without me asking.</p>
+        </blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">RG</span>
+          <span class="who"><b>Robert G.</b><span>Regular since 2009</span></span>
+        </figcaption>
+      </figure>
+      <figure class="quote" data-reveal style="--d:.16s">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+        <blockquote>
+          <p>Best slushie machine in town, and they carry the little local maple cookies my kids are obsessed with.</p>
+        </blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">SK</span>
+          <span class="who"><b>Sarah K.</b><span>Around the corner</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HOURS & LOCATION ======================= -->
+<section id="hours" class="section-pad" aria-labelledby="hours-title">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Come say hi</p>
+      <h2 id="hours-title">Hours &amp; Location</h2>
+      <p class="lead">Open every day, late every night. Drop by whenever — we'll be here.</p>
+    </div>
+    <div class="hours-grid">
+
+      <!-- hours table -->
+      <div class="hours-card" data-reveal>
+        <div class="hours-head">
+          <h3>Opening Hours</h3>
+          <span class="open-pill"><span class="dot" aria-hidden="true"></span> Open 7 days a week</span>
+        </div>
+        <table class="hours-table">
+          <tbody>
+            <tr data-day="1"><th scope="row">Monday</th><td>7:00 AM – 11:00 PM</td></tr>
+            <tr data-day="2"><th scope="row">Tuesday</th><td>7:00 AM – 11:00 PM</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>7:00 AM – 11:00 PM</td></tr>
+            <tr data-day="4" class="late"><th scope="row">Thursday</th><td>7:00 AM – Midnight <span class="late-pill">Open late</span></td></tr>
+            <tr data-day="5" class="late"><th scope="row">Friday</th><td>7:00 AM – 1:00 AM <span class="late-pill">Open late</span></td></tr>
+            <tr data-day="6" class="late"><th scope="row">Saturday</th><td>8:00 AM – 1:00 AM <span class="late-pill">Open late</span></td></tr>
+            <tr data-day="0"><th scope="row">Sunday</th><td>8:00 AM – 11:00 PM</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-note">Holiday hours may vary — call ahead or check the door. (Placeholder note.)</p>
+      </div>
+
+      <!-- map + address -->
+      <div class="map-card" id="find-us" data-reveal style="--d:.08s">
+        <div class="map-ph">
+          <!-- Stock-style map placeholder -->
+          <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map placeholder showing the store location">
+            <rect width="640" height="400" fill="#EDE9E0"/>
+            <path d="M0 40 C120 70 200 30 320 60 S540 40 640 80 V0 H0 Z" fill="#C9DFF0"/>
+            <rect x="452" y="230" width="150" height="120" rx="14" fill="#CDE5C8"/>
+            <g stroke="#fff" stroke-width="16" stroke-linecap="round">
+              <path d="M-10 150 H650"/>
+              <path d="M-10 300 H650"/>
+              <path d="M140 -10 V410"/>
+              <path d="M420 -10 V410"/>
+            </g>
+            <g stroke="#fff" stroke-width="8" stroke-linecap="round">
+              <path d="M-10 225 H650"/>
+              <path d="M280 -10 V410"/>
+              <path d="M540 150 V410"/>
+            </g>
+            <g fill="#DCD6C9">
+              <rect x="160" y="168" width="46" height="40" rx="5"/><rect x="222" y="168" width="40" height="40" rx="5"/>
+              <rect x="300" y="168" width="46" height="40" rx="5"/><rect x="160" y="243" width="40" height="40" rx="5"/>
+              <rect x="300" y="243" width="52" height="40" rx="5"/><rect x="440" y="168" width="46" height="40" rx="5"/>
+              <rect x="40" y="168" width="52" height="40" rx="5"/><rect x="40" y="243" width="46" height="40" rx="5"/>
+            </g>
+            <text x="330" y="144" text-anchor="middle" font-family="Nunito, sans-serif" font-size="15" font-weight="700" fill="#9A958A" letter-spacing="2">RUE PRINCIPALE</text>
+            <text x="132" y="220" font-family="Nunito, sans-serif" font-size="13" font-weight="700" fill="#9A958A" letter-spacing="2" transform="rotate(-90 132 220)">AV. DU PARC</text>
+            <!-- pin -->
+            <circle cx="360" cy="150" r="34" fill="#E63946" opacity=".15"/>
+            <path d="M360 108c-14 0-24 10.5-24 23.5 0 16 24 38.5 24 38.5s24-22.5 24-38.5c0-13-10-23.5-24-23.5z" fill="#E63946"/>
+            <circle cx="360" cy="131" r="9.5" fill="#fff"/>
+            <g>
+              <rect x="388" y="96" width="118" height="34" rx="17" fill="#1D3557"/>
+              <text x="447" y="118" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="800" font-size="15" fill="#fff">D&amp;T · HERE</text>
+            </g>
+          </svg>
+          <span class="map-tag">Map placeholder — embed your map here</span>
+        </div>
+        <div class="loc-body">
+          <div class="loc-row">
+            <span class="loc-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            </span>
+            <span>
+              <b>Find us on the corner</b>
+              <address>1234 Rue Principale, Montréal, QC&nbsp;H2X&nbsp;1Y4</address>
+            </span>
+          </div>
+          <div class="loc-row">
+            <span class="loc-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <span>
+              <b>Give us a ring</b>
+              <p><a class="tel" href="tel:+15145550199">(514) 555-0199</a> — we'll set things aside for you.</p>
+            </span>
+          </div>
+          <div class="loc-cta">
+            <a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=1234+Rue+Principale+Montr%C3%A9al+QC" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              Get Directions</a>
+            <a class="btn btn-navy" href="tel:+15145550199">Call the Store</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot foot-brand">
+      <a class="brand" href="#top" aria-label="Dépanneurs &amp; Tabagies — back to top">
+        <span class="brand-mark" aria-hidden="true">D&amp;T</span>
+        <span class="brand-text">
+          <span class="brand-name">Dépanneurs &amp; Tabagies</span>
+          <span class="brand-sub">Open late · 7 days</span>
+        </span>
+      </a>
+      <p>Your friendly neighbourhood corner store — snacks, drinks, lottery, smokes and everyday
+        essentials, served with a smile since forever. (Placeholder blurb.)</p>
+    </div>
+    <div class="foot">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#carry">What We Carry</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#find-us">Find Us</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h4>At a Glance</h4>
+      <ul class="foot-hours">
+        <li><span>Mon–Wed</span><span>7 AM – 11 PM</span></li>
+        <li><span>Thu–Fri</span><span>7 AM – late</span></li>
+        <li><span>Sat</span><span>8 AM – late</span></li>
+        <li><span>Sun</span><span>8 AM – 11 PM</span></li>
+        <li><span>Phone</span><span><a href="tel:+15145550199">(514) 555-0199</a></span></li>
       </ul>
     </div>
   </div>
-</section>
-
-<!-- ——————— MENU ——————— -->
-<section id="menu">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Le menu" data-en="The menu">Le menu</span>
-      <h2 data-fr="Sucrées comme un clair de lune, salées comme une nuit en Bretagne" data-en="Sweet as moonlight, savoury as a night in Brittany">Sucrées comme un clair de lune, salées comme une nuit en Bretagne</h2>
-      <p data-fr="Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir." data-en="A taste of our most-loved crêpes. The full menu awaits you at the counter.">Un aperçu de nos crêpes les plus aimées. Le menu complet vous attend au comptoir.</p>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#F4E7C8"/><circle cx="19" cy="19" r="3.5" fill="#D0707F"/><circle cx="29" cy="26" r="3" fill="#D0707F"/><circle cx="22" cy="30" r="2.5" fill="#D0707F"/></svg>
-          <span data-fr="Crêpes sucrées" data-en="Sweet crêpes">Crêpes sucrées</span>
-        </h3>
-        <p class="sub" data-fr="Pâte fine au froment, tournée à la commande" data-en="Thin wheat batter, turned to order">Pâte fine au froment, tournée à la commande</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pleine Lune Nutella fraise-banane" data-en="Full Moon Nutella strawberry-banana">Pleine Lune Nutella fraise-banane</h4><span class="leader"></span><span class="price">12 $</span></div>
-          <p data-fr="Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant." data-en="Our star: melted Nutella, fresh strawberries and bananas, folded into a crescent.">Notre étoile : Nutella fondant, fraises fraîches et bananes, plié en croissant.</p>
-          <span class="tag" data-fr="Favorite des clients" data-en="Customer favourite">Favorite des clients</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Clair de Lune sucre-citron" data-en="Moonlight lemon-sugar">Clair de Lune sucre-citron</h4><span class="leader"></span><span class="price">8 $</span></div>
-          <p data-fr="Beurre, sucre et un trait de citron — la classique, simple et lumineuse." data-en="Butter, sugar and a squeeze of lemon — the classic, simple and bright.">Beurre, sucre et un trait de citron — la classique, simple et lumineuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Éclipse choco-banane" data-en="Choco-banana Eclipse">Éclipse choco-banane</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace." data-en="Melted dark chocolate and caramelized bananas, under a dusting of icing sugar.">Chocolat noir fondu et bananes caramélisées, sous une pluie de sucre glace.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Pomme d'Automne caramel" data-en="Autumn Apple caramel">Pomme d'Automne caramel</h4><span class="leader"></span><span class="price">11 $</span></div>
-          <p data-fr="Pommes poêlées, caramel maison et une touche de cannelle." data-en="Pan-seared apples, house-made caramel and a touch of cinnamon.">Pommes poêlées, caramel maison et une touche de cannelle.</p>
-        </div>
-      </div>
-
-      <div class="menu-col reveal">
-        <h3>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14 L38 14 L24 40 Z" fill="#F4E7C8"/><circle cx="24" cy="21" r="3" fill="#E3AC52"/></svg>
-          <span data-fr="Salées &amp; galettes" data-en="Savoury &amp; galettes">Salées &amp; galettes</span>
-        </h3>
-        <p class="sub" data-fr="Galettes de sarrasin à la bretonne · servies avec salade fraîche" data-en="Breton-style buckwheat galettes · served with a fresh salad">Galettes de sarrasin à la bretonne · servies avec salade fraîche</p>
-
-        <div class="dish">
-          <div class="dish-top"><h4>L'Atlantique</h4><span class="leader"></span><span class="price">16 $</span></div>
-          <p data-fr="Saumon fumé, fromage à la crème, câpres et oignons rouges." data-en="Smoked salmon, cream cheese, capers and red onions.">Saumon fumé, fromage à la crème, câpres et oignons rouges.</p>
-          <span class="tag gold" data-fr="Signature" data-en="Signature">Signature</span>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Poulet &amp; champignons" data-en="Chicken &amp; mushrooms">Poulet &amp; champignons</h4><span class="leader"></span><span class="price">15 $</span></div>
-          <p data-fr="Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse." data-en="Grilled chicken, sautéed mushrooms, melted cheese and a creamy sauce.">Poulet grillé, champignons sautés, fromage fondant et sauce crémeuse.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="La Complète" data-en="La Complète">La Complète</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art." data-en="Ham, cheese and a sunny-side-up egg — the Breton galette done by the book.">Jambon, fromage et œuf miroir — la galette bretonne dans les règles de l'art.</p>
-        </div>
-        <div class="dish">
-          <div class="dish-top"><h4 data-fr="Thon de Minuit" data-en="Midnight Tuna">Thon de Minuit</h4><span class="leader"></span><span class="price">14 $</span></div>
-          <p data-fr="Thon assaisonné, fromage et légumes croquants, généreusement garnie." data-en="Seasoned tuna, cheese and crunchy vegetables, generously filled.">Thon assaisonné, fromage et légumes croquants, généreusement garnie.</p>
-        </div>
-      </div>
-
-    </div>
-    <p class="menu-note reveal" data-fr="Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles." data-en="Menu and prices shown for demonstration purposes — to be confirmed with the house. Vegetarian options available.">Menu et prix présentés à titre indicatif pour cette maquette — à confirmer avec la maison. Options végétariennes disponibles.</p>
-  </div>
-</section>
-
-<!-- ——————— HORAIRES ——————— -->
-<section id="horaires">
-  <div class="wrap hours-grid">
-    <div class="reveal">
-      <span class="eyebrow" data-fr="Horaires" data-en="Hours">Horaires</span>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;margin:16px 0 14px" data-fr="Quand la lune se lève, la crêpière chauffe encore" data-en="When the moon rises, the crêpe griddle is still hot">Quand la lune se lève, la crêpière chauffe encore</h2>
-      <p style="color:var(--brume);max-width:48ch" data-fr="Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout." data-en="Few places in Montreal still serve a real plate after midnight. Here, the last crêpe leaves at 1 a.m. — after the movie, after the show, after everything.">Peu d'adresses à Montréal servent encore une vraie assiette après minuit. Ici, la dernière crêpe part à 1 h — après le cinéma, après le spectacle, après tout.</p>
-    </div>
-    <div class="hours-card reveal">
-      <span class="eyebrow" data-fr="Tous les jours" data-en="Every day">Tous les jours</span>
-      <p class="big" data-fr="10 h — <span>1 h du matin</span>" data-en="10 a.m. — <span>1 a.m.</span>">10 h — <span>1 h du matin</span></p>
-      <p data-fr="Sur place, à emporter, ou en livraison via vos applications préférées." data-en="Dine in, take out, or get delivery through your favourite apps.">Sur place, à emporter, ou en livraison via vos applications préférées.</p>
-      <div class="midnight">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 42 30 A15 15 0 0 1 30 6 Z" fill="#E3AC52"/><circle cx="36" cy="12" r="1.6" fill="#F4E7C8"/><circle cx="42" cy="20" r="1.2" fill="#F4E7C8"/></svg>
-        <div>
-          <b data-fr="L'envie de minuit" data-en="The midnight craving">L'envie de minuit</b>
-          <p data-fr="Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend." data-en="Late-night craving? The kitchen runs until the very end — sweet or savoury, your crêpe is waiting.">Une fringale nocturne? La cuisine tourne jusqu'à la toute fin — sucrée ou salée, votre crêpe vous attend.</p>
-        </div>
-      </div>
+  <div class="age-banner">
+    <div class="wrap">
+      <span class="age-chip" aria-hidden="true">18+</span>
+      <p>Valid government-issued photo ID required for all tobacco, vape and lottery purchases. Please play and enjoy responsibly.</p>
     </div>
   </div>
-</section>
-
-<!-- ——————— NOUS TROUVER ——————— -->
-<section id="visite" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow" data-fr="Nous trouver" data-en="Find us">Nous trouver</span>
-      <h2 data-fr="Au 1489, rue Sainte-Catherine Est" data-en="At 1489 Sainte-Catherine Street East">Au 1489, rue Sainte-Catherine Est</h2>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <p>© <span id="year">2026</span> Dépanneurs &amp; Tabagies. All rights reserved.</p>
+      <p>Demo site — all text, images and details are placeholders.</p>
     </div>
-    <div class="visit-grid">
-      <div class="reveal">
-        <ul class="visit-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <div>
-              <b data-fr="Adresse" data-en="Address">Adresse</b>
-              <a href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal,+QC+H2L+2H9" target="_blank" rel="noopener" data-fr="1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9" data-en="1489 Sainte-Catherine St E, Montreal, QC H2L 2H9">1489 rue Sainte-Catherine Est, Montréal, QC H2L 2H9</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <div>
-              <b data-fr="Téléphone" data-en="Phone">Téléphone</b>
-              <a href="tel:+15142505621">(514) 250-5621</a>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <div>
-              <b data-fr="Métro" data-en="Metro">Métro</b>
-              <span data-fr="Station Beaudry (ligne verte), à deux pas" data-en="Beaudry station (green line), steps away">Station Beaudry (ligne verte), à deux pas</span>
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E3AC52" stroke-width="1.8" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5zM7 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 7 20zM18 20a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 18 20z"/></svg>
-            <div>
-              <b data-fr="Livraison" data-en="Delivery">Livraison</b>
-              <span data-fr="Disponible sur DoorDash et Uber Eats" data-en="Available on DoorDash and Uber Eats">Disponible sur DoorDash et Uber Eats</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
-          <a class="btn btn-gold" href="https://maps.google.com/?q=Crêperie+village+lunaire,+1489+Rue+Sainte-Catherine+E,+Montréal" target="_blank" rel="noopener" data-fr="Itinéraire Google Maps" data-en="Google Maps directions">Itinéraire Google Maps</a>
-          <a class="btn btn-ghost" href="tel:+15142505621" data-fr="Appeler pour commander" data-en="Call to order">Appeler pour commander</a>
-        </div>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          title="Carte / Map — Crêperie Village Lunaire, 1489 rue Sainte-Catherine Est, Montréal"
-          src="https://maps.google.com/maps?q=Cr%C3%AAperie%20village%20lunaire%2C%201489%20Rue%20Sainte-Catherine%20E%2C%20Montr%C3%A9al%2C%20QC%20H2L%202H9&z=17&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ——————— FOOTER ——————— -->
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#accueil">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="#F4E7C8"/><circle cx="38" cy="40" r="5" fill="#E3AC52" opacity=".55"/><circle cx="62" cy="58" r="7" fill="#E3AC52" opacity=".4"/></svg>
-      <span>Crêperie Village Lunaire</span>
-    </a>
-    <p data-fr="1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h" data-en="1489 Sainte-Catherine St E, Montreal · (514) 250-5621 · Open every day, 10 a.m. to 1 a.m.">1489 rue Sainte-Catherine Est, Montréal · (514) 250-5621 · Ouvert tous les jours, 10 h à 1 h</p>
-    <p>© 2026 Crêperie Village Lunaire</p>
   </div>
 </footer>
 
 <script>
-// ——— bilingual language switch (FR / EN) ———
-// Every translatable element carries data-fr and data-en attributes.
-var pageMeta = {
-  fr: {
-    title: "Crêperie Village Lunaire — Crêpes sucrées & salées | Le Village, Montréal",
-    desc: "Crêperie Village Lunaire — crêpes sucrées, salées et galettes bretonnes au cœur du Village, Montréal. Ouvert tard, tous les jours de 10 h à 1 h. 1489 rue Sainte-Catherine Est."
-  },
-  en: {
-    title: "Crêperie Village Lunaire — Sweet & Savoury Crêpes | The Village, Montreal",
-    desc: "Crêperie Village Lunaire — sweet crêpes, savoury crêpes and Breton galettes in the heart of the Village, Montreal. Open late, every day from 10 a.m. to 1 a.m. 1489 Sainte-Catherine St E."
-  }
-};
+(function () {
+  var header = document.querySelector('header');
+  var burger = document.querySelector('.burger');
 
-function setLang(lang){
-  document.querySelectorAll('[data-fr]').forEach(function(el){
-    var txt = el.getAttribute('data-' + lang);
-    if(txt !== null){ el.innerHTML = txt; }
+  // nav shadow once the page is scrolled
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // mobile menu
+  burger.addEventListener('click', function () {
+    var open = header.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
   });
-  document.documentElement.lang = lang;
-  document.title = pageMeta[lang].title;
-  var m = document.getElementById('metaDesc');
-  if(m){ m.setAttribute('content', pageMeta[lang].desc); }
-  document.getElementById('btnFr').setAttribute('aria-pressed', lang === 'fr');
-  document.getElementById('btnEn').setAttribute('aria-pressed', lang === 'en');
-}
-
-// stars in the hero
-(function(){
-  var box = document.querySelector('.stars');
-  var n = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40;
-  for(var i = 0; i < n; i++){
-    var s = document.createElement('i');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 100 + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    s.style.animationDuration = (3 + Math.random() * 4) + 's';
-    box.appendChild(s);
-  }
-})();
-
-// scroll reveal
-(function(){
-  var els = document.querySelectorAll('.reveal');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(e){ e.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { threshold: .12 });
-  els.forEach(function(e){ io.observe(e); });
-})();
-
-// mobile nav
-(function(){
-  var btn = document.querySelector('.menu-toggle');
-  var links = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+  document.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      header.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // scroll-reveal (opt-in via JS so content stays visible without it)
+  var revealables = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealables.forEach(function (el) { el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
+
+  // highlight today's row in the hours table
+  var today = document.querySelector('.hours-table tr[data-day="' + new Date().getDay() + '"]');
+  if (today) {
+    today.classList.add('today');
+    var chip = document.createElement('span');
+    chip.className = 'today-pill';
+    chip.textContent = 'Today';
+    today.querySelector('th').appendChild(chip);
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
 </body>
